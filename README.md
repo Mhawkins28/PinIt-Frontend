@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+Places - Project 3
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Your group members
 
-## Available Scripts
+Jose Rafael Kaibigan
+Zachary Miller
+Megan Hawkins
+Myndra Aaron Jr.
 
-In the project directory, you can run:
+### Your project idea
 
-### `npm start`
+> Brief 2-3 sentence description of your app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Social app where users can see a map of people’s favorite places. These places are pins of locations that users can select and add to their profile. Pins are categorized by cities, so users will have profile pages that list their pins. We will use Google Maps API to be able to search for locations as well as render a map.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### List of models and their properties
 
-### `npm test`
+\*\* Models for MVP
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+User {
 
-### `npm run build`
+    Name: String,
+    Password: String,
+    Email: String,
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Pins {
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Name: String,
+Address: String,
+City: String,
+Coordinates: [ Number, Number ],
+Images: [ String ],
+Description: String
+Owner: {
+Type: Schema.Types.ObjectId,
+Ref: “User”
+}
+}
 
-### `npm run eject`
+### Scrum manager/project manager's name
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Scrum Manager - Jose Rafael Kaibigan
+Git Manager - Zachary Miller
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### User stories
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    MVP:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+As a user, I want to be able to add pins of my favorite locations.
+As a user, I would like the pins I create to be categorized by cities.
+As a user, my pins should have CRUD functionality.
+As a user, I want to be able to see my pins on the map.
+As a user, I would like to see other pins that people have posted.
+As a user, I want to be able to sign up (OAuth) or create a new account (Tokens).
+As a user, I would like to have a profile page that has a list of my pins.
 
-## Learn More
+    Stretch Goals:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+As a user, when adding a new pin, I would like the search bar to auto-populate the location name.
+As a user, I would like to add comments on other people’s pins.
+As a user, I want my password to be encrypted (bcrypt).
+As a user, I would like to have suggestions based on current pins.
+As a user, I would like to be able to add images to my pins.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Wireframes
