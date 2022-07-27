@@ -13,7 +13,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home user={user} />} />
-      <Route path="/newPin" element={<NewPinForm />} />
+      <Route path="/newPin" element={<NewPin />} />
       <Route path="/login" element={<Login setUser={setUser} />} />
 
       {/* <Route
