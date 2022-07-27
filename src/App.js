@@ -2,13 +2,10 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
+import Map from "./Components/Map";
 
 function App() {
-  return (
-    <div>
-      <h1>Project 3 BABYYYY</h1>
-    </div>
-  );
+  return <Map />;
 }
 
 export default App;
