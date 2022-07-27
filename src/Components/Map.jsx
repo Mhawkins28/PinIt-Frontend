@@ -9,6 +9,7 @@ import {
   InfoBox,
 } from "@react-google-maps/api";
 import { useEffect } from "react";
+import {Link} from 'react-router-dom'
 
 // const libraries = ["places"];
 const mapContainerStyle = {
@@ -46,7 +47,7 @@ const testData = [
 
 const Map = () => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyBW0WUaQkQtv0J98ywCq9Y-tIFFOCwBSEU",
+    googleMapsApiKey: "AIzaSyCZSCr-Wo0SYQZE-cqf0MNFzP9Qat0EYiY",
   });
 
   //states
@@ -134,7 +135,8 @@ const Map = () => {
                 Would you like to place a marker here at {latLng.lat},{" "}
                 {latLng.lng}?
               </div>
-              <button>yes</button>
+              {/* <button>yes</button> */}
+              <Link to="/newPin">ADD A PIN</Link>
             </div>
           )}
         </InfoWindow>
