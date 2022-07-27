@@ -4,18 +4,17 @@ import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import NewPinForm from "./Components/NewPinForm";
-import Login from './Pages/Login'
+import Login from "./Pages/Login";
+import NewPin from "./Pages/NewPin";
 
 function App() {
-
-  const [user, setUser] = useState()
-
+  const [user, setUser] = useState();
 
   return (
     <Routes>
       <Route path="/" element={<Home user={user} />} />
       <Route path="/newPin" element={<NewPinForm />} />
-      <Route path='/login' element={<Login setUser={setUser}/>}/>
+      <Route path="/login" element={<Login setUser={setUser} />} />
 
       {/* <Route
           path="/"
@@ -33,7 +32,6 @@ function App() {
         />
         <Route path="/coffee/:id" element={<CoffeeView coffees={coffees} />} />
         <Route path="/login" element={<Login setUser={setUser} />} /> */}
-
     </Routes>
   );
 }

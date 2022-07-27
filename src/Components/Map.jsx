@@ -103,8 +103,10 @@ const Map = () => {
                 lat: e.latLng.lat(),
                 lng: e.latLng.lng(),
               });
+              console.log(e);
             }}
             label={`${i}`}
+            customInfo={`${location.name}`}
           ></Marker>
         );
       })}
