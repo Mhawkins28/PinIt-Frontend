@@ -98,6 +98,7 @@ const NewPinForm = () => {
       <br></br><br></br><br></br><br></br><br></br><br></br>
 
       <form onSubmit={handleSubmit}>
+
         <label htmlFor="Name">Name of location</label>
         <input type="text" name="Name" value={locationName} onChange={handleSelect}/>
         <label htmlFor="Address">Address</label>
@@ -107,7 +108,13 @@ const NewPinForm = () => {
         <label htmlFor="Description">Description</label>
         <input type="text" name="Description" />
 
+
+        <input type="hidden" name="lat" value={coordinates.lat}/>
+        <input type="hidden" name="lng" value={coordinates.lng}/>
+
+
         <input type="submit" value="Mark It Down" />
+        
       </form>
     </div>
   );
