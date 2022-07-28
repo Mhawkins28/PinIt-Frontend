@@ -22,12 +22,18 @@ function App() {
     lng: '',
   });
 
+  const [allPins, setAllPins] = useState([{
+
+  }])
+
 
 
   return (
     <Routes>
       <Route path="/" element={
       <Home 
+        allPins={allPins}
+        setAllPins={setAllPins}
         user={user}
         latLng={latLng}
         setLatLng={setLatLng}

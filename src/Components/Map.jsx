@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {
   Googleap,
@@ -8,7 +8,6 @@ import {
   GoogleMap,
   InfoBox,
 } from "@react-google-maps/api";
-import { useEffect } from "react";
 import {Link} from 'react-router-dom'
 
 // const libraries = ["places"];
@@ -45,7 +44,9 @@ const testData = [
   },
 ];
 
-const Map = ({ latLng, setLatLng, infoLatLng, setInfoLatLng }) => {
+
+
+const Map = ({ latLng, setLatLng, infoLatLng, setInfoLatLng, setAllPins, allPins }) => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyCZSCr-Wo0SYQZE-cqf0MNFzP9Qat0EYiY",
   });
@@ -64,6 +65,16 @@ const Map = ({ latLng, setLatLng, infoLatLng, setInfoLatLng }) => {
 
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading maps";
+
+
+
+  // useEffect(() => {
+  //   fetch(`http://localhost:3001/pins`)
+  //     .then((res) => res.json())
+  //     .then((data) => setAllPins(data));
+  // }, []);
+
+
 
   return (
     <GoogleMap
@@ -87,7 +98,7 @@ const Map = ({ latLng, setLatLng, infoLatLng, setInfoLatLng }) => {
         ],
       }}
     >
-      {testData.map((location, i) => {
+      {allPins.map((location, i) => {
         return (
           <Marker
             key={i}
@@ -107,7 +118,7 @@ const Map = ({ latLng, setLatLng, infoLatLng, setInfoLatLng }) => {
               console.log(e);
             }}
             label={`${i}`}
-            customInfo={`${location.name}`}
+      
           ></Marker>
         );
       })}

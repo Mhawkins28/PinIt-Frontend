@@ -13,6 +13,8 @@ const NewPinForm = ({latLng}) => {
     address: "",
     city: "",
     description: "",
+    lng: latLng.lng,
+    lat: latLng.lat
   });
 
   const handleChange = (event) => {
@@ -27,9 +29,15 @@ const NewPinForm = ({latLng}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3000/pins", formData).then((res) => {
+
+    console.log(formData)
+
+
+    axios.post("http://localhost:3001/pins", formData).then((res) => {
       setFormData({ name: "", address: "", city: "", description: "" });
       navigate("/", { replace: true });
+
+
     });
   };
 
@@ -78,8 +86,8 @@ const NewPinForm = ({latLng}) => {
       {({getInputProps, suggestions, getSuggestionItemProps, loading}) => 
       <div>
 
-         <p>Lattitude: {coordinates.lat}</p> 
-         <p>Longitude: {coordinates.lng}</p>
+         {/* <p>Lattitude: {coordinates.lat}</p> 
+         <p>Longitude: {coordinates.lng}</p> */}
 
         <input {...getInputProps({placeholder: "Type Address"})}/> 
         
@@ -104,7 +112,7 @@ const NewPinForm = ({latLng}) => {
 
       <br></br><br></br><br></br><br></br><br></br><br></br>
 
-      <form>
+      <form onSubmit={handleSubmit}>
 
         <label htmlFor="name">Name of location</label>
         <input type="text" name="name" id="name" value={locationName.length < 1 ? formData.name : locationName} onChange={handleChange}/>
@@ -116,8 +124,11 @@ const NewPinForm = ({latLng}) => {
         <input type="text" name="description" id="description" onChange={handleChange}/>
 
 
-        <input type="hidden" name="lat" value={coordinates?.lat ? coordinates.lat : latLng.lat}/>
-        <input type="hidden" name="lng" value={coordinates?.lng ? coordinates.lng : latLng.lng}/>
+        {/* <input type="hidden" name="lat" value={!coordinates.lat ? latLng.lat : coordinates.lat}/>
+        <input type="hidden" name="lng" value={!coordinates.lng ? latLng.lng : coordinates.lng}/> */}
+
+        <input type="hidden" name="lat" value={latLng.lat} onChange={handleChange}/>
+        <input type="hidden" name="lng" value={latLng.lng} onChange={handleChange}/>
 
 
         <input type="submit" value="Mark It Down" />
