@@ -45,21 +45,22 @@ const testData = [
   },
 ];
 
-const Map = () => {
+const Map = ({ latLng, setLatLng, infoLatLng, setInfoLatLng }) => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyCZSCr-Wo0SYQZE-cqf0MNFzP9Qat0EYiY",
   });
 
   //states
   ////move these states to app.js so we can utilize in all pages
-  const [latLng, setLatLng] = useState({
-    lat: null,
-    lng: null,
-  });
-  const [infoLatLng, setInfoLatLng] = useState({
-    lat: null,
-    lng: null,
-  });
+  
+  // const [latLng, setLatLng] = useState({
+  //   lat: null,
+  //   lng: null,
+  // });
+  // const [infoLatLng, setInfoLatLng] = useState({
+  //   lat: null,
+  //   lng: null,
+  // });
 
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading maps";

@@ -1,10 +1,12 @@
 import React from "react";
 import NewPinForm from "../Components/NewPinForm";
 
-const NewPin = () => {
+const NewPin = ({latLng}) => {
   return (
     <div>
-      <NewPinForm />
+      <NewPinForm 
+            latLng={latLng}
+      />
     </div>
   );
 };

@@ -3,17 +3,41 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
-import NewPinForm from "./Components/NewPinForm";
 import Login from "./Pages/Login";
 import NewPin from "./Pages/NewPin";
 
 function App() {
+
+
   const [user, setUser] = useState();
+
+  // For Map Component:
+  
+  const [latLng, setLatLng] = useState({
+    lat: '',
+    lng: '',
+  });
+  const [infoLatLng, setInfoLatLng] = useState({
+    lat: '',
+    lng: '',
+  });
+
+
 
   return (
     <Routes>
-      <Route path="/" element={<Home user={user} />} />
-      <Route path="/newPin" element={<NewPin />} />
+      <Route path="/" element={
+      <Home 
+        user={user}
+        latLng={latLng}
+        setLatLng={setLatLng}
+        infoLatLng={infoLatLng}
+        setInfoLatLng={setInfoLatLng}
+        />}/>
+
+
+      <Route path="/newPin" element={<NewPin latLng={latLng}/>}/>
+
       <Route path="/login" element={<Login setUser={setUser} />} />
 
       {/* <Route

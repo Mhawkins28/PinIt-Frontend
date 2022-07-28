@@ -5,24 +5,30 @@ import { useNavigate } from "react-router-dom";
 import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
 import { green } from "@mui/material/colors";
 
-const NewPinForm = () => {
+const NewPinForm = ({latLng}) => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    Name: "",
-    Address: "",
-    City: "",
-    Description: "",
+    name: "",
+    address: "",
+    city: "",
+    description: "",
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post("http://localhost:3000/pins", formData).then((res) => {
-      setFormData({ Name: "", Address: "", City: "", Description: "" });
+      setFormData({ name: "", address: "", city: "", description: "" });
       navigate("/", { replace: true });
     });
   };
@@ -38,7 +44,7 @@ const NewPinForm = () => {
   })
 
 
-  const handleSelect = async value => {
+  const handleSelect = async (value) => {
     const results = await geocodeByAddress(value)
     const latLng = await getLatLng(results[0])
 
@@ -58,6 +64,7 @@ const NewPinForm = () => {
     console.log(value)
     console.log(results)
 
+    
   }
 
   
@@ -97,20 +104,20 @@ const NewPinForm = () => {
 
       <br></br><br></br><br></br><br></br><br></br><br></br>
 
-      <form onSubmit={handleSubmit}>
+      <form>
 
-        <label htmlFor="Name">Name of location</label>
-        <input type="text" name="Name" value={locationName} onChange={handleSelect}/>
-        <label htmlFor="Address">Address</label>
-        <input type="text" name="Address" value={address} onChange={handleSelect}/>
-        <label htmlFor="City">City</label>
-        <input type="text" name="City" value={city}/>
-        <label htmlFor="Description">Description</label>
-        <input type="text" name="Description" />
+        <label htmlFor="name">Name of location</label>
+        <input type="text" name="name" id="name" value={locationName.length < 1 ? formData.name : locationName} onChange={handleChange}/>
+        <label htmlFor="address">Address</label>
+        <input type="text" name="address" id="address" value={address.length < 1 ? formData.address : address} onChange={handleChange}/>
+        <label htmlFor="city">City</label>
+        <input type="text" name="city" id="city" value={city.length < 1 ? formData.city : city} onChange={handleChange}/>
+        <label htmlFor="description">Description</label>
+        <input type="text" name="description" id="description" onChange={handleChange}/>
 
 
-        <input type="hidden" name="lat" value={coordinates.lat}/>
-        <input type="hidden" name="lng" value={coordinates.lng}/>
+        <input type="hidden" name="lat" value={coordinates?.lat ? coordinates.lat : latLng.lat}/>
+        <input type="hidden" name="lng" value={coordinates?.lng ? coordinates.lng : latLng.lng}/>
 
 
         <input type="submit" value="Mark It Down" />
