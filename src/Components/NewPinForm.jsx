@@ -69,6 +69,8 @@ const NewPinForm = ({latLng}) => {
     setCity(city)
     setCoordinates(latLng)
 
+    // add all of the above to formData
+
     console.log(value)
     console.log(results)
 
