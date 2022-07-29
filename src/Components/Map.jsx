@@ -8,7 +8,7 @@ import {
   GoogleMap,
   InfoBox,
 } from "@react-google-maps/api";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 // const libraries = ["places"];
 const mapContainerStyle = {
@@ -21,60 +21,22 @@ const center = {
   lng: -115.1391,
 };
 
-const testData = [
-  {
-    name: "pin1",
-    lat: 36.15057109062495,
-    lng: -115.26343132931979,
-  },
-  {
-    name: "pin2",
-    lat: 36.1388575586096,
-    lng: -115.27596260983736,
-  },
-  {
-    name: "pin3",
-    lat: 36.14734831097478,
-    lng: -115.27885939557345,
-  },
-  {
-    name: "pin4",
-    lat: 36.14906367791806,
-    lng: -115.2816059776047,
-  },
-];
-
-
-
-const Map = ({ latLng, setLatLng, infoLatLng, setInfoLatLng, setAllPins, allPins }) => {
+const Map = ({
+  latLng,
+  setLatLng,
+  infoLatLng,
+  setInfoLatLng,
+  setAllPins,
+  allPins,
+  pinInfo,
+  setPinInfo,
+}) => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyCZSCr-Wo0SYQZE-cqf0MNFzP9Qat0EYiY",
   });
 
-  //states
-  ////move these states to app.js so we can utilize in all pages
-  
-  // const [latLng, setLatLng] = useState({
-  //   lat: null,
-  //   lng: null,
-  // });
-  // const [infoLatLng, setInfoLatLng] = useState({
-  //   lat: null,
-  //   lng: null,
-  // });
-
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading maps";
-
-
-
-  // useEffect(() => {
-  //   fetch(`http://localhost:3001/pins`)
-  //     .then((res) => res.json())
-  //     .then((data) => setAllPins(data));
-  // }, []);
-
-
 
   return (
     <GoogleMap
@@ -86,7 +48,6 @@ const Map = ({ latLng, setLatLng, infoLatLng, setInfoLatLng, setAllPins, allPins
           lat: e.latLng.lat(),
           lng: e.latLng.lng(),
         });
-        console.log(e);
       }}
       options={{
         styles: [
@@ -115,10 +76,9 @@ const Map = ({ latLng, setLatLng, infoLatLng, setInfoLatLng, setAllPins, allPins
                 lat: e.latLng.lat(),
                 lng: e.latLng.lng(),
               });
-              console.log(e);
+              setPinInfo(location);
             }}
             label={`${i}`}
-      
           ></Marker>
         );
       })}
@@ -138,10 +98,9 @@ const Map = ({ latLng, setLatLng, infoLatLng, setInfoLatLng, setAllPins, allPins
         >
           {latLng.lat === infoLatLng.lat && latLng.lat === infoLatLng.lat ? (
             <div>
-              <div>
-                this is a marker.
-                {testData[0].name}
-              </div>
+              <div>{pinInfo.name}</div>
+              {pinInfo.address}
+              <Link to={`/pins/${pinInfo._id}`}>Details</Link>
             </div>
           ) : (
             <div>
