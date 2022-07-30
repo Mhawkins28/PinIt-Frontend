@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import Navbar from '../Components/Navbar'
 
 const StyledForm = styled.form`
@@ -55,13 +55,17 @@ const Login = ({setUser}) => {
         })
     }
 
+    const google = () => {
+      window.open("http://localhost:3000/auth/google", "_self")
+    }
+
   return (
   <StyledForm onSubmit={handleSubmit}>
 
   <h2>Sign-in with Google or Email:</h2>
 
   <div>
-    <a className="active" id="googleBtn" href="/auth/google">LOGIN</a>
+    <button className="active" id="googleBtn" onClick={google} href="/auth/google">LOGIN</button>
   </div>
 <br></br>
   <div>
@@ -81,7 +85,10 @@ const Login = ({setUser}) => {
     <h4>Register<a href="/auth/register"> <em>Here</em></a></h4>
   </div>
 
+{/* <Link to="auth/google">SIGN IN WITH GOOGLE</Link> */}
+
   </StyledForm>
+
 
 
 

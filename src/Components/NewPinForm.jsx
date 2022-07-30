@@ -58,10 +58,12 @@ const NewPinForm = ({ latLng }) => {
     let city = name[2];
 
     // setLocationName(newName)
-    // setAddress(results[0].formatted_address)
     // setCity(city)
     // setCoordinates(latLng)
 
+
+   // Need both of these states 
+    setAddress(results[0].formatted_address)
     setFormData({
       name: newName,
       city: city,

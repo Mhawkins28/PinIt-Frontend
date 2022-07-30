@@ -6,6 +6,7 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import NewPin from "./Pages/NewPin";
 import PinDetails from "./Pages/PinDetails";
+import EditPin from "./Pages/EditPin"
 
 function App() {
   const [user, setUser] = useState();
@@ -32,6 +33,10 @@ function App() {
     lng: null,
   });
 
+  const updatePinState = (id) => {
+    setAllPins(allPins.filter(pin => pin._id !== id))
+  }
+
   return (
 
     <Routes>
@@ -57,24 +62,16 @@ function App() {
       <Route path="/login" element={<Login setUser={setUser} />} />
       <Route
         path={`/pins/${pinInfo._id}`}
-        element={<PinDetails pinInfo={pinInfo} />}
+        element={<PinDetails pinInfo={pinInfo} setAllPins={setAllPins} setPinInfo={setPinInfo} updateCoffeeState={updatePinState}/>}
       />
-      {/* <Route
-          path="/"
-          element={
-            <Home coffees={coffees} deleteRefresh={deleteRefresh} user={user} />
-          }
-        />
+
         <Route
-          path="/new-coffee"
-          element={<NewCoffee addCoffee={addToCoffee} />}
+          path="/pins/edit/:id"
+          element={<EditPin pinInfo={pinInfo} setPinInfo={setPinInfo} latLng={latLng} />}
         />
-        <Route
-          path="/coffee/edit/:id"
-          element={<CoffeeEdit setCoffees={setCoffees} />}
-        />
-        <Route path="/coffee/:id" element={<CoffeeView coffees={coffees} />} />
-        <Route path="/login" element={<Login setUser={setUser} />} /> */}
+  
+        <Route path="/login" element={<Login setUser={setUser} />} />
+
     </Routes>
 
   );
