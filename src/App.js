@@ -1,17 +1,31 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import userService from "./utils/userService";
 import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
+
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import NewPin from "./Pages/NewPin";
 import PinDetails from "./Pages/PinDetails";
 import EditPin from "./Pages/EditPin";
 import Navbar from "./Components/Navbar";
-function App() {
-  const [user, setUser] = useState();
+import Signup from "./Pages/Signup";
 
-  // For Map Component:
+function App() {
+  const [user, setUser] = useState({});
+
+  const [userSignup, setUserSignup] = useState({
+    username: "",
+    password: "",
+    passwordConf: "",
+  });
+
+  const [userLogin, setUserLogin] = useState({
+    username: "",
+    password: "",
+  });
 
   const [latLng, setLatLng] = useState({
     lat: "",
@@ -37,9 +51,18 @@ function App() {
     setAllPins(allPins.filter((pin) => pin._id !== id));
   };
 
+  const handleLogout = () => {
+    userService.logout();
+    setUser(null);
+  };
+
+  const handleSignupOrLogin = () => {
+    setUser({ user: userService.getUser() });
+  };
+
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar handleLogout={handleLogout} user={user} />
       <Routes>
         <Route
           path="/"
@@ -58,9 +81,33 @@ function App() {
           }
         />
 
-        <Route path="/newPin" element={<NewPin latLng={latLng} />} />
+        <Route
+          path="/newPin"
+          element={<NewPin latLng={latLng} user={user} />}
+        />
 
-        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route
+          path="/login"
+          element={
+            <Login
+              setUser={setUser}
+              setUserLogin={setUserLogin}
+              userLogin={userLogin}
+              handleSignupOrLogin={handleSignupOrLogin}
+            />
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <Signup
+              setUser={setUser}
+              setUserSignup={setUserSignup}
+              userSignup={userSignup}
+              handleSignupOrLogin={handleSignupOrLogin}
+            />
+          }
+        />
         <Route
           path={`/pins/${pinInfo._id}`}
           element={
@@ -83,8 +130,6 @@ function App() {
             />
           }
         />
-
-        <Route path="/login" element={<Login setUser={setUser} />} />
       </Routes>
     </div>
   );

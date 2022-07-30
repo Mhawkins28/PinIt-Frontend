@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { green } from "@mui/material/colors";
 import "./newpinform.css";
 
-const NewPinForm = ({ latLng }) => {
+const NewPinForm = ({ latLng, user }) => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -21,6 +21,7 @@ const NewPinForm = ({ latLng }) => {
     description: "",
     lng: latLng.lng,
     lat: latLng.lat,
+    Owner: user?.user?._id,
   });
 
   const handleChange = (event) => {
@@ -34,9 +35,18 @@ const NewPinForm = ({ latLng }) => {
   };
 
   const handleSubmit = (e) => {
+    console.log(formData, user.user._id);
     e.preventDefault();
     axios.post("http://localhost:3001/pins", formData).then((res) => {
-      setFormData({ name: "", address: "", city: "", description: "" });
+      setFormData({
+        name: "",
+        address: "",
+        city: "",
+        description: "",
+        lng: latLng.lng,
+        lat: latLng.lat,
+        Owner: user?.user._id,
+      });
       navigate("/", { replace: true });
     });
   };
@@ -72,6 +82,7 @@ const NewPinForm = ({ latLng }) => {
       address: results[0].formatted_address,
       lat: latLng.lat,
       lng: latLng.lng,
+      Owner: user.user._id,
     });
   };
 
@@ -176,6 +187,12 @@ const NewPinForm = ({ latLng }) => {
           type="hidden"
           name="lng"
           value={latLng.lng}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="Owner"
+          value={user?.user?._id}
           onChange={handleChange}
         />
 
