@@ -8,12 +8,12 @@ import {
   GoogleMap,
   InfoBox,
 } from "@react-google-maps/api";
-import {Link} from 'react-router-dom'
-import "./map.css"
+import { Link } from "react-router-dom";
+import "./map.css";
 
 // const libraries = ["places"];
 const mapContainerStyle = {
-  width: "100vw",
+  width: "75vw",
   height: "100vh",
 };
 
@@ -110,8 +110,8 @@ const Map = ({
                 {/* {latLng.lng}? */}
               </div>
               <div>
-              {/* <button>yes</button> */}
-              <Link to="/newPin">ADD A PIN</Link>
+                {/* <button>yes</button> */}
+                <Link to="/newPin">ADD A PIN</Link>
               </div>
             </div>
           )}
