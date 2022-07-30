@@ -2,11 +2,11 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from "react-places-autocomplete";
+import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { green } from "@mui/material/colors";
+import "./newpinform.css"
 
 const NewPinForm = ({ latLng }) => {
   const navigate = useNavigate();
@@ -72,79 +72,61 @@ const NewPinForm = ({ latLng }) => {
   };
 
   return (
-    <div>
-      <PlacesAutocomplete
-        value={address}
-        onChange={setAddress}
-        onSelect={handleSelect}
-      >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            {/* <p>Lattitude: {coordinates.lat}</p> 
-         <p>Longitude: {coordinates.lng}</p> */}
-
-            <input {...getInputProps({ placeholder: "Type Address" })} />
-
-            <div>
-              {loading ? <div>...loading</div> : null}
-              {suggestions.map((suggestion) => {
-                const style = {
-                  backgroundColor: suggestion.active ? "#c0ffee" : "#fff",
-                };
-
-                console.log(suggestion.formattedSuggestion.mainText);
-
-                return (
-                  <div {...getSuggestionItemProps(suggestion, { style })}>
-                    {" "}
-                    {suggestion.description}{" "}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </PlacesAutocomplete>
-
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+    <div className="pins">
 
       <form onSubmit={handleSubmit}>
+                <PlacesAutocomplete value={address} onChange={setAddress} onSelect={handleSelect}
+                >
+
+      {({getInputProps, suggestions, getSuggestionItemProps, loading}) => 
+      <div id="ac">
+
+         {/* <p>Lattitude: {coordinates.lat}</p> 
+         <p>Longitude: {coordinates.lng}</p> */}
+        <div className= "ac">
+        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+        <input {...getInputProps({placeholder: "Search Address"})} /> 
+        </div>
+        
+        <div>
+          {loading ? <div>...loading</div> : null}
+          {suggestions.map((suggestion) => {
+            const style = {
+              backgroundColor: suggestion.active ? "#c0ffee" : "#fff"
+            };
+
+            console.log(suggestion.formattedSuggestion.mainText)
+
+            return <div {...getSuggestionItemProps(suggestion, {style})}> {suggestion.description} </div>
+          })}
+        </div>
+
+
+      </div>}
+          
+      </PlacesAutocomplete>
+
+          <div>
         <label htmlFor="name">Name of location</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value={locationName.length < 1 ? formData.name : locationName}
-          onChange={handleChange}
-        />
+        <input type="text" name="name" id="name" value={locationName.length < 1 ? formData.name : locationName} onChange={handleChange}/>
+          </div>
+
+        <div>
         <label htmlFor="address">Address</label>
-        <input
-          type="text"
-          name="address"
-          id="address"
-          value={address.length < 1 ? formData.address : address}
-          onChange={handleChange}
-        />
+        <input type="text" name="address" id="address" value={address.length < 1 ? formData.address : address} onChange={handleChange}/>
+        </div>
+
+        <div>
         <label htmlFor="city">City</label>
-        <input
-          type="text"
-          name="city"
-          id="city"
-          value={city.length < 1 ? formData.city : city}
-          onChange={handleChange}
-        />
+        <input type="text" name="city" id="city" value={city.length < 1 ? formData.city : city} onChange={handleChange}/>
+        </div>
+
+        <div>
         <label htmlFor="description">Description</label>
-        <input
-          type="text"
-          name="description"
-          id="description"
-          onChange={handleChange}
-        />
+        <textarea name="description" id="description" onChange={handleChange}/>
+        </div>
+          
+
 
         {/* <input type="hidden" name="lat" value={!coordinates.lat ? latLng.lat : coordinates.lat}/>
         <input type="hidden" name="lng" value={!coordinates.lng ? latLng.lng : coordinates.lng}/> */}
@@ -162,7 +144,8 @@ const NewPinForm = ({ latLng }) => {
           onChange={handleChange}
         />
 
-        <input type="submit" value="Mark It Down" />
+        <input type="submit" value="Mark It Down" className="button"/>
+        
       </form>
     </div>
   );

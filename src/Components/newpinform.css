@@ -1,0 +1,96 @@
+.pins {
+  display: flex;
+  /* border: red solid 1px; */
+  flex-flow: column;
+  transform: translate(0, 100%);
+}
+
+form {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* width: 200px; */
+  padding: 10px;
+  border: solid black 1px;
+  box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.4);
+  /* width: 500px;
+  height: 500px; */
+}
+
+form #ac {
+  /* text-align: center; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+form div .ac {
+  /* border: red solid 1px; */
+  /* text-align: center; */
+  margin: 0 10px;
+  padding: 0;
+}
+
+form div .ac svg {
+  /* border: red solid 1px; */
+  /* text-align: center; */
+  padding-top: 5px;
+  font-size: 1.2rem;
+}
+form div .ac input {
+  /* border: red solid 1px; */
+  /* text-align: center; */
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+form div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+
+  /* width: 200px; */
+}
+
+form div label {
+  font-size: 1.5rem;
+}
+form div input {
+  margin: 0 0 0 20px;
+  border-radius: 10px;
+  /* width: 200px; */
+  box-shadow: 2px 2px 2px black;
+  width: 200px;
+}
+form div #description {
+  height: 100px;
+  width: 200px;
+  margin: 0 0 0 20px;
+  border-radius: 10px;
+  /* width: 200px; */
+  box-shadow: 2px 2px 2px black;
+  overflow-y: visible;
+  resize: none;
+}
+
+form .button {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px black;
+
+  /* width: 200px; */
+}
+
+form .button:hover {
+  background-color: rgb(209, 203, 203);
+  cursor: pointer;
+}
+
+form .button:active {
+  background-color: #e7dcdc;
+  cursor: pointer;
+}

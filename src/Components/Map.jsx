@@ -8,7 +8,8 @@ import {
   GoogleMap,
   InfoBox,
 } from "@react-google-maps/api";
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom'
+import "./map.css"
 
 // const libraries = ["places"];
 const mapContainerStyle = {
@@ -103,13 +104,15 @@ const Map = ({
               <Link to={`/pins/${pinInfo._id}`}>Details</Link>
             </div>
           ) : (
-            <div>
+            <div className="placement">
               <div>
-                Would you like to place a marker here at {latLng.lat},{" "}
-                {latLng.lng}?
+                {/* Would you like to place a marker here at {latLng.lat},{" "} */}
+                {/* {latLng.lng}? */}
               </div>
+              <div>
               {/* <button>yes</button> */}
               <Link to="/newPin">ADD A PIN</Link>
+              </div>
             </div>
           )}
         </InfoWindow>

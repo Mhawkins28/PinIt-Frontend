@@ -7,6 +7,12 @@ import Login from "./Pages/Login";
 import NewPin from "./Pages/NewPin";
 import PinDetails from "./Pages/PinDetails";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
+library.add(fab, faMagnifyingGlass);
+
 function App() {
   const [user, setUser] = useState();
 
