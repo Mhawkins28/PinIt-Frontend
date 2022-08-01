@@ -1,5 +1,5 @@
 import React from 'react'
-import EditPinForm from '../Components/EditPinForm'
+import EditPinForm from '../../Components/EditPinForm/EditPinForm'
 
 const EditPin = ({setPinInfo, latLng, pinInfo}) => {
   return (

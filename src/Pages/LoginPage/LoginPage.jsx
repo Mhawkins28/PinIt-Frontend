@@ -1,7 +1,7 @@
 import React, { useState, Component } from "react";
 import styled from "styled-components";
 import { useNavigate, Link } from "react-router-dom";
-import userService from "../utils/userService";
+import userService from "../../utils/userService";
 
 const StyledForm = styled.form`
   display: flex;

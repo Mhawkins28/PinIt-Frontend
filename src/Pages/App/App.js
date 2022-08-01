@@ -1,17 +1,17 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import userService from "./utils/userService";
+import userService from "../../utils/userService";
 import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
 
-import Home from "./Pages/Home/Home";
-import Login from "./Pages/Login";
-import NewPin from "./Pages/NewPin";
-import PinDetails from "./Pages/PinDetails";
-import EditPin from "./Pages/EditPin";
-import Navbar from "./Components/Navbar";
-import Signup from "./Pages/Signup";
+import Home from "../Home/Home";
+import Login from "../LoginPage/LoginPage";
+import NewPin from "../NewPinPage/NewPinPage";
+import PinDetails from "../PinDetailsPage/PinDetailsPage";
+import EditPin from "../EditPinPage/EditPinPage";
+import Navbar from "../../Components/Navbar/Navbar";
+import Signup from "../SignupPage/SignupPage";
 
 function App() {
   const [user, setUser] = useState({});

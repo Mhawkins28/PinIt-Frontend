@@ -79,7 +79,7 @@ const Map = ({
               });
               setPinInfo(location);
             }}
-            label={`${i}`}
+            // label={`${i}`}
           ></Marker>
         );
       })}

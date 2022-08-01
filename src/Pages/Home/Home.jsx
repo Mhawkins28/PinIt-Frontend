@@ -2,7 +2,7 @@ import React from "react";
 import Map from "../../Components/Map/Map";
 import { useEffect } from "react";
 import "./Home.css";
-import Navbar from "../../Components/Navbar";
+import Navbar from "../../Components/Navbar/Navbar";
 const Home = ({
   latLng,
   setLatLng,
