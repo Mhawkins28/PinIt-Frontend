@@ -5,7 +5,7 @@ import userService from "./utils/userService";
 import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
 
-import Home from "./Pages/Home";
+import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login";
 import NewPin from "./Pages/NewPin";
 import PinDetails from "./Pages/PinDetails";
@@ -62,7 +62,7 @@ function App() {
 
   return (
     <div>
-      <Navbar handleLogout={handleLogout} user={user} />
+      <Navbar handleLogout={handleLogout} user={user} userLogin={userLogin}/>
       <Routes>
         <Route
           path="/"

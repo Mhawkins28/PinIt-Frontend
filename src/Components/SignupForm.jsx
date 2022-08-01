@@ -30,7 +30,7 @@ const SignupForm = ({
       await userService.signup(userSignup);
       // Successfully signed up - show GamePage
       handleSignupOrLogin();
-      navigate("/");
+      navigate("/login");
     } catch (err) {
       // Invalid user data (probably duplicate email)
       // updateMessage(err.message);

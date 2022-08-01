@@ -1,8 +1,8 @@
 import React from "react";
-import Map from "../Components/Map";
+import Map from "../../Components/Map/Map";
 import { useEffect } from "react";
-import "./home.css";
-import Navbar from "../Components/Navbar";
+import "./Home.css";
+import Navbar from "../../Components/Navbar";
 const Home = ({
   latLng,
   setLatLng,

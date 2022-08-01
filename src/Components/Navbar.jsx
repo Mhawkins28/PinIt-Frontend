@@ -46,7 +46,7 @@ const Navbar = (props) => {
   let nav = props.user ?
     <div>
       <Link to='' className='link' onClick={props.handleLogout}>LOG OUT</Link>
-      <span className='welcome'>WELCOME, {props.user.name}</span>
+      <span className='welcome'>WELCOME, {props.userLogin.username}</span>
     </div>
     :
     <div>
@@ -62,6 +62,11 @@ const Navbar = (props) => {
       <div className='homeNav'>
         <Link to='/' className='homeNav'>HOME</Link>
       </div>
+
+      <div className='homeNav'>
+        <Link to='/newPin' className='homeNav'>ADDPIN</Link>
+      </div>
+
 
       <div className='linkNav'>
         {nav}

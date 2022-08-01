@@ -65,7 +65,7 @@ const Login = ({ setUser, setUserLogin, userLogin, handleSignupOrLogin }) => {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <h2>Sign-in with Google or Email:</h2>
+      <h2>Sign-in with Google or Username:</h2>
 
       <div>
         <button

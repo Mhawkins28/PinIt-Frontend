@@ -9,7 +9,7 @@ import {
   InfoBox,
 } from "@react-google-maps/api";
 import { Link } from "react-router-dom";
-import "./map.css";
+import "./Map.css";
 
 // const libraries = ["places"];
 const mapContainerStyle = {
@@ -101,7 +101,8 @@ const Map = ({
             <div>
               <div>{pinInfo.name}</div>
               {pinInfo.address}
-              <Link to={`/pins/${pinInfo._id}`}>Details</Link>
+              {/* Created By: user */}
+              <Link to={`/pins/${pinInfo._id}`}>View More</Link>
             </div>
           ) : (
             <div className="placement">

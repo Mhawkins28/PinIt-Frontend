@@ -9,7 +9,7 @@ import PlacesAutocomplete, {
 import ReactDOM from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { green } from "@mui/material/colors";
-import "./newpinform.css";
+import "./NewPinForm.css";
 
 const NewPinForm = ({ latLng, user }) => {
   const navigate = useNavigate();
