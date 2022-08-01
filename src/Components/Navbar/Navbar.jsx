@@ -4,39 +4,40 @@ import { Link } from 'react-router-dom';
 
 const NavbarContainer = styled.nav`
 /* color and style of bar will change, need to figure somehting out and also see how the rest of the page will look */
-  background-color: #4c7995;
-  padding: 3px;
+
   nav {
+    width: 100%;
     display: flex;
     min-height: 8vh;
     align-items: center;
+    justify-content: space-evenly;
   }
+
   .link {
     text-decoration: none;
-    color: #ffffffbb;
+    list-style: none;
+    color: #080202ba;
     margin-right: 20px;
     letter-spacing: 2px;
     font-weight: bold;
+    font-size: 20px;
   }
   .link:hover {
-    color: #fff
+    color: #000000
   }
   .homeNav {
-  display: flex;
-  color: #ffffffbb;
-  text-decoration: none;
-  font-size: 20px;
-  letter-spacing: 2px;
-  font-weight: bold;
-} 
-.homeNav:hover {
-    color: #fff
-  }
-  .linkNav {
     display: flex;
-    justify-content: flex-end;
-    width: 100%;
+    color: #080202ba;
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+
+} 
+  .homeNav:hover {
+    color: #000000
   }
+
   @media screen and (max-width:600px) {
     /* need to finish this when I find out how to use icon and also have all components on screen */
   }
@@ -59,18 +60,14 @@ const Navbar = (props) => {
   return (
     <NavbarContainer>
     <nav>
-      <div className='homeNav'>
-        <Link to='/' className='homeNav'>HOME</Link>
-      </div>
-
-      <div className='homeNav'>
-        <Link to='/newPin' className='homeNav'>ADDPIN</Link>
-      </div>
-
-
       <div className='linkNav'>
         {nav}
       </div>
+
+      <div className='homeNav'>
+        <Link to='/newpin' className='homeNav'> ADD NEW PIN </Link>
+      </div>
+
     </nav>
     </NavbarContainer>
   );

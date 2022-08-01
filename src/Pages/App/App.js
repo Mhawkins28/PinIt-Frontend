@@ -12,6 +12,10 @@ import PinDetails from "../PinDetailsPage/PinDetailsPage";
 import EditPin from "../EditPinPage/EditPinPage";
 import Navbar from "../../Components/Navbar/Navbar";
 import Signup from "../SignupPage/SignupPage";
+import Sidebar from '../../Components/Sidebar'
+import Welcome from './Pages/Welcome';
+
+
 
 function App() {
   const [user, setUser] = useState({});
@@ -62,6 +66,7 @@ function App() {
 
   return (
     <div>
+
       <Navbar handleLogout={handleLogout} user={user} userLogin={userLogin}/>
       <Routes>
         <Route
@@ -130,6 +135,14 @@ function App() {
             />
           }
         />
+      <Route 
+        path='/welcome' 
+        element= {<Welcome />}
+        >
+
+</Route>
+
+
       </Routes>
     </div>
   );
