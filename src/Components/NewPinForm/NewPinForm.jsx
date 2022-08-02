@@ -21,7 +21,7 @@ const NewPinForm = ({ latLng, user }) => {
     description: "",
     lng: latLng.lng,
     lat: latLng.lat,
-    Owner: user?.user?._id,
+    Owner: user?._id,
   });
 
   const handleChange = (event) => {
@@ -35,7 +35,7 @@ const NewPinForm = ({ latLng, user }) => {
   };
 
   const handleSubmit = (e) => {
-    console.log(formData, user.user._id);
+    console.log(formData);
     e.preventDefault();
     axios.post("http://localhost:3001/pins", formData).then((res) => {
       setFormData({
@@ -45,7 +45,7 @@ const NewPinForm = ({ latLng, user }) => {
         description: "",
         lng: latLng.lng,
         lat: latLng.lat,
-        Owner: user?.user._id,
+        Owner: user._id,
       });
       navigate("/", { replace: true });
     });
@@ -82,7 +82,7 @@ const NewPinForm = ({ latLng, user }) => {
       address: results[0].formatted_address,
       lat: latLng.lat,
       lng: latLng.lng,
-      Owner: user.user._id,
+      Owner: user._id,
     });
   };
 
@@ -190,9 +190,9 @@ const NewPinForm = ({ latLng, user }) => {
           onChange={handleChange}
         />
         <input
-          type="text"
+          type="hidden"
           name="Owner"
-          value={user?.user?._id}
+          value={user._id}
           onChange={handleChange}
         />
 

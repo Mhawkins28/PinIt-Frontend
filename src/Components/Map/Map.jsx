@@ -102,7 +102,7 @@ const Map = ({
               <div>{pinInfo.name}</div>
               {pinInfo.address}
               {/* Created By: user */}
-              Created By: {pinInfo.Owner.username}
+              Created By: {pinInfo.Owner?.username}
               <Link to={`/pins/${pinInfo._id}`}>View More</Link>
             </div>
           ) : (
