@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
+
 
 const NavbarContainer = styled.nav`
 /* color and style of bar will change, need to figure somehting out and also see how the rest of the page will look */
@@ -43,9 +44,32 @@ const NavbarContainer = styled.nav`
   }
 `
 
+
+
+
+
+
+
+
 const Navbar = (props) => {
-  let nav = props.user ?
-    <div>
+
+
+
+
+  
+
+  
+
+  
+
+
+
+<div>
+    <Link to='' className='link'>HOME</Link>
+  </div>
+
+let nav = props.user ?
+<div>
       <Link to='' className='link' onClick={props.handleLogout}>LOG OUT</Link>
       <span className='welcome'>WELCOME, {props.userLogin.username}</span>
     </div>
@@ -56,13 +80,17 @@ const Navbar = (props) => {
       <Link to='/signup' className='link'>SIGN UP</Link>
     </div>;
     
-  
-  return (
+    return (
+    
     <NavbarContainer>
     <nav>
       <div className='linkNav'>
         {nav}
       </div>
+
+    <div>
+      <Link to='/' className='link'>HOME</Link>
+    </div>
 
       <div className='homeNav'>
         <Link to='/newpin' className='homeNav'> ADD NEW PIN </Link>

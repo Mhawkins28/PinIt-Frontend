@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const PinDetails = ({ pinInfo, updatePinState, setAllPins, setPinInfo }) => {
+const PinDetails = ({ pinInfo, updatePinState, setAllPins, setPinInfo, user }) => {
 
   const navigate = useNavigate()
 
@@ -29,8 +29,21 @@ const PinDetails = ({ pinInfo, updatePinState, setAllPins, setPinInfo }) => {
       <div>{pinInfo.lat}</div>
       <div>{pinInfo.description}</div>
 
-      <Link to ={`/pins/edit/${pinInfo._id}`}>Edit Pin</Link>
-      <button onClick={() => deletePin(pinInfo._id)} >DELETE</button>
+
+
+      {
+        user && pinInfo.Owner._id === user.user._id ? 
+
+        <div>
+          <Link to ={`/pins/edit/${pinInfo._id}`}>Edit Pin</Link>
+          <button onClick={() => deletePin(pinInfo._id)} >DELETE</button>
+        </div>
+
+        :
+        
+        null
+
+      }
     </div>
   );
 };

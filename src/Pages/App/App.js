@@ -1,3 +1,4 @@
+import "./App.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import userService from "../../utils/userService";
@@ -11,7 +12,9 @@ import PinDetails from "../PinDetailsPage/PinDetailsPage";
 import EditPin from "../EditPinPage/EditPinPage";
 import Navbar from "../../Components/Navbar/Navbar";
 import Signup from "../SignupPage/SignupPage";
-import Welcome from '../Welcome/Welcome';
+import Sidebar from '../../Components/Sidebar/Sidebar'
+import WelcomePage from '../WelcomePage/WelcomePage';
+import { FaWindows } from "react-icons/fa";
 
 
 
@@ -59,13 +62,24 @@ function App() {
   };
 
   const handleSignupOrLogin = () => {
-    setUser({ user: userService.getUser() });
+    setUser( userService.getUser() );
   };
+  
+  
+  
+  // useEffect(() => {
+  //   window.sessionStorage.setItem("user", JSON.stringify(user))
+  // }, []);
+  
+  // useEffect(() => {
+  //   setUser(JSON.parse(window.sessionStorage.getItem("user")))
+  // }, []);
+
 
   return (
     <div>
 
-      <Navbar handleLogout={handleLogout} user={user} userLogin={userLogin}/>
+      <Navbar handleLogout={handleLogout} user={user} userLogin={userLogin} setUser={setUser}/>
       <Routes>
         <Route
           path="/"
@@ -119,6 +133,7 @@ function App() {
               setAllPins={setAllPins}
               setPinInfo={setPinInfo}
               updateCoffeeState={updatePinState}
+              user={user}
             />
           }
         />
@@ -133,13 +148,12 @@ function App() {
             />
           }
         />
-      <Route 
-        path='/welcome' 
-        element= {<Welcome />}
-        >
 
-</Route>
-
+          <Route 
+            path='/welcome' 
+            element= {<WelcomePage />}
+            >
+          </Route>
 
       </Routes>
     </div>

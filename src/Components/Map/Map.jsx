@@ -13,13 +13,13 @@ import "./Map.css";
 
 // const libraries = ["places"];
 const mapContainerStyle = {
-  width: "75vw",
-  height: "100vh",
+  width: "85vw",
+  height: "90vh",
 };
 
 const center = {
-  lat: 36.1716,
-  lng: -115.1391,
+  lat: 41.3874,
+  lng: -2.1686,
 };
 
 const Map = ({
@@ -42,7 +42,7 @@ const Map = ({
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
-      zoom={8}
+      zoom={2}
       center={center}
       onClick={(e) => {
         setLatLng({
@@ -102,6 +102,7 @@ const Map = ({
               <div>{pinInfo.name}</div>
               {pinInfo.address}
               {/* Created By: user */}
+              Created By: {pinInfo.Owner.username}
               <Link to={`/pins/${pinInfo._id}`}>View More</Link>
             </div>
           ) : (
