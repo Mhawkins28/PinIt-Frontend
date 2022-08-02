@@ -40,91 +40,92 @@ const Map = ({
   if (!isLoaded) return "Loading maps";
 
   return (
-  <GoogleMap
-    mapContainerStyle={mapContainerStyle}
-    zoom={2}
-    center={center}
-    onClick={(e) => {
-      setLatLng({
-        lat: e.latLng.lat(),
-        lng: e.latLng.lng(),
-      });
-    }}
-    options={{
-      styles: [
-        {
-          elementType: "labels",
-          featureType: "poi",
-          stylers: [{ visibility: "off" }],
-        },
-      ],
-    }}
-  >
-    {allPins.map((location, i) => {
-      return (
-        <Marker
-          key={i}
-          position={{
-            lat: location.lat,
-            lng: location.lng,
-          }}
-          onClick={(e) => {
-            setLatLng({
-              lat: e.latLng.lat(),
-              lng: e.latLng.lng(),
-            });
-            setInfoLatLng({
-              lat: e.latLng.lat(),
-              lng: e.latLng.lng(),
-            });
+    <GoogleMap
+      mapContainerStyle={mapContainerStyle}
+      zoom={2}
+      center={center}
+      onClick={(e) => {
+        setLatLng({
+          lat: e.latLng.lat(),
+          lng: e.latLng.lng(),
+        });
+      }}
+      options={{
+        styles: [
+          {
+            elementType: "labels",
+            featureType: "poi",
+            stylers: [{ visibility: "off" }],
+          },
+        ],
+      }}
+    >
+      {allPins.map((location, i) => {
+        return (
+          <Marker
+            key={i}
+            position={{
+              lat: location.lat,
+              lng: location.lng,
+            }}
+            onClick={(e) => {
+              setLatLng({
+                lat: e.latLng.lat(),
+                lng: e.latLng.lng(),
+              });
+              setInfoLatLng({
+                lat: e.latLng.lat(),
+                lng: e.latLng.lng(),
+              });
               setPinInfo(location);
-          }}
+            }}
             // label={`${i}`}
-        ></Marker>
-      );
-    })}
+          ></Marker>
+        );
+      })}
 
-    {latLng.lat && (
-      <InfoWindow
-        position={{
-          lat: latLng.lat,
-          lng: latLng.lng,
-        }}
-        onCloseClick={() => {
-          setLatLng({
-            lat: null,
-            lng: null,
-          });
-        }}
-      >
-        {latLng.lat === infoLatLng.lat && latLng.lat === infoLatLng.lat ? (
-          <div>
-            <div>{pinInfo.name}</div>
-            {pinInfo.address}
-            {/* Created By: user */}
-            Created By: {pinInfo.Owner?.username}
-            <Link to={`/pins/${pinInfo._id}`}>View More</Link>
-          </div>
-        ) : (
-          <div className="placement">
+      {latLng.lat && (
+        <InfoWindow
+          position={{
+            lat: latLng.lat,
+            lng: latLng.lng,
+          }}
+          onCloseClick={() => {
+            setLatLng({
+              lat: null,
+              lng: null,
+            });
+          }}
+        >
+          {latLng.lat === infoLatLng.lat && latLng.lat === infoLatLng.lat ? (
             <div>
               <div>{pinInfo.name}</div>
-              <div>{pinInfo.address}</div>
+              {pinInfo.address}
               {/* Created By: user */}
-              <div>Created By: {pinInfo.Owner?.username}</div>
+              Created By: {pinInfo.Owner?.username}
               <Link to={`/pins/${pinInfo._id}`}>View More</Link>
-              {/* Would you like to place a marker here at {latLng.lat},{" "} */}
-              {/* {latLng.lng}? */}
             </div>
-            <div>
-              {/* <button>yes</button> */}
-              <Link to="/newPin">ADD A PIN</Link>
+          ) : (
+            <div className="placement">
+              <div>
+                {/* <div>{pinInfo.name}</div>
+              <div>{pinInfo.address}</div> */}
+                {/* Created By: user */}
+                {/* <div>Created By: {pinInfo.Owner?.username}</div> */}
+
+                {/* <Link to={`/pins/${pinInfo._id}`}>View More</Link> */}
+                {/* Would you like to place a marker here at {latLng.lat},{" "} */}
+                {/* {latLng.lng}? */}
+              </div>
+              <div>
+                {/* <button>yes</button> */}
+                <Link to="/newPin">ADD A PIN</Link>
+              </div>
             </div>
-          </div>
-        )}
-      </InfoWindow>
-    )}
-  </GoogleMap> 
+          )}
+        </InfoWindow>
+      )}
+    </GoogleMap>
   );
 };
 

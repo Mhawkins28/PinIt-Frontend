@@ -140,7 +140,7 @@ function App() {
           }
         />
         <Route
-          path="/pins/edit/:id"
+          path={`/pins/edit/${pinInfo._id}`}
           element={
             <EditPin
               pinInfo={pinInfo}
@@ -149,10 +149,7 @@ function App() {
             />
           }
         />
-        <Route 
-          path="/welcome" 
-          element={<WelcomePage />}>
-        </Route>
+        <Route path="/welcome" element={<WelcomePage />}></Route>
       </Routes>
     </div>
   );
