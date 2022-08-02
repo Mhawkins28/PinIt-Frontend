@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
 const WelcomeContainer = styled.nav`
   background-image: radial-gradient(at center, rgba(96, 150, 226, 0.271) 0%, rgba(72, 125, 199, 0.271) 100%), url('city.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;  
   backdrop-filter: blur(.15rem); 
+  /* yes, I know I need to fix everything, just trust the process. lol */
 
   .navbar {
     width: 100%;
@@ -92,7 +94,7 @@ const WelcomeContainer = styled.nav`
 
 const Welcome = () => {
   return (
-  <WelcomeContainer>
+  <WelcomeContainer >
     <nav class="navbar">
     <div class="homeNav"><li> HOME</li></div>
       <div class="otherNav">

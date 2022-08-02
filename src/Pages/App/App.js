@@ -1,4 +1,3 @@
-import "./App.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import userService from "../../utils/userService";
@@ -12,8 +11,7 @@ import PinDetails from "../PinDetailsPage/PinDetailsPage";
 import EditPin from "../EditPinPage/EditPinPage";
 import Navbar from "../../Components/Navbar/Navbar";
 import Signup from "../SignupPage/SignupPage";
-import Sidebar from '../../Components/Sidebar'
-import Welcome from './Pages/Welcome';
+import Welcome from '../Welcome/Welcome';
 
 
 
