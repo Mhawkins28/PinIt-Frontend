@@ -100,9 +100,9 @@ const Map = ({
           {latLng.lat === infoLatLng.lat && latLng.lat === infoLatLng.lat ? (
             <div>
               <div>{pinInfo.name}</div>
-              {pinInfo.address}
+              <div>{pinInfo.address}</div>
               {/* Created By: user */}
-              Created By: {pinInfo.Owner?.username}
+              <div>Created By: {pinInfo.Owner?.username}</div>
               <Link to={`/pins/${pinInfo._id}`}>View More</Link>
             </div>
           ) : (
