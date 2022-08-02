@@ -22,21 +22,23 @@ const Home = ({
   }, []);
 
   return (
-    <div>
-      <Sidebar pageWrapId={"page-wrap"} />
-      <div className="map">
-        <Map
-          latLng={latLng}
-          setLatLng={setLatLng}
-          infoLatLng={infoLatLng}
-          setInfoLatLng={setInfoLatLng}
-          allPins={allPins}
-          setAllPins={setAllPins}
-          pinInfo={pinInfo}
-          setPinInfo={setPinInfo}
-        />
-      </div>
+  <div>
+    <Sidebar />
+      <div className='outerContainer'>
+        <div className='map'>
+          <Map
+            latLng={latLng}
+            setLatLng={setLatLng}
+            infoLatLng={infoLatLng}
+            setInfoLatLng={setInfoLatLng}
+            allPins={allPins}
+            setAllPins={setAllPins}
+            pinInfo={pinInfo}
+            setPinInfo={setPinInfo}
+          />
     </div>
+  </div>
+</div>
   );
 };
 

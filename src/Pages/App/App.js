@@ -12,7 +12,6 @@ import PinDetails from "../PinDetailsPage/PinDetailsPage";
 import EditPin from "../EditPinPage/EditPinPage";
 import Navbar from "../../Components/Navbar/Navbar";
 import Signup from "../SignupPage/SignupPage";
-import Sidebar from "../../Components/Sidebar/Sidebar";
 import WelcomePage from "../WelcomePage/WelcomePage";
 import { FaWindows } from "react-icons/fa";
 
@@ -140,7 +139,6 @@ function App() {
             />
           }
         />
-
         <Route
           path="/pins/edit/:id"
           element={
@@ -151,8 +149,10 @@ function App() {
             />
           }
         />
-
-        <Route path="/welcome" element={<WelcomePage />}></Route>
+        <Route 
+          path="/welcome" 
+          element={<WelcomePage />}>
+        </Route>
       </Routes>
     </div>
   );

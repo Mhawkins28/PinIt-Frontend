@@ -14,36 +14,6 @@ const WelcomeContainer = styled.nav`
   backdrop-filter: blur(0.15rem);
   /* yes, I know I need to fix everything, just trust the process. lol */
 
-  .navbar {
-    width: 100%;
-    display: flex;
-    min-height: 8vh;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-
-  .homeNav {
-    display: flex;
-    color: #ffffffbb;
-    text-decoration: none;
-    font-size: 20px;
-    letter-spacing: 2px;
-    font-weight: bold;
-  }
-
-  .otherNav {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  li {
-    text-decoration: none;
-    list-style: none;
-    color: #ffffffbb;
-    margin-right: 20px;
-    letter-spacing: 2px;
-    font-weight: bold;
-  }
 
   .main {
     max-width: 800px;
@@ -57,7 +27,7 @@ const WelcomeContainer = styled.nav`
 
   .main h1 {
     font-size: 64px;
-    color: rgb(208, 207, 207);
+    color: rgb(228, 228, 228);
     font-weight: normal;
     letter-spacing: 3px;
     margin-top: 0;
@@ -66,15 +36,15 @@ const WelcomeContainer = styled.nav`
 
   .main h2 {
     font-size: 28px;
-    color: rgb(208, 207, 207);
-    font-weight: lighter;
+    color: rgb(241, 238, 238);
+    font-weight: 300;
     letter-spacing: 4px;
     margin-bottom: 5px;
   }
 
   .main p {
     font-size: 16px;
-    color: rgb(197, 193, 193);
+    color: rgb(173, 166, 166);
     margin-top: 10px;
     margin-bottom: 40px;
   }
@@ -82,42 +52,40 @@ const WelcomeContainer = styled.nav`
   .btn1 {
     border: white solid 1px;
     background-color: transparent;
-    color: white;
     padding: 10px 50px;
     margin: 0 10px;
+  }
+
+  .btn1 a {
+    text-decoration: none;
+    color: rgba(240, 255, 247, 0.991);
   }
 
   .btn2 {
     border: white solid 1px;
     background-color: white;
-    color: rgb(19, 15, 12);
     padding: 10px 50px;
     margin: 0 10px;
+  }
+
+  .btn2 a {
+    text-decoration: none;
+    color: rgb(19, 15, 12);
   }
 `;
 
 const Welcome = () => {
   return (
     <WelcomeContainer>
-      <nav class="navbar">
-        <div class="homeNav">
-          <li> HOME</li>
-        </div>
-        <div class="otherNav">
-          <li> LINK </li>
-          <li> LINK</li>
-          <li> LINK</li>
-        </div>
-      </nav>
 
       <div class="main">
-        <h2>Discover Your City </h2>
-        <h1>Find New Adventures</h1>
-        <p>blah blah blah, some phrase here, blah blah blah blah blah blah</p>
+        <h2>Get off the beaten Path </h2>
+        <h1>Insert App Name Here</h1>
+        <p>Find the hidden gems, wherever you are. This App is the perfect way to explore different cities in a new way </p>
 
         <div class="buttons">
-          <button class="btn1">LOGIN</button>
-          <button class="btn2">SIGN-UP</button>
+          <button class="btn1"><a href="/login">LOGIN</a></button>
+          <button class="btn2"><a href="/signup">SIGN-UP</a></button>
         </div>
       </div>
     </WelcomeContainer>

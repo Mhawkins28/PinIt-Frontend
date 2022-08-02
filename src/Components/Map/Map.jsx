@@ -13,8 +13,8 @@ import "./Map.css";
 
 // const libraries = ["places"];
 const mapContainerStyle = {
-  width: "85vw",
-  height: "90vh",
+  width: "100vw",
+  height: "100vh",
 };
 
 const center = {
@@ -40,86 +40,91 @@ const Map = ({
   if (!isLoaded) return "Loading maps";
 
   return (
-    <GoogleMap
-      mapContainerStyle={mapContainerStyle}
-      zoom={2}
-      center={center}
-      onClick={(e) => {
-        setLatLng({
-          lat: e.latLng.lat(),
-          lng: e.latLng.lng(),
-        });
-      }}
-      options={{
-        styles: [
-          {
-            elementType: "labels",
-            featureType: "poi",
-            stylers: [{ visibility: "off" }],
-          },
-        ],
-      }}
-    >
-      {allPins.map((location, i) => {
-        return (
-          <Marker
-            key={i}
-            position={{
-              lat: location.lat,
-              lng: location.lng,
-            }}
-            onClick={(e) => {
-              setLatLng({
-                lat: e.latLng.lat(),
-                lng: e.latLng.lng(),
-              });
-              setInfoLatLng({
-                lat: e.latLng.lat(),
-                lng: e.latLng.lng(),
-              });
-              setPinInfo(location);
-            }}
-            // label={`${i}`}
-          ></Marker>
-        );
-      })}
-
-      {latLng.lat && (
-        <InfoWindow
+  <GoogleMap
+    mapContainerStyle={mapContainerStyle}
+    zoom={2}
+    center={center}
+    onClick={(e) => {
+      setLatLng({
+        lat: e.latLng.lat(),
+        lng: e.latLng.lng(),
+      });
+    }}
+    options={{
+      styles: [
+        {
+          elementType: "labels",
+          featureType: "poi",
+          stylers: [{ visibility: "off" }],
+        },
+      ],
+    }}
+  >
+    {allPins.map((location, i) => {
+      return (
+        <Marker
+          key={i}
           position={{
-            lat: latLng.lat,
-            lng: latLng.lng,
+            lat: location.lat,
+            lng: location.lng,
           }}
-          onCloseClick={() => {
+          onClick={(e) => {
             setLatLng({
-              lat: null,
-              lng: null,
+              lat: e.latLng.lat(),
+              lng: e.latLng.lng(),
             });
+            setInfoLatLng({
+              lat: e.latLng.lat(),
+              lng: e.latLng.lng(),
+            });
+              setPinInfo(location);
           }}
-        >
-          {latLng.lat === infoLatLng.lat && latLng.lat === infoLatLng.lat ? (
+            // label={`${i}`}
+        ></Marker>
+      );
+    })}
+
+    {latLng.lat && (
+      <InfoWindow
+        position={{
+          lat: latLng.lat,
+          lng: latLng.lng,
+        }}
+        onCloseClick={() => {
+          setLatLng({
+            lat: null,
+            lng: null,
+          });
+        }}
+      >
+        {latLng.lat === infoLatLng.lat && latLng.lat === infoLatLng.lat ? (
+          <div>
+            <div>{pinInfo.name}</div>
+            {pinInfo.address}
+            {/* Created By: user */}
+            Created By: {pinInfo.Owner?.username}
+            <Link to={`/pins/${pinInfo._id}`}>View More</Link>
+          </div>
+        ) : (
+          <div className="placement">
             <div>
               <div>{pinInfo.name}</div>
               <div>{pinInfo.address}</div>
               {/* Created By: user */}
               <div>Created By: {pinInfo.Owner?.username}</div>
               <Link to={`/pins/${pinInfo._id}`}>View More</Link>
+              {/* Would you like to place a marker here at {latLng.lat},{" "} */}
+              {/* {latLng.lng}? */}
             </div>
-          ) : (
-            <div className="placement">
-              <div>
-                {/* Would you like to place a marker here at {latLng.lat},{" "} */}
-                {/* {latLng.lng}? */}
-              </div>
-              <div>
-                {/* <button>yes</button> */}
-                <Link to="/newPin">ADD A PIN</Link>
-              </div>
+            <div>
+              {/* <button>yes</button> */}
+              <Link to="/newPin">ADD A PIN</Link>
             </div>
-          )}
-        </InfoWindow>
-      )}
-    </GoogleMap>
+          </div>
+        )}
+      </InfoWindow>
+    )}
+  </GoogleMap> 
   );
 };
 

@@ -13,7 +13,7 @@ const StyledForm = styled.form`
   div input {
     margin-right: 25px;
   }
-  #googleBtn {
+  /* #googleBtn {
     display: flex;
     justify-content: center;
     width: 50%;
@@ -29,7 +29,7 @@ const StyledForm = styled.form`
     background-repeat: no-repeat;
     background-position: 12px 11px;
     margin: auto;
-  }
+  } */
 `;
 const Login = ({ setUser, setUserLogin, userLogin, handleSignupOrLogin }) => {
   const navigate = useNavigate();
@@ -65,9 +65,9 @@ const Login = ({ setUser, setUserLogin, userLogin, handleSignupOrLogin }) => {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <h2>Sign-in with Google or Username:</h2>
+      <h2>SIGN IN</h2>
 
-      <div>
+      {/* <div>
         <button
           className="active"
           id="googleBtn"
@@ -75,8 +75,8 @@ const Login = ({ setUser, setUserLogin, userLogin, handleSignupOrLogin }) => {
           href="/auth/google"
         >
           LOGIN
-        </button>
-      </div>
+        </button> */}
+      {/* </div> */}
       <br></br>
       <div>
         <label htmlFor="username">Username</label>

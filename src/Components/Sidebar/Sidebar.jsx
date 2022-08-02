@@ -3,7 +3,8 @@ import { stack as Menu } from "react-burger-menu";
 import { FaMapMarkerAlt, FaGlobeAmericas } from "react-icons/fa";
 import styled from "styled-components";
 
-const SidebarContainer = styled.nav`
+const SidebarContainer = styled.nav` 
+
   .bm-item {
     display: inline-block;
     text-decoration: none;
@@ -61,6 +62,7 @@ const SidebarContainer = styled.nav`
     background: rgb(20, 29, 61);
     padding: 2.5em 1.5em 0;
     font-size: 1.25em;
+
   }
 
   .bm-morph-shape {
@@ -89,13 +91,12 @@ const Sidebar = ({ pinInfo }) => {
     <SidebarContainer>
       <Menu noOverlay onStateChange={toggleMenu}>
         <div className="menu-header">PIN LOCATIONS</div>
-
-        {/*{pinInfo.map((name, i) => {
-        return ( */}
-        <a className="menu-item" href="/">
-          <FaMapMarkerAlt /> PIN NAME
-        </a>
-        {/* );
+          {/*{pinInfo.map((name, i) => {
+          return ( */}
+            <a className="menu-item" href="/">
+            <FaMapMarkerAlt /> Pin name
+          </a>
+          {/* );
       })} */}
       </Menu>
     </SidebarContainer>
