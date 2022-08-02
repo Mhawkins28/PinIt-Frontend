@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import userService from "../../utils/userService";
@@ -12,14 +12,14 @@ import PinDetails from "../PinDetailsPage/PinDetailsPage";
 import EditPin from "../EditPinPage/EditPinPage";
 import Navbar from "../../Components/Navbar/Navbar";
 import Signup from "../SignupPage/SignupPage";
-import Sidebar from '../../Components/Sidebar/Sidebar'
-import WelcomePage from '../WelcomePage/WelcomePage';
+import Sidebar from "../../Components/Sidebar/Sidebar";
+import WelcomePage from "../WelcomePage/WelcomePage";
 import { FaWindows } from "react-icons/fa";
 
-
-
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(
+    JSON.parse(window.sessionStorage.getItem("user"))
+  );
 
   const [userSignup, setUserSignup] = useState({
     username: "",
@@ -62,24 +62,27 @@ function App() {
   };
 
   const handleSignupOrLogin = () => {
-    setUser( userService.getUser() );
+    setUser(userService.getUser());
   };
-  
-  
-  
-  // useEffect(() => {
-  //   window.sessionStorage.setItem("user", JSON.stringify(user))
-  // }, []);
-  
-  // useEffect(() => {
-  //   setUser(JSON.parse(window.sessionStorage.getItem("user")))
-  // }, []);
 
+  useEffect(() => {
+    window.sessionStorage.setItem("user", JSON.stringify(user));
+  }, [user]);
+
+  useEffect(() => {
+    let sessionUser = window.sessionStorage.getItem("user");
+    if (sessionUser !== null)
+      setUser(JSON.parse(window.sessionStorage.getItem("user")));
+  }, []);
 
   return (
     <div>
-
-      <Navbar handleLogout={handleLogout} user={user} userLogin={userLogin} setUser={setUser}/>
+      <Navbar
+        handleLogout={handleLogout}
+        user={user}
+        userLogin={userLogin}
+        setUser={setUser}
+      />
       <Routes>
         <Route
           path="/"
@@ -149,12 +152,7 @@ function App() {
           }
         />
 
-          <Route 
-            path='/welcome' 
-            element= {<WelcomePage />}
-            >
-          </Route>
-
+        <Route path="/welcome" element={<WelcomePage />}></Route>
       </Routes>
     </div>
   );

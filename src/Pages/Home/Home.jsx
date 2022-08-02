@@ -23,7 +23,7 @@ const Home = ({
 
   return (
     <div>
-      <Sidebar pageWrapId={'page-wrap'}/>
+      <Sidebar pageWrapId={"page-wrap"} />
       <div className="map">
         <Map
           latLng={latLng}

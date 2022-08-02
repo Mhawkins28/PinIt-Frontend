@@ -1,13 +1,17 @@
-import React from 'react'
-import styled from 'styled-components'
-
+import React from "react";
+import styled from "styled-components";
 
 const WelcomeContainer = styled.nav`
-  background-image: radial-gradient(at center, rgba(96, 150, 226, 0.271) 0%, rgba(72, 125, 199, 0.271) 100%), url('city.jpg');
+  background-image: radial-gradient(
+      at center,
+      rgba(96, 150, 226, 0.271) 0%,
+      rgba(72, 125, 199, 0.271) 100%
+    ),
+    url("city.jpg");
   background-attachment: fixed;
   background-size: cover;
-  background-position: center;  
-  backdrop-filter: blur(.15rem); 
+  background-position: center;
+  backdrop-filter: blur(0.15rem);
   /* yes, I know I need to fix everything, just trust the process. lol */
 
   .navbar {
@@ -53,7 +57,7 @@ const WelcomeContainer = styled.nav`
 
   .main h1 {
     font-size: 64px;
-    color: rgb(208, 207, 207); 
+    color: rgb(208, 207, 207);
     font-weight: normal;
     letter-spacing: 3px;
     margin-top: 0;
@@ -90,32 +94,34 @@ const WelcomeContainer = styled.nav`
     padding: 10px 50px;
     margin: 0 10px;
   }
-`
+`;
 
 const Welcome = () => {
   return (
-  <WelcomeContainer >
-    <nav class="navbar">
-    <div class="homeNav"><li> HOME</li></div>
-      <div class="otherNav">
-        <li> LINK </li>
-        <li> LINK</li>
-        <li> LINK</li>
-      </div>
-    </nav>
+    <WelcomeContainer>
+      <nav class="navbar">
+        <div class="homeNav">
+          <li> HOME</li>
+        </div>
+        <div class="otherNav">
+          <li> LINK </li>
+          <li> LINK</li>
+          <li> LINK</li>
+        </div>
+      </nav>
 
-    <div class="main">
-      <h2>Discover Your City </h2>
-      <h1>Find New Adventures</h1>
-      <p>blah blah blah, some phrase here, blah blah blah blah blah blah</p>
-    
-      <div class="buttons">
-        <button class="btn1">LOGIN</button>
-        <button class="btn2">SIGN-UP</button>
-      </div>
-    </div>
-  </WelcomeContainer>
-  )
-}
+      <div class="main">
+        <h2>Discover Your City </h2>
+        <h1>Find New Adventures</h1>
+        <p>blah blah blah, some phrase here, blah blah blah blah blah blah</p>
 
-export default Welcome
+        <div class="buttons">
+          <button class="btn1">LOGIN</button>
+          <button class="btn2">SIGN-UP</button>
+        </div>
+      </div>
+    </WelcomeContainer>
+  );
+};
+
+export default Welcome;
