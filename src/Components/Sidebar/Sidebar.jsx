@@ -1,10 +1,10 @@
-import React, { Link } from "react";
+import React from "react";
 import { stack as Menu } from "react-burger-menu";
 import { FaMapMarkerAlt, FaGlobeAmericas } from "react-icons/fa";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const SidebarContainer = styled.nav` 
-
+const SidebarContainer = styled.nav`
   .bm-item {
     display: inline-block;
     text-decoration: none;
@@ -62,7 +62,6 @@ const SidebarContainer = styled.nav`
     background: rgb(20, 29, 61);
     padding: 2.5em 1.5em 0;
     font-size: 1.25em;
-
   }
 
   .bm-morph-shape {
@@ -86,18 +85,27 @@ const toggleMenu = ({ isOpen }) => {
     : menuWrap.setAttribute("aria-hidden", true);
 };
 
-const Sidebar = ({ pinInfo }) => {
+const Sidebar = ({ pinInfo, allPins, setPinInfo }) => {
   return (
     <SidebarContainer>
       <Menu noOverlay onStateChange={toggleMenu}>
         <div className="menu-header">PIN LOCATIONS</div>
-          {/*{pinInfo.map((name, i) => {
-          return ( */}
-            <a className="menu-item" href="/">
-            <FaMapMarkerAlt /> Pin name
-          </a>
-          {/* );
-      })} */}
+        {allPins
+          .sort((a, b) => a.Owner?.username.localeCompare(b.Owner?.username))
+          .map((pin, i) => {
+            return (
+              <Link
+                onClick={() => {
+                  setPinInfo(pin);
+                }}
+                key={i}
+                className="menu-item"
+                to={`/pins/${pin._id}`}
+              >
+                <FaMapMarkerAlt /> {pin.name} : {pin.Owner?.username}
+              </Link>
+            );
+          })}
       </Menu>
     </SidebarContainer>
   );

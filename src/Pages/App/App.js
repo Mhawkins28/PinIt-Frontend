@@ -128,7 +128,7 @@ function App() {
           }
         />
         <Route
-          path={`/pins/${pinInfo._id}`}
+          path={`/pins/:id`}
           element={
             <PinDetails
               pinInfo={pinInfo}

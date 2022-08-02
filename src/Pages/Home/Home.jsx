@@ -22,10 +22,10 @@ const Home = ({
   }, []);
 
   return (
-  <div>
-    <Sidebar />
-      <div className='outerContainer'>
-        <div className='map'>
+    <div>
+      <Sidebar allPins={allPins} pinInfo={pinInfo} setPinInfo={setPinInfo} />
+      <div className="outerContainer">
+        <div className="map">
           <Map
             latLng={latLng}
             setLatLng={setLatLng}
@@ -36,9 +36,9 @@ const Home = ({
             pinInfo={pinInfo}
             setPinInfo={setPinInfo}
           />
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   );
 };
 

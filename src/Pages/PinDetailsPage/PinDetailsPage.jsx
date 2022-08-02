@@ -29,7 +29,7 @@ const PinDetails = ({
       <div>{pinInfo.lat}</div>
       {pinInfo.description ? <div>{pinInfo.description}</div> : null}
 
-      {user && pinInfo.Owner._id === user._id ? (
+      {user && pinInfo.Owner?._id === user._id ? (
         <div>
           <Link to={`/pins/edit/${pinInfo._id}`}>Edit Pin</Link>
           <button onClick={() => deletePin(pinInfo._id)}>DELETE</button>
