@@ -148,23 +148,13 @@ const Map = ({
           {latLng.lat === infoLatLng.lat && latLng.lat === infoLatLng.lat ? (
             <div>
               <div>{pinInfo.name}</div>
-              {pinInfo.address}
-              {/* Created By: user */}
-              Created By: {pinInfo.Owner?.username}
+              <div>{pinInfo.address}</div>
+              <div>Created By: {pinInfo.Owner?.username}</div>
+              <br></br>
               <Link to={`/pins/${pinInfo._id}`}>View More</Link>
             </div>
           ) : (
             <div className="placement">
-              <div>
-                {/* <div>{pinInfo.name}</div>
-              <div>{pinInfo.address}</div> */}
-                {/* Created By: user */}
-                {/* <div>Created By: {pinInfo.Owner?.username}</div> */}
-
-                {/* <Link to={`/pins/${pinInfo._id}`}>View More</Link> */}
-                {/* Would you like to place a marker here at {latLng.lat},{" "} */}
-                {/* {latLng.lng}? */}
-              </div>
               <div>
                 {/* <button>yes</button> */}
                 <Link to="/newPin">ADD A PIN</Link>
