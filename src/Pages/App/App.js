@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import userService from "../../utils/userService";
-import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "../Home/Home";

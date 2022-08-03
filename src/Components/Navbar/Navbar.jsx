@@ -1,66 +1,72 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { FaMapPin } from 'react-icons/fa'
+import './Navbar.css';
 
-const NavbarContainer = styled.nav`
-  /* color and style of bar will change, need to figure somehting out and also see how the rest of the page will look */
 
-  nav {
-    width: 100%;
-    display: flex;
-    min-height: 8vh;
-    align-items: center;
-    justify-content: space-evenly;
-    align-content: center;
-    font-family: "Unica One", cursive;
-    /* font will change, basically a placeholder */
-  }
+  // const [navbar, setNavbar] = useState(false);
 
-  .navLink {
-    display: flex;
-    color: #080202ba;
-    text-decoration: none;
-    font-size: 20px;
-    letter-spacing: 2px;
-    font-weight: bold;
-  }
 
-  .link {
-    text-decoration: none;
-    list-style: none;
-    color: #080202ba;
-    margin-right: 20px;
-    letter-spacing: 2px;
-    font-weight: bold;
-    font-size: 20px;
-  }
-  .link:hover {
-    color: #000000;
-  }
-
-  .navLink:hover {
-    color: #000000;
-  }
-
-  .welcome {
-    color: #555ed7b8;
-    text-transform: capitalize;
-  }
-
-  @media screen and (max-width: 600px) {
-    /* need to finish this when I find out how to use icon and also have all components on screen */
-  }
-`;
-
-const Navbar = (props) => {
+// const changeBackground = () => {
+//   if (window.scrollY >=80) {
+//     setNavbar(true)
+//   } else { 
+//     setNavbar(false)
+//   }
+// }
+// window.addEventListener('scroll', changeBackground)
+ {/* MH: Need to delete the changeBackground details if we do not use */}
+ const Navbar=(props) => {
   return (
-    <NavbarContainer>
-      <nav>
-        <div className="navLink">
+    <>
+      <nav className='navbar'>
+        <div className='navbar-container'>
+          <Link to='/' className='navbar-logo'>
+          PIN<FaMapPin class='pinIcon'/>T
+          </Link>
+
+        <ul className='nav-menu'>
+
+        <li className="nav-item">
           {props.user ? (
-            <Link to="" className="link" onClick={props.handleLogout}>
+            <div>
+              <span className="welcome">WELCOME, {props.user.username} </span>
+            </div>
+          ) : (
+            <div>
+              <Link to="/login" className="link">
+                LOG IN
+              </Link>
+            </div>
+          )}
+            </li>
+
+        <li className="nav-item">
+          {props.user ? (
+            <div>
+              <Link to={`/user/${props.user._id}`} className="link">
+                My Pins
+              </Link>
+            </div>
+          ) : (
+            <div>
+            </div>
+          )}
+        </li>
+
+        <li className="nav-item">
+          <Link to="/newpin" className="link">
+            ADD NEW PIN
+          </Link>
+        </li>
+
+        <li className="nav-item">
+            {props.user ? (
+            <div>
+              <Link to="" className="link" onClick={props.handleLogout}>
               LOG OUT
-            </Link>
+              </Link>
+            </div>
           ) : (
             <div>
               <Link to="/welcome" className="link">
@@ -68,37 +74,13 @@ const Navbar = (props) => {
               </Link>
             </div>
           )}
-        </div>
-
-        <div className="navLink">
-          {props.user ? (
-            <div>
-              <span className="welcome">WELCOME, {props.user.username} </span>
-              <Link to={`/user/${props.user._id}`} className="link">
-                My Pins
-              </Link>
-            </div>
-          ) : (
-            <div>
-              <Link to="/login" className="link">
-                LOG IN
-              </Link>
-
-              <Link to="/signup" className="link">
-                SIGN UP
-              </Link>
-            </div>
-          )}
-        </div>
-
-        <div className="navLink">
-          <Link to="/newpin" className="link">
-            ADD NEW PIN
-          </Link>
-        </div>
-      </nav>
-    </NavbarContainer>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</>
   );
-};
+}
+
 
 export default Navbar;

@@ -14,7 +14,7 @@ import "./Map.css";
 // const libraries = ["places"];
 const mapContainerStyle = {
   width: "100vw",
-  height: "100vh",
+  height: "80vh",
 };
 
 const center = {
@@ -57,7 +57,55 @@ const Map = ({
             featureType: "poi",
             stylers: [{ visibility: "off" }],
           },
-        ],
+          {
+            "featureType": "road",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "lightness": 20
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "color": "#c5c6c6"
+                }
+            ]
+        },
+        {
+            "featureType": "road.arterial",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "color": "#e4d7c6"
+                }
+            ]
+        },
+        {
+            "featureType": "road.local",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "color": "#fbfaf7"
+                }
+            ]
+        },
+        {
+            "featureType": "water",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "on"
+                },
+                {
+                    "color": "#acbcc9"
+                }
+              ]
+            }
+        ]
       }}
     >
       {allPins.map((location, i) => {

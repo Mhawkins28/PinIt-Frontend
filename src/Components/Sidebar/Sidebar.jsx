@@ -11,7 +11,7 @@ const SidebarContainer = styled.nav`
     outline: none;
     top: 0;
     margin-bottom: 10px;
-    color: #5b5555;
+    color: #292950;
     transition: color 0.2s;
     height: 60px;
     font-family: "Libre Franklin", sans-serif;
@@ -20,7 +20,7 @@ const SidebarContainer = styled.nav`
 
   .bm-item:hover {
     color: #565c7a;
-    font-weight: 600;
+    font-weight: 510;
     cursor: pointer;
   }
 
@@ -47,21 +47,25 @@ const SidebarContainer = styled.nav`
 
   .bm-burger-bars {
     background: #2b0d58;
+    font-size: 12px;
   }
 
   .bm-cross-button {
     height: 24px;
     width: 24px;
+    margin-right: 45px
   }
 
   .bm-cross {
     background: #bdc3c7;
+    
   }
 
   .bm-menu {
-    background: rgb(20, 29, 61);
+    background: rgb(124, 130, 152);
     padding: 2.5em 1.5em 0;
     font-size: 1.25em;
+    width: 260px
   }
 
   .bm-morph-shape {
@@ -70,6 +74,7 @@ const SidebarContainer = styled.nav`
 
   .bm-item-list {
     color: #b8b7ad;
+    font-size: 16px
   }
 
   .bm-overlay {
@@ -85,7 +90,7 @@ const toggleMenu = ({ isOpen }) => {
     : menuWrap.setAttribute("aria-hidden", true);
 };
 
-const Sidebar = ({ pinInfo, allPins, setPinInfo }) => {
+const Sidebar = ({ allPins, setPinInfo }) => {
   return (
     <SidebarContainer>
       <Menu noOverlay onStateChange={toggleMenu}>
