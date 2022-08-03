@@ -14,6 +14,8 @@ import Signup from "../SignupPage/SignupPage";
 import WelcomePage from "../WelcomePage/WelcomePage";
 import { FaWindows } from "react-icons/fa";
 import UserPage from "../UserPage/UserPage";
+import WithNav from '../Layouts/WithNav';
+import WithoutNav from '../Layouts/WithoutNav';
 
 function App() {
   const [user, setUser] = useState(
@@ -75,15 +77,59 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <Navbar
+    <>
+      {/* <Navbar
         handleLogout={handleLogout}
         user={user}
         userLogin={userLogin}
         setUser={setUser}
-      />
-      <Routes>
-        <Route
+      /> */}
+    <Routes>
+
+      <Route element={<WithoutNav />}>
+        <Route path="/login" element={<NewPin latLng={latLng} user={user} />} />
+      </Route>
+      <Route element={<WithoutNav />}>
+        <Route path="/welcome" element={<WelcomePage />} />
+      </Route>
+      <Route element={<WithoutNav />}>
+        <Route path="/signup" element={<Signup
+              setUser={setUser}
+              setUserSignup={setUserSignup}
+              userSignup={userSignup}
+              handleSignupOrLogin={handleSignupOrLogin}
+          />} />
+      </Route>
+
+      <Route element={<WithNav />}>
+        <Route path="/" element={<Home
+              allPins={allPins}
+              setAllPins={setAllPins}
+              user={user}
+              latLng={latLng}
+              setLatLng={setLatLng}
+              infoLatLng={infoLatLng}
+              setInfoLatLng={setInfoLatLng}
+              pinInfo={pinInfo}
+              setPinInfo={setPinInfo}
+            />} />
+      </Route>
+      <Route element={<WithNav />}>
+        <Route path="/newpin" element={<NewPin latLng={latLng} user={user} />} />
+      </Route>
+
+      <Route element={<WithNav />}>
+        <Route path="{`/pins/:id`}" element={<PinDetails
+              pinInfo={pinInfo}
+              setAllPins={setAllPins}
+              setPinInfo={setPinInfo}
+              updateCoffeeState={updatePinState}
+              user={user}
+            />} />
+      </Route>
+    </Routes> 
+
+        {/* <Route
           path="/"
           element={
             <Home
@@ -98,14 +144,14 @@ function App() {
               setPinInfo={setPinInfo}
             />
           }
-        />
+        /> */}
 
-        <Route
+        {/* <Route
           path="/newPin"
           element={<NewPin latLng={latLng} user={user} />}
-        />
+        /> */}
 
-        <Route
+        {/* <Route
           path="/login"
           element={
             <Login
@@ -115,8 +161,8 @@ function App() {
               handleSignupOrLogin={handleSignupOrLogin}
             />
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/signup"
           element={
             <Signup
@@ -138,18 +184,18 @@ function App() {
               user={user}
             />
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           path={`/pins/edit/${pinInfo._id}`}
           element={
             <EditPin
               pinInfo={pinInfo}
               setPinInfo={setPinInfo}
               latLng={latLng}
-            />
-          }
-        />
-        <Route
+            /> */}
+          {/* } */}
+        {/* /> */}
+        {/* <Route
           path={`/user/:id`}
           element={
             <UserPage
@@ -164,10 +210,10 @@ function App() {
               setPinInfo={setPinInfo}
             />
           }
-        />
-        <Route path="/welcome" element={<WelcomePage />}></Route>
-      </Routes>
-    </div>
+        /> */}
+        {/* <Route path="/welcome" element={<WelcomePage />}></Route>*/}
+      
+    </>
   );
 }
 
