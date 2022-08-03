@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-
-
 const NavbarContainer = styled.nav`
   /* color and style of bar will change, need to figure somehting out and also see how the rest of the page will look */
 
@@ -14,7 +12,7 @@ const NavbarContainer = styled.nav`
     align-items: center;
     justify-content: space-evenly;
     align-content: center;
-    font-family: 'Unica One', cursive;
+    font-family: "Unica One", cursive;
     /* font will change, basically a placeholder */
   }
 
@@ -46,7 +44,7 @@ const NavbarContainer = styled.nav`
 
   .welcome {
     color: #555ed7b8;
-    text-transform: capitalize
+    text-transform: capitalize;
   }
 
   @media screen and (max-width: 600px) {
@@ -54,52 +52,52 @@ const NavbarContainer = styled.nav`
   }
 `;
 
-
 const Navbar = (props) => {
   return (
-  <NavbarContainer>
-    <nav>
-      <div className="navLink">
-        {props.user ? (
-        <Link to="" className="link" onClick={props.handleLogout}>
-          LOG OUT
-        </Link>
-        ) : (
-      <div>
-        <Link to="/welcome" className="link">
-          ABOUT
-        </Link>
-      </div>
-        )}
-      </div> 
-      
-      <div className="navLink">
-        {props.user ? (
-          <div>
-            <span className="welcome">WELCOME, {props.user.username} </span>
-          </div>
-        ) : (
-          <div>
-            <Link to="/login" className="link">
-              LOG IN
+    <NavbarContainer>
+      <nav>
+        <div className="navLink">
+          {props.user ? (
+            <Link to="" className="link" onClick={props.handleLogout}>
+              LOG OUT
             </Link>
+          ) : (
+            <div>
+              <Link to="/welcome" className="link">
+                ABOUT
+              </Link>
+            </div>
+          )}
+        </div>
 
-            <Link to="/signup" className="link">
-              SIGN UP
-            </Link>  
-          </div>
-        )}
-      </div>
+        <div className="navLink">
+          {props.user ? (
+            <div>
+              <span className="welcome">WELCOME, {props.user.username} </span>
+              <Link to={`/user/${props.user._id}`} className="link">
+                My Pins
+              </Link>
+            </div>
+          ) : (
+            <div>
+              <Link to="/login" className="link">
+                LOG IN
+              </Link>
 
-      <div className="navLink">
-        <Link to="/newpin" className="link">
-          ADD NEW PIN
-        </Link>
-      </div>
+              <Link to="/signup" className="link">
+                SIGN UP
+              </Link>
+            </div>
+          )}
+        </div>
 
-
-    </nav>
-  </NavbarContainer>
+        <div className="navLink">
+          <Link to="/newpin" className="link">
+            ADD NEW PIN
+          </Link>
+        </div>
+      </nav>
+    </NavbarContainer>
   );
 };
 

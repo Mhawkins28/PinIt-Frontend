@@ -14,6 +14,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Signup from "../SignupPage/SignupPage";
 import WelcomePage from "../WelcomePage/WelcomePage";
 import { FaWindows } from "react-icons/fa";
+import UserPage from "../UserPage/UserPage";
 
 function App() {
   const [user, setUser] = useState(
@@ -146,6 +147,22 @@ function App() {
               pinInfo={pinInfo}
               setPinInfo={setPinInfo}
               latLng={latLng}
+            />
+          }
+        />
+        <Route
+          path={`/user/:id`}
+          element={
+            <UserPage
+              allPins={allPins}
+              setAllPins={setAllPins}
+              user={user}
+              latLng={latLng}
+              setLatLng={setLatLng}
+              infoLatLng={infoLatLng}
+              setInfoLatLng={setInfoLatLng}
+              pinInfo={pinInfo}
+              setPinInfo={setPinInfo}
             />
           }
         />
