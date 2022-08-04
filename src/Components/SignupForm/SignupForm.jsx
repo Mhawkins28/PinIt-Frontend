@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
 import { useNavigate } from "react-router-dom";
+import "../NewPinForm/NewPinForm.css";
 
 const SignupForm = ({
   userSignup,
@@ -44,10 +45,9 @@ const SignupForm = ({
   };
 
   return (
-    <div>
+    // <div>
+      <form onSubmit={handleSubmit} className="sform">
       <header>Sign Up</header>
-      <form onSubmit={handleSubmit}>
-        <div>
           <div>
             <input
               type="text"
@@ -57,8 +57,7 @@ const SignupForm = ({
               onChange={handleChange}
             />
           </div>
-        </div>
-        <div>
+
           <div>
             <input
               type="password"
@@ -68,8 +67,7 @@ const SignupForm = ({
               onChange={handleChange}
             />
           </div>
-        </div>
-        <div>
+
           <div>
             <input
               type="password"
@@ -79,16 +77,14 @@ const SignupForm = ({
               onChange={handleChange}
             />
           </div>
-        </div>
-        <div>
-          <div>
-            <button disabled={isFormInvalid()}>Sign Up</button>
+
+          <div id="sbuttons">
+            <button className="button sbutton" disabled={isFormInvalid()}>Sign Up</button>
             &nbsp;&nbsp;
-            <Link to="/">Cancel</Link>
+            <Link to="/" id="cancel"><button className="button" >Cancel</button></Link>
           </div>
-        </div>
       </form>
-    </div>
+    // </div>
   );
 };
 
