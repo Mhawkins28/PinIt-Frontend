@@ -11,15 +11,14 @@ import {
 import { Link } from "react-router-dom";
 import "./Map.css";
 
-// const libraries = ["places"];
 const mapContainerStyle = {
   width: "100vw",
   height: "80vh",
-};
+}
 
 const center = {
-  lat: 41.3874,
-  lng: -2.1686,
+  lat: 40.743,
+  lng: -73.986,
 };
 
 const Map = ({
@@ -42,7 +41,7 @@ const Map = ({
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
-      zoom={2}
+      zoom={12}
       center={center}
       onClick={(e) => {
         setLatLng({
@@ -57,56 +56,76 @@ const Map = ({
             featureType: "poi",
             stylers: [{ visibility: "off" }],
           },
+          { elementType: "geometry", stylers: [{ color: "#3b3c3d" }] },
+          { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+          { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+          {
+            featureType: "administrative.locality",
+            elementType: "labels.text.fill",
+            stylers: [{ color: "#b8845d" }],
+          },
+          {
+            featureType: "poi.park",
+            elementType: "geometry",
+            stylers: [{ color: "#263e41" }],
+          },
           {
             featureType: "road",
-            elementType: "all",
-            stylers: [
-              {
-                lightness: 20,
-              },
-            ],
+            elementType: "geometry",
+            stylers: [{ color: "#38414e" }],
+          },
+          {
+            featureType: "road",
+            elementType: "geometry.stroke",
+            stylers: [{ color: "#212a37" }],
+          },
+          {
+            featureType: "road",
+            elementType: "labels.text.fill",
+            stylers: [{ color: "#9ca5b3" }],
           },
           {
             featureType: "road.highway",
             elementType: "geometry",
-            stylers: [
-              {
-                color: "#c5c6c6",
-              },
-            ],
+            stylers: [{ color: "#746855" }],
           },
           {
-            featureType: "road.arterial",
-            elementType: "geometry",
-            stylers: [
-              {
-                color: "#e4d7c6",
-              },
-            ],
+            featureType: "road.highway",
+            elementType: "geometry.stroke",
+            stylers: [{ color: "#1f2835" }],
           },
           {
-            featureType: "road.local",
+            featureType: "road.highway",
+            elementType: "labels.text.fill",
+            stylers: [{ color: "#f3d19c" }],
+          },
+          {
+            featureType: "transit",
             elementType: "geometry",
-            stylers: [
-              {
-                color: "#fbfaf7",
-              },
-            ],
+            stylers: [{ color: "#2f3948" }],
+          },
+          {
+            featureType: "transit.station",
+            elementType: "labels.text.fill",
+            stylers: [{ color: "#d59563" }],
           },
           {
             featureType: "water",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "on",
-              },
-              {
-                color: "#acbcc9",
-              },
-            ],
+            elementType: "geometry",
+            stylers: [{ color: "#182230" }],
+          },
+          {
+            featureType: "water",
+            elementType: "labels.text.fill",
+            stylers: [{ color: "#515c6d" }],
+          },
+          {
+            featureType: "water",
+            elementType: "labels.text.stroke",
+            stylers: [{ color: "#111d2f" }],
           },
         ],
-      }}
+      }}  
     >
       {allPins.map((location, i) => {
         return (

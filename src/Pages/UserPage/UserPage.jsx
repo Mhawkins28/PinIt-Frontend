@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from "react";
 import UserMap from "../../Components/Map/UserMap";
-
-const mapContainerStyle = {
-  width: "100vw",
-  height: "100vh",
-};
-
-const center = {
-  lat: 41.3874,
-  lng: -2.1686,
-};
+import '../../Pages/Home/Home.css'
 
 const UserPage = ({
   latLng,
@@ -31,19 +22,25 @@ const UserPage = ({
   }, []);
 
   return (
-    <UserMap
-      latLng={latLng}
-      setLatLng={setLatLng}
-      infoLatLng={infoLatLng}
-      setInfoLatLng={setInfoLatLng}
-      allPins={allPins}
-      setAllPins={setAllPins}
-      pinInfo={pinInfo}
-      setPinInfo={setPinInfo}
-      user={user}
-      userPins={userPins}
-      setUserPins={setUserPins}
-    />
+  <div> 
+    <div className="outerContainer">
+      <div className="map">
+        <UserMap
+        latLng={latLng}
+        setLatLng={setLatLng}
+        infoLatLng={infoLatLng}
+        setInfoLatLng={setInfoLatLng}
+        allPins={allPins}
+        setAllPins={setAllPins}
+        pinInfo={pinInfo}
+        setPinInfo={setPinInfo}
+        user={user}
+        userPins={userPins}
+        setUserPins={setUserPins}
+        />
+      </div>
+    </div>
+  </div>
   );
 };
 

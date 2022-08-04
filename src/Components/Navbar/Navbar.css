@@ -4,12 +4,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   position: sticky;
   top: 0;
   z-index: 999;
   font-family: "Unica One", cursive;
-  font-weight: 500;
 }
 
 .navbar-container {
@@ -22,7 +21,7 @@
 }
 
 .navbar-logo {
-  color: rgba(123, 38, 12, 0.87);
+  color: #c98a59;
   justify-self: start;
   margin-left: 40px;
   cursor: pointer;
@@ -30,7 +29,8 @@
   font-size: 2rem;
   display: flex;
   align-items: center;
-  letter-spacing: 0
+  letter-spacing: 0;
+  font-weight: 570;
 }
 
 .pin-icon {
@@ -41,7 +41,7 @@
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(4, auto);
-  grid-gap: 10px;
+  grid-gap: 5px;
   list-style: none;
   text-align: center;
   width: 60vw;
@@ -55,22 +55,26 @@
 }
 
 .link {
-  color: rgba(123, 38, 12, 0.87);
+  color: #c98a59;
+  /* font-weight: bold; */
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 1rem;
+  padding: .5rem;
 }
 
 .link:hover {
-  border-bottom: px solid rgb(75, 105, 126);
+  border-bottom: 3px solid rgb(75, 105, 126);
   /* transition: all 0.3s ease-in-out; */
 }
 
 .welcome {
-  color:rgba(111, 143, 199, 0.98);
-  font-weight: 500;
-  margin-right: 50px
+  color: #19283c;
+  /* font-weight: 600; */
+  display: flex;
+  align-items: center;
+  margin-right: 3rem;
+  letter-spacing: 1px;
 }
 
 /* @media screen and (max-width: 660px) {

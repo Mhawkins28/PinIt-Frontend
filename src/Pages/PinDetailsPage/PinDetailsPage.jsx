@@ -13,9 +13,6 @@ const PinDetails = ({
 
   const deletePin = (id) => {
     axios.delete(`http://localhost:3001/pins/${id}`).then((res) => {
-      // updatePinState(id)
-      // ^ From Coffee app
-
       navigate("/", { replace: true });
     });
   };

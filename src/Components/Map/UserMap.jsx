@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import {
   Googleap,
   useLoadScript,
@@ -11,15 +10,15 @@ import {
 import { Link } from "react-router-dom";
 import "./Map.css";
 
-// const libraries = ["places"];
+
 const mapContainerStyle = {
   width: "100vw",
-  height: "100vh",
+  height: "80vh",
 };
 
 const center = {
-  lat: 41.3874,
-  lng: -2.1686,
+  lat: 40.743,
+  lng: -73.986,
 };
 
 const UserMap = ({
@@ -45,7 +44,7 @@ const UserMap = ({
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
-      zoom={2}
+      zoom={12}
       center={center}
       onClick={(e) => {
         setLatLng({
@@ -59,6 +58,54 @@ const UserMap = ({
             elementType: "labels",
             featureType: "poi",
             stylers: [{ visibility: "off" }],
+          },
+          {
+            featureType: "road",
+            elementType: "all",
+            stylers: [
+              {
+                lightness: 20,
+              },
+            ],
+          },
+          {
+            featureType: "road.highway",
+            elementType: "geometry",
+            stylers: [
+              {
+                color: "#c5c6c6",
+              },
+            ],
+          },
+          {
+            featureType: "road.arterial",
+            elementType: "geometry",
+            stylers: [
+              {
+                color: "#e4d7c6",
+              },
+            ],
+          },
+          {
+            featureType: "road.local",
+            elementType: "geometry",
+            stylers: [
+              {
+                color: "#fbfaf7",
+              },
+            ],
+          },
+          {
+            featureType: "water",
+            elementType: "all",
+            stylers: [
+              {
+                visibility: "on",
+              },
+              {
+                color: "#acbcc9",
+              },
+            ],
           },
         ],
       }}
