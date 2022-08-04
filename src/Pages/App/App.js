@@ -118,12 +118,33 @@ function App() {
       </Route>
 
       <Route element={<WithNav />}>
-        <Route path="{`/pins/:id`}" element={<PinDetails
+        <Route path="/pins/:id" element={<PinDetails
               pinInfo={pinInfo}
               setAllPins={setAllPins}
               setPinInfo={setPinInfo}
               updateCoffeeState={updatePinState}
               user={user}
+            />} />
+      </Route>
+
+      <Route element={<WithNav />}>
+        <Route path={`/pins/edit/${pinInfo._id}`} element={<EditPin
+              pinInfo={pinInfo}
+              setPinInfo={setPinInfo}
+              latLng={latLng}
+            />} />
+      </Route>
+      <Route element={<WithNav />}>
+        <Route path="/user/:id" element={<UserPage
+              allPins={allPins}
+              setAllPins={setAllPins}
+              user={user}
+              latLng={latLng}
+              setLatLng={setLatLng}
+              infoLatLng={infoLatLng}
+              setInfoLatLng={setInfoLatLng}
+              pinInfo={pinInfo}
+              setPinInfo={setPinInfo}
             />} />
       </Route>
     </Routes>    
@@ -132,3 +153,10 @@ function App() {
 }
 
 export default App;
+
+
+
+      
+        
+
+
