@@ -78,16 +78,15 @@ function App() {
 
   return (
     <>
-      {/* <Navbar
-        handleLogout={handleLogout}
-        user={user}
-        userLogin={userLogin}
-        setUser={setUser}
-      /> */}
     <Routes>
 
       <Route element={<WithoutNav />}>
-        <Route path="/login" element={<NewPin latLng={latLng} user={user} />} />
+        <Route path="/login" element={<Login
+              setUser={setUser}
+              setUserLogin={setUserLogin}
+              userLogin={userLogin}
+              handleSignupOrLogin={handleSignupOrLogin}
+              />} />
       </Route>
       <Route element={<WithoutNav />}>
         <Route path="/welcome" element={<WelcomePage />} />
@@ -127,7 +126,7 @@ function App() {
               user={user}
             />} />
       </Route>
-    </Routes> 
+    </Routes>    
     </>
   );
 }
