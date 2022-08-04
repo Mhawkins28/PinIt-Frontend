@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import PlacesAutocomplete, {
@@ -9,13 +9,16 @@ import PlacesAutocomplete, {
 import ReactDOM from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { green } from "@mui/material/colors";
-import "./NewPinForm.css";
+// import "./NewPinForm.css";
+import styles from "./NewPinForm.css";
+import {useDropzone} from 'react-dropzone'
 
 const NewPinForm = ({ latLng, user }) => {
   const navigate = useNavigate();
+  
+  const [uploadedFiles, setUploadedFiles] = useState()
 
   // const [image, setImage] = useState("");
-  const [previewSource, setPreviewSource] = useState()
 
   const [formData, setFormData] = useState({
     name: "",
@@ -24,32 +27,37 @@ const NewPinForm = ({ latLng, user }) => {
     description: "",
     lng: latLng.lng,
     lat: latLng.lat,
-    image: '',
+    image: "",
     Owner: user?._id,
   });
 
-  const [fileInputState, setFileInputState] = useState('')
-  const [selectedFile, setSelectedFile] = useState('')
-  const handleFileInputChange = (e) => {
-    console.log(e.target.files[0])
-    const file = e.target.files[0]
-    previewFiles(file)
-  }
 
-  function previewFiles(file) {
-    const reader = new FileReader();
-    reader.readAsDataURL(file)
-    
-    reader.onloadend = () => {
-      setPreviewSource(reader.result)
-    }
-  }
-  // const [file, setFile] = useState("");
+  const onDrop = useCallback((acceptedFiles) => {
+    console.log(acceptedFiles)
+
+    const url = `https://api.cloudinary.com/v1_1/general-assembly-jrk/upload`
+
+
+    acceptedFiles.forEach(async (acceptedFile) => {
+      const imageData = new FormData()
+      imageData.append('file', acceptedFile)
+      imageData.append("upload_preset", 'unsigned_upload')
+      const response = await fetch(url, {
+        method: 'POST',
+        body: imageData
+      })
+
+      const data = await response.json()
+      console.log(data)
+      setUploadedFiles(data)
+      
+    })
+  }, []);
+
+  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop, accepts: 'image/*', multiple:false})
 
 
   const handleChange = (event) => {
-
-
     const { name, value } = event.target;
     setFormData((prevState) => {
       return {
@@ -57,42 +65,24 @@ const NewPinForm = ({ latLng, user }) => {
         [name]: value,
       };
     });
+    console.log(formData)
   };
 
   const handleSubmit = async (e) => {
-    console.log(formData);
-    console.log(JSON.stringify({data: previewSource}))
     e.preventDefault();
 
-    // if (!previewSource) {
-    //   axios.post("http://localhost:3001/pins", formData).then((res) => {
-    //     setFormData({
-    //       name: "",
-    //       address: "",
-    //       city: "",
-    //       description: "",
-    //       lng: latLng.lng,
-    //       lat: latLng.lat,
-    //       // image: image,
-    //       Owner: user._id,
-    //     });
-    //       navigate("/", { replace: true });
-    //   });
-    // } 
-    console.log(previewSource)
-
      axios.post("http://localhost:3001/pins", formData).then((res) => {
-      setFormData({
-        name: "",
-        address: "",
-        city: "",
-        description: "",
-        lng: latLng.lng,
-        lat: latLng.lat,
-        image: JSON.stringify({data: previewSource}),
-        Owner: user._id,
-      });
-        console.log(formData)
+       console.log(res)
+       setFormData({
+         name: "",
+         address: "",
+         city: "",
+         description: "",
+         lng: latLng.lng,
+         lat: latLng.lat,
+         image: '',
+         Owner: user._id,
+        });
         navigate("/", { replace: true });
     });
 
@@ -130,7 +120,7 @@ const NewPinForm = ({ latLng, user }) => {
       address: results[0].formatted_address,
       lat: latLng.lat,
       lng: latLng.lng,
-      image: JSON.stringify(previewSource),
+      image: '',
       Owner: user._id,
     });
   };
@@ -178,7 +168,7 @@ const NewPinForm = ({ latLng, user }) => {
           )}
         </PlacesAutocomplete>
 
-        <div className="pdiv">
+        <div>
           <label htmlFor="name">Name of location</label>
           <input
             type="text"
@@ -190,7 +180,7 @@ const NewPinForm = ({ latLng, user }) => {
           />
         </div>
 
-        <div className="pdiv">
+        <div>
           <label htmlFor="address">Address</label>
           <input
             type="text"
@@ -202,7 +192,7 @@ const NewPinForm = ({ latLng, user }) => {
           />
         </div>
 
-        <div className="pdiv">
+        <div>
           <label htmlFor="city">City</label>
           <input
             type="text"
@@ -214,7 +204,7 @@ const NewPinForm = ({ latLng, user }) => {
           />
         </div>
 
-        <div className="pdiv">
+        <div>
           <label htmlFor="description">Description</label>
           <textarea
             name="description"
@@ -245,15 +235,31 @@ const NewPinForm = ({ latLng, user }) => {
           onChange={handleChange}
         />
 
-        <label htmlFor="fileInput">Include a Photo!</label>
-        <input type="file" id="fileInput" name="image" onChange={handleFileInputChange} value={fileInputState}/>
+        <input
+          type="hidden"
+          name="image"
+          value={uploadedFiles?.secure_url}
+          onChange={handleChange}
+        />
+
+        {/* <label htmlFor="fileInput">Include a Photo!</label>
+        <input type="file" id="fileInput" name="image" onChange={handleFileInputChange} value={fileInputState}/> */}
+
+      <div {...getRootProps()} className={`dropzone`}>
+        <input {...getInputProps} value={uploadedFiles?.secure_url}/> 
+        DROP AN IMAGE HERE
+      </div>
+
+      
+
 
         <input type="submit" value="Mark It Down" className="button" />
       </form>
         
-        {previewSource && (
+        {/* {previewSource && (
           <img src={previewSource} alt="chosen" style={{height:'300px'}}/>
-        )}
+        )} */}
+
 
     </div>
   );

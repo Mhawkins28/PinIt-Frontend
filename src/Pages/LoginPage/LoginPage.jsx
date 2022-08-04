@@ -48,7 +48,6 @@ const Login = ({ setUser, setUserLogin, userLogin, handleSignupOrLogin }) => {
   };
 
   return (
-<<<<<<< Updated upstream
 
     // <StyledForm onSubmit={handleSubmit}>
     //   <h2>SIGN IN</h2>
@@ -101,17 +100,15 @@ const Login = ({ setUser, setUserLogin, userLogin, handleSignupOrLogin }) => {
     //   {/* <Link to="auth/google">SIGN IN WITH GOOGLE</Link> */}
     // </StyledForm>
 
-    <form onSubmit={handleSubmit} className="lform">
-         <h2>SIGN IN</h2>
+    // <form onSubmit={handleSubmit} className="lform">
+    //      <h2>SIGN IN</h2>
 
-         <br></br>
-      <div >
-=======
+    //      <br></br>
+    //   <div >
     <StyledForm onSubmit={handleSubmit}>
       <h2>SIGN IN</h2>
       <br></br>
       <div>
->>>>>>> Stashed changes
         <label htmlFor="username">Username</label>
         <input
           type="text"
@@ -146,7 +143,7 @@ const Login = ({ setUser, setUserLogin, userLogin, handleSignupOrLogin }) => {
           </a>
         </h4>
       </div>
-    </form>
+    </StyledForm>
   );
 };
 

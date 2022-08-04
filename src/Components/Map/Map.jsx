@@ -32,7 +32,7 @@ const Map = ({
   setPinInfo,
 }) => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyCZSCr-Wo0SYQZE-cqf0MNFzP9Qat0EYiY",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API,
   });
 
   if (loadError) return "Error loading maps";

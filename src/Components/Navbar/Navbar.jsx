@@ -63,7 +63,7 @@ import './Navbar.css';
         <li className="nav-item">
             {props.user ? (
             <div>
-              <Link to="" className="link" onClick={props.handleLogout}>
+              <Link to="/welcome" className="link" onClick={props.handleLogout}>
               LOG OUT
               </Link>
             </div>
