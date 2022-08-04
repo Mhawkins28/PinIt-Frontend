@@ -11,12 +11,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { green } from "@mui/material/colors";
 // import "./NewPinForm.css";
 import styles from "./NewPinForm.css";
-import {useDropzone} from 'react-dropzone'
+import { useDropzone } from "react-dropzone";
 
 const NewPinForm = ({ latLng, user }) => {
   const navigate = useNavigate();
-  
-  const [uploadedFiles, setUploadedFiles] = useState()
+
+  const [uploadedFiles, setUploadedFiles] = useState();
 
   // const [image, setImage] = useState("");
 
@@ -27,35 +27,44 @@ const NewPinForm = ({ latLng, user }) => {
     description: "",
     lng: latLng.lng,
     lat: latLng.lat,
-    image: "",
+    image: uploadedFiles?.secure_url,
     Owner: user?._id,
   });
 
+  useEffect(() => {
+    setFormData((prevState) => {
+      return {
+        ...prevState,
+        image: uploadedFiles?.secure_url,
+      };
+    });
+  }, [uploadedFiles]);
 
   const onDrop = useCallback((acceptedFiles) => {
-    console.log(acceptedFiles)
+    console.log(acceptedFiles);
 
-    const url = `https://api.cloudinary.com/v1_1/general-assembly-jrk/upload`
-
+    const url = `https://api.cloudinary.com/v1_1/general-assembly-jrk/upload`;
 
     acceptedFiles.forEach(async (acceptedFile) => {
-      const imageData = new FormData()
-      imageData.append('file', acceptedFile)
-      imageData.append("upload_preset", 'unsigned_upload')
+      const imageData = new FormData();
+      imageData.append("file", acceptedFile);
+      imageData.append("upload_preset", "unsigned_upload");
       const response = await fetch(url, {
-        method: 'POST',
-        body: imageData
-      })
+        method: "POST",
+        body: imageData,
+      });
 
-      const data = await response.json()
-      console.log(data)
-      setUploadedFiles(data)
-      
-    })
+      const data = await response.json();
+      console.log(data);
+      setUploadedFiles(data);
+    });
   }, []);
 
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop, accepts: 'image/*', multiple:false})
-
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accepts: "image/*",
+    multiple: false,
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -65,28 +74,25 @@ const NewPinForm = ({ latLng, user }) => {
         [name]: value,
       };
     });
-    console.log(formData)
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-     axios.post("http://localhost:3001/pins", formData).then((res) => {
-       console.log(res)
-       setFormData({
-         name: "",
-         address: "",
-         city: "",
-         description: "",
-         lng: latLng.lng,
-         lat: latLng.lat,
-         image: '',
-         Owner: user._id,
-        });
-        navigate("/", { replace: true });
+    axios.post("http://localhost:3001/pins", formData).then((res) => {
+      console.log(res);
+      setFormData({
+        name: "",
+        address: "",
+        city: "",
+        description: "",
+        lng: latLng.lng,
+        lat: latLng.lat,
+        image: "",
+        Owner: user._id,
+      });
+      navigate("/", { replace: true });
     });
-
-
   };
 
   //part of places api
@@ -120,7 +126,7 @@ const NewPinForm = ({ latLng, user }) => {
       address: results[0].formatted_address,
       lat: latLng.lat,
       lng: latLng.lng,
-      image: '',
+      image: "",
       Owner: user._id,
     });
   };
@@ -245,22 +251,17 @@ const NewPinForm = ({ latLng, user }) => {
         {/* <label htmlFor="fileInput">Include a Photo!</label>
         <input type="file" id="fileInput" name="image" onChange={handleFileInputChange} value={fileInputState}/> */}
 
-      <div {...getRootProps()} className={`dropzone`}>
-        <input {...getInputProps} value={uploadedFiles?.secure_url}/> 
-        DROP AN IMAGE HERE
-      </div>
-
-      
-
+        <div {...getRootProps()} className={`dropzone`}>
+          <input {...getInputProps} value={uploadedFiles?.secure_url} />
+          DROP AN IMAGE HERE
+        </div>
 
         <input type="submit" value="Mark It Down" className="button" />
       </form>
-        
-        {/* {previewSource && (
+
+      {/* {previewSource && (
           <img src={previewSource} alt="chosen" style={{height:'300px'}}/>
         )} */}
-
-
     </div>
   );
 };
