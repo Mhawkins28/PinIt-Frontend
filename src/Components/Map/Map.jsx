@@ -58,54 +58,54 @@ const Map = ({
             stylers: [{ visibility: "off" }],
           },
           {
-            "featureType": "road",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "lightness": 20
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "elementType": "geometry",
-            "stylers": [
-                {
-                    "color": "#c5c6c6"
-                }
-            ]
-        },
-        {
-            "featureType": "road.arterial",
-            "elementType": "geometry",
-            "stylers": [
-                {
-                    "color": "#e4d7c6"
-                }
-            ]
-        },
-        {
-            "featureType": "road.local",
-            "elementType": "geometry",
-            "stylers": [
-                {
-                    "color": "#fbfaf7"
-                }
-            ]
-        },
-        {
-            "featureType": "water",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "on"
-                },
-                {
-                    "color": "#acbcc9"
-                }
-              ]
-            }
-        ]
+            featureType: "road",
+            elementType: "all",
+            stylers: [
+              {
+                lightness: 20,
+              },
+            ],
+          },
+          {
+            featureType: "road.highway",
+            elementType: "geometry",
+            stylers: [
+              {
+                color: "#c5c6c6",
+              },
+            ],
+          },
+          {
+            featureType: "road.arterial",
+            elementType: "geometry",
+            stylers: [
+              {
+                color: "#e4d7c6",
+              },
+            ],
+          },
+          {
+            featureType: "road.local",
+            elementType: "geometry",
+            stylers: [
+              {
+                color: "#fbfaf7",
+              },
+            ],
+          },
+          {
+            featureType: "water",
+            elementType: "all",
+            stylers: [
+              {
+                visibility: "on",
+              },
+              {
+                color: "#acbcc9",
+              },
+            ],
+          },
+        ],
       }}
     >
       {allPins.map((location, i) => {
@@ -117,6 +117,7 @@ const Map = ({
               lng: location.lng,
             }}
             onClick={(e) => {
+              console.log(e);
               setLatLng({
                 lat: e.latLng.lat(),
                 lng: e.latLng.lng(),
@@ -145,7 +146,7 @@ const Map = ({
             });
           }}
         >
-          {latLng.lat === infoLatLng.lat && latLng.lat === infoLatLng.lat ? (
+          {latLng.lat === infoLatLng.lat && latLng.lng === infoLatLng.lng ? (
             <div>
               <div>{pinInfo.name}</div>
               <div>{pinInfo.address}</div>
