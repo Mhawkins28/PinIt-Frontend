@@ -79,6 +79,11 @@ As a user, I would like to have suggestions based on current pins.
 <br>
 As a user, I would like to be able to add images to my pins.
 
+### Icebox features
+
+- Multer / Cloudinary (Able to add multiple pictures for each pin.)
+- 
+
 ### Wireframes
 
 ![alt text](/Project-3-UI/public/placesWireframe.png)

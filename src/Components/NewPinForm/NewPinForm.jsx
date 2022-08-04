@@ -14,6 +14,9 @@ import "./NewPinForm.css";
 const NewPinForm = ({ latLng, user }) => {
   const navigate = useNavigate();
 
+  // const [image, setImage] = useState("");
+  const [previewSource, setPreviewSource] = useState()
+
   const [formData, setFormData] = useState({
     name: "",
     address: "",
@@ -21,10 +24,32 @@ const NewPinForm = ({ latLng, user }) => {
     description: "",
     lng: latLng.lng,
     lat: latLng.lat,
+    image: '',
     Owner: user?._id,
   });
 
+  const [fileInputState, setFileInputState] = useState('')
+  const [selectedFile, setSelectedFile] = useState('')
+  const handleFileInputChange = (e) => {
+    console.log(e.target.files[0])
+    const file = e.target.files[0]
+    previewFiles(file)
+  }
+
+  function previewFiles(file) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file)
+    
+    reader.onloadend = () => {
+      setPreviewSource(reader.result)
+    }
+  }
+  // const [file, setFile] = useState("");
+
+
   const handleChange = (event) => {
+
+
     const { name, value } = event.target;
     setFormData((prevState) => {
       return {
@@ -34,10 +59,29 @@ const NewPinForm = ({ latLng, user }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     console.log(formData);
+    console.log(JSON.stringify({data: previewSource}))
     e.preventDefault();
-    axios.post("http://localhost:3001/pins", formData).then((res) => {
+
+    // if (!previewSource) {
+    //   axios.post("http://localhost:3001/pins", formData).then((res) => {
+    //     setFormData({
+    //       name: "",
+    //       address: "",
+    //       city: "",
+    //       description: "",
+    //       lng: latLng.lng,
+    //       lat: latLng.lat,
+    //       // image: image,
+    //       Owner: user._id,
+    //     });
+    //       navigate("/", { replace: true });
+    //   });
+    // } 
+    console.log(previewSource)
+
+     axios.post("http://localhost:3001/pins", formData).then((res) => {
       setFormData({
         name: "",
         address: "",
@@ -45,10 +89,14 @@ const NewPinForm = ({ latLng, user }) => {
         description: "",
         lng: latLng.lng,
         lat: latLng.lat,
+        image: JSON.stringify({data: previewSource}),
         Owner: user._id,
       });
-      navigate("/", { replace: true });
+        console.log(formData)
+        navigate("/", { replace: true });
     });
+
+
   };
 
   //part of places api
@@ -82,6 +130,7 @@ const NewPinForm = ({ latLng, user }) => {
       address: results[0].formatted_address,
       lat: latLng.lat,
       lng: latLng.lng,
+      image: JSON.stringify(previewSource),
       Owner: user._id,
     });
   };
@@ -196,8 +245,16 @@ const NewPinForm = ({ latLng, user }) => {
           onChange={handleChange}
         />
 
+        <label htmlFor="fileInput">Include a Photo!</label>
+        <input type="file" id="fileInput" name="image" onChange={handleFileInputChange} value={fileInputState}/>
+
         <input type="submit" value="Mark It Down" className="button" />
       </form>
+        
+        {previewSource && (
+          <img src={previewSource} alt="chosen" style={{height:'300px'}}/>
+        )}
+
     </div>
   );
 };
