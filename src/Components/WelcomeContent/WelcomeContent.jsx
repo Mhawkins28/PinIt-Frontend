@@ -14,7 +14,7 @@ function WelcomeContent() {
   return (
     <div className="video-container">
       <video src={Video} loop autoPlay muted />
-      <div class="main">
+      <div className="main">
         <h2>Get off the beaten Path </h2>
         <h1>Find Adventure</h1>
         <p>
@@ -22,13 +22,13 @@ function WelcomeContent() {
           explore different cities in a new way{" "}
         </p>
 
-        <div class="buttons">
-          <button class="btn1">
+        <div className="buttons">
+          <button className="btn1">
             <a href="/login" onClick={setGeoLoc()}>
               LOGIN
             </a>
           </button>
-          <button class="btn2">
+          <button className="btn2">
             <a href="/signup" onClick={setGeoLoc()}>
               SIGN-UP
             </a>
