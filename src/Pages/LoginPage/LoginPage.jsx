@@ -41,7 +41,7 @@ const Login = ({
       await userService.login(userLogin);
       // Successfully signed up - show GamePage
       await handleSignupOrLogin();
-      navigate("/");
+      navigate("/home");
       setUserLogin({
         username: "",
         password: "",
