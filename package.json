@@ -17,6 +17,7 @@
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.1",
+    "icons": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
     "react": "^18.2.0",
     "react-burger-menu": "^3.0.8",
@@ -26,6 +27,7 @@
     "react-places-autocomplete": "^7.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "sass": "^1.54.2",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },

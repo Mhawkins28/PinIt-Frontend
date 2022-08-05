@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.35rem;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -24,18 +23,19 @@
   color: #c98a59;
   justify-self: start;
   margin-left: 40px;
+  margin-right:40px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 3.5rem;
   display: flex;
   align-items: center;
-  letter-spacing: 0;
   font-weight: 570;
+  
 }
 
-.pin-icon {
-  margin-left: 0.5rem;
-  font-size: 1.8rem;
+.pinIcon {
+  margin-left: 0.75rem;
+  font-size: 3rem;
 }
 
 .nav-menu {
@@ -56,11 +56,11 @@
 
 .link {
   color: #c98a59;
-  /* font-weight: bold; */
+  font-size: 2rem;
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: .5rem;
+  padding: .75rem;
 }
 
 .link:hover {
@@ -70,91 +70,18 @@
 
 .welcome {
   color: #19283c;
-  /* font-weight: 600; */
+  font-size: 2rem;
   display: flex;
   align-items: center;
   margin-right: 3rem;
   letter-spacing: 1px;
 }
 
-/* @media screen and (max-width: 660px) {
-  .NavbarItems {
-    position: relative;
+@media screen and (max-width: 637px) {
+  .link, .welcome {
+    font-size:1.5rem;
   }
-
-  .nav-menu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 90vh;
-    position: absolute;
-    top: 80px;
-    left: -100%;
-    opacity: 1;
-    transition: all 0.5s ease;
+  .pinIcon,  .navbar-logo {
+    font-size: 2.5rem;
   }
-
-  .nav-menu.active {
-    background: #242222;
-    left: 0;
-    opacity: 1;
-    transition: all 0.5s ease;
-    z-index: 1;
-  }
-
-  .nav-links {
-    text-align: center;
-    padding: 2rem;
-    width: 100%;
-    display: table;
-  }
-
-  .nav-links:hover {
-    background-color: #fff;
-    color: #242424;
-    border-radius: 0;
-  }
-
-  .navbar-logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(25%, 50%);
-  }
-
-  .menu-icon {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.8rem;
-    cursor: pointer;
-  }
-
-  .fa-times {
-    color: rgba(123, 38, 12, 0.87);
-    font-size: 2rem;
-  }
-
-  .nav-links-mobile {
-    display: block;
-    text-align: center;
-    margin: 2rem auto;
-    border-radius: 4px;
-    width: 80%;
-    text-decoration: none;
-    font-size: 1.5rem;
-    background-color: transparent;
-    color: rgba(123, 38, 12, 0.87);
-    padding: 14px 20px;
-    border: 1px solid #fff;
-    transition: all 0.3s ease-out;
-  }
-
-  .nav-links-mobile:hover {
-    background: #fff;
-    color: #242424;
-    transition: 250ms;
-  }
-} */
+}

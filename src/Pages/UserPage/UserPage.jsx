@@ -40,8 +40,8 @@ const UserPage = ({
         />
       </div>
     </div>
-  </div>
+  </div> 
   );
-};
+}; 
 
 export default UserPage;

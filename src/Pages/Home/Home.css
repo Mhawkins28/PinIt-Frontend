@@ -1,5 +1,8 @@
 /* still testing out designs and how to style this page. so style tbd */
-
+body {
+  /* background-image: linear-gradient(135deg, #154348fe, #011e62);
+  position: relative; */
+}
 
 .outerContainer {
   display: flex;
