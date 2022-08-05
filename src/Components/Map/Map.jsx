@@ -60,6 +60,7 @@ const Map = ({
         });
       }}
       options={{
+        mapTypeId: "terrain",
         styles: [
           {
             elementType: "labels",
