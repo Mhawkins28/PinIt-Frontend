@@ -99,7 +99,7 @@ function App() {
         </Route>
         <Route element={<WithoutNav />}>
           <Route
-            path="/welcome"
+            path="/"
             element={<Welcome user={user} setUser={setUser} />}
           />
         </Route>
@@ -131,7 +131,7 @@ function App() {
           }
         >
           <Route
-            path="/"
+            path="/home"
             element={
               <Home
                 allPins={allPins}
