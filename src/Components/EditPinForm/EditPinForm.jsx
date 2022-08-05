@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import PlacesAutocomplete, {
@@ -10,9 +10,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
   import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
   import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import "../NewPinForm/NewPinForm.css";
+import { useDropzone } from "react-dropzone";
 
-const EditPinForm = ({ pinInfo, setPinInfo, latLng }) => {
+const EditPinForm = ({ pinInfo, setPinInfo, latLng, user }) => {
   const navigate = useNavigate();
+
+  const [uploadedFiles, setUploadedFiles] = useState();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -21,7 +24,28 @@ const EditPinForm = ({ pinInfo, setPinInfo, latLng }) => {
     description: "",
     lng: latLng.lng,
     lat: latLng.lat,
+    image: uploadedFiles?.secure_url,
+    image_id: uploadedFiles?.public_id,
+    Owner: user?._id,
   });
+
+  useEffect(() => {
+    setFormData((prevState) => {
+      return {
+        ...prevState,
+        image: uploadedFiles?.secure_url,
+      };
+    });
+  }, [uploadedFiles]);
+
+  useEffect(() => {
+    setFormData((prevState) => {
+      return {
+        ...prevState,
+        image_id: uploadedFiles?.public_id,
+      };
+    });
+  }, [uploadedFiles]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -33,12 +57,48 @@ const EditPinForm = ({ pinInfo, setPinInfo, latLng }) => {
     });
   };
 
+  const onDrop = useCallback((acceptedFiles) => {
+    console.log(acceptedFiles);
+
+    const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/upload`;
+
+    acceptedFiles.forEach(async (acceptedFile) => {
+      const imageData = new FormData();
+      imageData.append("file", acceptedFile);
+      imageData.append("upload_preset", process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET);
+      const response = await fetch(url, {
+        method: "POST",
+        body: imageData,
+      });
+
+      const data = await response.json();
+      console.log(data);
+      setUploadedFiles(data);
+    });
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accepts: "image/*",
+    multiple: false,
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:3001/pins/${pinInfo._id}`, formData)
+      .put(`https://jmmz-ga-p3places-backend.herokuapp.com/pins/${pinInfo._id}`, formData)
       .then((res) => {
-        setFormData({ name: "", address: "", city: "", description: "" });
+        setFormData({
+          name: "",
+          address: "",
+          city: "",
+          description: "",
+          lng: latLng.lng,
+          lat: latLng.lat,
+          image: "",
+          image_id: "",
+          Owner: user._id,
+        });
         navigate("/", { replace: true });
       });
   };
@@ -178,6 +238,23 @@ const EditPinForm = ({ pinInfo, setPinInfo, latLng }) => {
               value={latLng.lng}
               onChange={handleChange}
             />
+            
+            <input
+              type="hidden"
+              name="image"
+              value={uploadedFiles?.secure_url}
+              onChange={handleChange}
+            />
+
+
+        <div {...getRootProps()} className={`dropzone`}>
+          <input
+            {...getInputProps}
+            value={uploadedFiles?.secure_url}
+            type="hidden"
+          />
+          DROP AN IMAGE HERE
+        </div>
 
             <input type="submit" value="Mark It Down" className="button ebutton"/>
         </form>

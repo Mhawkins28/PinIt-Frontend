@@ -213,6 +213,7 @@ function App() {
                 pinInfo={pinInfo}
                 setPinInfo={setPinInfo}
                 latLng={latLng}
+                user={user}
               />
             }
           />

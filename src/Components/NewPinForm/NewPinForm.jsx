@@ -261,7 +261,7 @@ const NewPinForm = ({ latLng, user }) => {
 
         <input
           type="hidden"
-          name="image"
+          name="image_id"
           value={uploadedFiles?.public_id}
           onChange={handleChange}
         />
