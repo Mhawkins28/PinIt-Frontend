@@ -8,7 +8,7 @@ const Navbar = ({ handleLogout, user, isLoggedIn, setIsLoggedIn }) => {
     <>
       <nav className="navbar">
         <div className="navbar-container">
-          <Link to="/" className="navbar-logo">
+          <Link to="/home" className="navbar-logo">
             PIN
             <FaMapPin class="pinIcon" />T
           </Link>
