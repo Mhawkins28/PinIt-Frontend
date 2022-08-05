@@ -11,14 +11,20 @@ import {
 import { Link } from "react-router-dom";
 import "./Map.css";
 
+// let center = {
+//   lat: position.coords.latitude,
+//   lng: position.coords.longitude,
+// };
+const setGeoLoc = () => {
+  navigator.geolocation.getCurrentPosition((position) => {
+    sessionStorage.setItem("lat", JSON.stringify(position.coords.latitude));
+    sessionStorage.setItem("lng", JSON.stringify(position.coords.longitude));
+  });
+};
+
 const mapContainerStyle = {
   width: "100vw",
   height: "80vh",
-}
-
-const center = {
-  lat: 40.743,
-  lng: -73.986,
 };
 
 const Map = ({
@@ -31,6 +37,7 @@ const Map = ({
   pinInfo,
   setPinInfo,
 }) => {
+  setGeoLoc();
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API,
   });
@@ -41,8 +48,11 @@ const Map = ({
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
-      zoom={12}
-      center={center}
+      zoom={10}
+      center={{
+        lat: JSON.parse(window.sessionStorage.getItem("lat")),
+        lng: JSON.parse(window.sessionStorage.getItem("lng")),
+      }}
       onClick={(e) => {
         setLatLng({
           lat: e.latLng.lat(),
@@ -57,7 +67,10 @@ const Map = ({
             stylers: [{ visibility: "off" }],
           },
           { elementType: "geometry", stylers: [{ color: "#3b3c3d" }] },
-          { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+          {
+            elementType: "labels.text.stroke",
+            stylers: [{ color: "#242f3e" }],
+          },
           { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
           {
             featureType: "administrative.locality",
@@ -125,7 +138,7 @@ const Map = ({
             stylers: [{ color: "#111d2f" }],
           },
         ],
-      }}  
+      }}
     >
       {allPins.map((location, i) => {
         return (
