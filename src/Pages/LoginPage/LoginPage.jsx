@@ -112,7 +112,6 @@ const Login = ({
     //   <div >
     <form className="lform" onSubmit={handleSubmit}>
       <h2>SIGN IN</h2>
-      <br></br>
       <div>
         <label htmlFor="username">Username</label>
         <input
@@ -133,16 +132,18 @@ const Login = ({
         />
       </div>
 
-      <input type="submit" className="button" value="Log In" />
+      <input type="submit"
+      className="button lbutton" 
+      value="Log In"  />
 
       <br></br>
       <div className="register">
         Haven't logged-in before?
-        <h4>
+        <h4 className="here">
           Register
           <a href="/signup">
             {" "}
-            <em>Here</em>
+            <em>here</em>
           </a>
         </h4>
       </div>

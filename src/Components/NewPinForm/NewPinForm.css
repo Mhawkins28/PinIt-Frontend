@@ -11,7 +11,8 @@ form {
   flex-direction: column;
   padding: 10px;
   border: solid black 1px;
-  box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.4);
+  /* box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.4); */
+  box-shadow: 10px 10px 10px #deb89b;
   width: 50vw;
 }
 
@@ -52,13 +53,14 @@ form div {
 
 form div label {
   font-size: 1.5rem;
+  width: 70%;
 }
 form div input {
   margin: 0 0 0 20px;
   border-radius: 10px;
   /* width: 200px; */
-  box-shadow: 2px 2px 2px black;
-  width: 200px;
+  box-shadow: 2px 2px 2px #deb89b;
+  width: 100%;
 }
 
 form div #description {
@@ -67,7 +69,7 @@ form div #description {
   margin: 0 0 0 20px;
   border-radius: 10px;
   /* width: 200px; */
-  box-shadow: 2px 2px 2px black;
+  box-shadow: 2px 2px 2px #deb89b;
   overflow-y: visible;
   resize: none;
 }
@@ -77,8 +79,9 @@ form .button {
   text-align: center;
   margin: auto;
   border-radius: 10px;
-  box-shadow: 2px 2px 2px black;
-  width: 200px;
+  box-shadow: 2px 2px 2px #deb89b;
+  width: 100%;
+  /* background-color: #deb89b; */
 }
 
 form .button:hover {
@@ -92,6 +95,17 @@ form .button:active {
 }
 
 /* New Pin */
+#pform {
+  /* border: red 1px solid; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#pinputs {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+}
 
 .pdiv {
   justify-content: space-between;
@@ -99,6 +113,7 @@ form .button:active {
 
 /* Login */
 .lform {
+  margin-top: 70px;
   align-items: center;
 }
 
@@ -106,8 +121,27 @@ form .register h4 a em {
   text-decoration: none;
 }
 
+.button.lbutton {
+  margin-top: 20px;
+}
+
+.here {
+  margin: 0;
+  margin-left: 10px;
+}
+
+.here a {
+  text-decoration: none;
+  color: #c98a59;
+}
+
+.button.pbutton {
+  width: 25%;
+  margin-top: 20px;
+}
+
 /* Signup */
-#sbuttons {
+.sform header #sbuttons {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,7 +149,7 @@ form .register h4 a em {
 }
 
 .button.sbutton {
-  width: 100px;
+  width: 100%;
 }
 
 #cancel {
@@ -123,13 +157,14 @@ form .register h4 a em {
 }
 
 #cancel .button {
-  width: 100px;
+  width: 100%;
 }
 
 .sdiv {
 }
 
 .sform {
+  margin-top: 70px;
   align-items: center;
 }
 .sform div input {
@@ -138,6 +173,23 @@ form .register h4 a em {
 }
 
 /* Edit */
+.button.ebutton {
+  width: 25%;
+  margin-top: 20px;
+}
+
+#eform {
+  /* border: red 1px solid; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#einputs {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+}
 
 .ediv {
   justify-content: space-between;
@@ -154,8 +206,81 @@ form .register h4 a em {
   font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
+  width: 80%;
 }
 
 .active {
   border: 2px solid rebeccapurple;
+}
+
+/* Media Queries */
+@media screen and (max-width: 500px) {
+  .lform div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lform div input {
+    margin-left: 0;
+  }
+
+  #pform {
+    width: 100vw;
+    padding: 0;
+  }
+
+  #pinputs {
+    width: 90%;
+    /* border: red 1px solid; */
+  }
+
+  #pform .pdiv {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #pform .pdiv input {
+    margin-left: 0;
+    width: 50%;
+  }
+  #pform .pdiv label {
+    text-align: center;
+  }
+
+  .button.pbutton {
+    margin-bottom: 20px;
+  }
+
+  #eform {
+    width: 100vw;
+    padding: 0;
+  }
+
+  #einputs {
+    width: 90%;
+    /* border: red 1px solid; */
+  }
+
+  #eform .ediv {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #eform .ediv input {
+    margin-left: 0;
+    width: 50%;
+  }
+  #eform .ediv label {
+    text-align: center;
+  }
+  .button.ebutton {
+    margin-bottom: 20px;
+  }
+
+  .sform div input {
+    margin: 0;
+  }
 }

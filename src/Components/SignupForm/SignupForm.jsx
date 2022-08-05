@@ -47,7 +47,7 @@ const SignupForm = ({
   return (
     // <div>
       <form onSubmit={handleSubmit} className="sform">
-      <header>Sign Up</header>
+      <header><h2>SIGN UP</h2></header>
           <div>
             <input
               type="text"

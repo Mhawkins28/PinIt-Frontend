@@ -5,6 +5,10 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
+import { library } from '@fortawesome/fontawesome-svg-core'
+  import { fab } from '@fortawesome/free-brands-svg-icons'
+  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+  import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import "../NewPinForm/NewPinForm.css";
 
 const EditPinForm = ({ pinInfo, setPinInfo, latLng }) => {
@@ -73,7 +77,7 @@ const EditPinForm = ({ pinInfo, setPinInfo, latLng }) => {
 
   return (
     <div className="pins">
-      <form onSubmit={handleSubmit}>
+      <form id="eform" onSubmit={handleSubmit}>
         <PlacesAutocomplete
           value={address}
           onChange={setAddress}
@@ -82,6 +86,7 @@ const EditPinForm = ({ pinInfo, setPinInfo, latLng }) => {
           {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
             <div id="ac">
               <div className="ac">
+              <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
               <input {...getInputProps({ placeholder: "Type Address" })} />
               </div>
 
@@ -110,52 +115,56 @@ const EditPinForm = ({ pinInfo, setPinInfo, latLng }) => {
 
         {/* Form should populate the current pin being edited's information */}
         {/* value can be pinInfo.xxxx but take out the search bar. User will just have to edit whats currently avaiable. If user wants a whole new pin, they can delete this pin and create a new one. */}
-         <div className="ediv">
-            <label htmlFor="name">Name of location</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder={pinInfo.name}
-              value={locationName.length < 1 ? formData.name : locationName}
-              onChange={handleChange}
-            />
-         </div>
 
-         <div className="ediv">
-            <label htmlFor="address">Address</label>
-            <input
-              type="text"
-              name="address"
-              id="address"
-              placeholder={pinInfo.address}
-              value={address.length < 1 ? formData.address : address}
-              onChange={handleChange}
-            />
-         </div>
-
-         <div className="ediv">
-            <label htmlFor="city">City</label>
-            <input
-              type="text"
-              name="city"
-              id="city"
-              placeholder={pinInfo.city}
-              value={city.length < 1 ? formData.city : city}
-              onChange={handleChange}
-            />
-         </div>
+        <div id="einputs">
+          
+          <div className="ediv">
+              <label htmlFor="name">Name of location</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder={pinInfo.name}
+                value={locationName.length < 1 ? formData.name : locationName}
+                onChange={handleChange}
+              />
+          </div>
 
           <div className="ediv">
-            <label htmlFor="description">Description</label>
-            <input
-              type="text"
-              name="description"
-              id="description"
-              placeholder={pinInfo.description}
-              onChange={handleChange}
-            />
+              <label htmlFor="address">Address</label>
+              <input
+                type="text"
+                name="address"
+                id="address"
+                placeholder={pinInfo.address}
+                value={address.length < 1 ? formData.address : address}
+                onChange={handleChange}
+              />
           </div>
+
+          <div className="ediv">
+              <label htmlFor="city">City</label>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                placeholder={pinInfo.city}
+                value={city.length < 1 ? formData.city : city}
+                onChange={handleChange}
+              />
+          </div>
+
+            <div className="ediv">
+              <label htmlFor="description">Description</label>
+              <input
+                type="text"
+                name="description"
+                id="description"
+                placeholder={pinInfo.description}
+                onChange={handleChange}
+              />
+            </div>
+        </div>
 
             <input
               type="hidden"
@@ -170,7 +179,7 @@ const EditPinForm = ({ pinInfo, setPinInfo, latLng }) => {
               onChange={handleChange}
             />
 
-            <input type="submit" value="Mark It Down" className="button"/>
+            <input type="submit" value="Mark It Down" className="button ebutton"/>
         </form>
     </div>
   );

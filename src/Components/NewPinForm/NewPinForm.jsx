@@ -7,11 +7,15 @@ import PlacesAutocomplete, {
   getLatLng,
 } from "react-places-autocomplete";
 import ReactDOM from "react-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from '@fortawesome/fontawesome-svg-core'
+  import { fab } from '@fortawesome/free-brands-svg-icons'
+  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+  import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { green } from "@mui/material/colors";
-// import "./NewPinForm.css";
 import styles from "./NewPinForm.css";
 import { useDropzone } from "react-dropzone";
+
+library.add(fab, faMagnifyingGlass)
 
 const NewPinForm = ({ latLng, user }) => {
   const navigate = useNavigate();
@@ -133,7 +137,7 @@ const NewPinForm = ({ latLng, user }) => {
 
   return (
     <div className="pins">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} id="pform">
         <PlacesAutocomplete
           value={address}
           onChange={setAddress}
@@ -149,7 +153,7 @@ const NewPinForm = ({ latLng, user }) => {
               {/* <p>Lattitude: {coordinates.lat}</p> 
          <p>Longitude: {coordinates.lng}</p> */}
               <div className="ac">
-                <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+              <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
                 <input {...getInputProps({ placeholder: "Search Address" })} />
               </div>
 
@@ -174,49 +178,51 @@ const NewPinForm = ({ latLng, user }) => {
           )}
         </PlacesAutocomplete>
 
-        <div className="pdiv">
-          <label htmlFor="name">Name of location</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            // value={locationName.length < 1 ? formData.name : locationName}
-            value={formData.name}
-            onChange={handleChange}
-          />
-        </div>
+        <div id="pinputs">
+          <div className="pdiv">
+            <label htmlFor="name">Name of location</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              // value={locationName.length < 1 ? formData.name : locationName}
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
 
-        <div className="pdiv">
-          <label htmlFor="address">Address</label>
-          <input
-            type="text"
-            name="address"
-            id="address"
-            // value={address.length < 1 ? formData.address : address}
-            value={formData.address}
-            onChange={handleChange}
-          />
-        </div>
+          <div className="pdiv">
+            <label htmlFor="address">Address</label>
+            <input
+              type="text"
+              name="address"
+              id="address"
+              // value={address.length < 1 ? formData.address : address}
+              value={formData.address}
+              onChange={handleChange}
+            />
+          </div>
 
-        <div className="pdiv">
-          <label htmlFor="city">City</label>
-          <input
-            type="text"
-            name="city"
-            id="city"
-            // value={city.length < 1 ? formData.city : city}
-            value={formData.city}
-            onChange={handleChange}
-          />
-        </div>
+          <div className="pdiv">
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              name="city"
+              id="city"
+              // value={city.length < 1 ? formData.city : city}
+              value={formData.city}
+              onChange={handleChange}
+            />
+          </div>
 
-        <div className="pdiv">
-          <label htmlFor="description">Description</label>
-          <textarea
-            name="description"
-            id="description"
-            onChange={handleChange}
-          />
+          <div className="pdiv">
+            <label htmlFor="description">Description</label>
+            <textarea
+              name="description"
+              id="description"
+              onChange={handleChange}
+            />
+          </div>
         </div>
 
         {/* <input type="hidden" name="lat" value={!coordinates.lat ? latLng.lat : coordinates.lat}/>
@@ -256,7 +262,7 @@ const NewPinForm = ({ latLng, user }) => {
           DROP AN IMAGE HERE
         </div>
 
-        <input type="submit" value="Mark It Down" className="button" />
+        <input type="submit" value="Mark It Down" className="button pbutton" />
       </form>
 
       {/* {previewSource && (
