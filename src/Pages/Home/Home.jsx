@@ -15,7 +15,7 @@ const Home = ({
   setPinInfo,
 }) => {
   useEffect(() => {
-    fetch(`https://jmmz-ga-p3places-backend.herokuapp.com/pins`)
+    fetch(`https://jmmz-ga-p3places-backend.herokuapp.com/pins/home`)
       .then((res) => res.json())
       .then((data) => setAllPins(data));
   }, []);
