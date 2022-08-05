@@ -7,15 +7,15 @@ import PlacesAutocomplete, {
   getLatLng,
 } from "react-places-autocomplete";
 import ReactDOM from "react-dom";
-import { library } from '@fortawesome/fontawesome-svg-core'
-  import { fab } from '@fortawesome/free-brands-svg-icons'
-  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-  import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { green } from "@mui/material/colors";
 import styles from "./NewPinForm.css";
 import { useDropzone } from "react-dropzone";
 
-library.add(fab, faMagnifyingGlass)
+library.add(fab, faMagnifyingGlass);
 
 const NewPinForm = ({ latLng, user }) => {
   const navigate = useNavigate();
@@ -153,23 +153,23 @@ const NewPinForm = ({ latLng, user }) => {
               {/* <p>Lattitude: {coordinates.lat}</p> 
          <p>Longitude: {coordinates.lng}</p> */}
               <div className="ac">
-              <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+                <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
                 <input {...getInputProps({ placeholder: "Search Address" })} />
               </div>
 
               <div>
                 {loading ? <div>...loading</div> : null}
-                {suggestions.map((suggestion) => {
+                {suggestions.map((suggestion, i) => {
                   const style = {
                     backgroundColor: suggestion.active ? "#c0ffee" : "#fff",
                   };
 
-                  console.log(suggestion.formattedSuggestion.mainText);
-
                   return (
-                    <div {...getSuggestionItemProps(suggestion, { style })}>
-                      {" "}
-                      {suggestion.description}{" "}
+                    <div
+                      key={i}
+                      {...getSuggestionItemProps(suggestion, { style })}
+                    >
+                      {suggestion.description}
                     </div>
                   );
                 })}
@@ -258,7 +258,11 @@ const NewPinForm = ({ latLng, user }) => {
         <input type="file" id="fileInput" name="image" onChange={handleFileInputChange} value={fileInputState}/> */}
 
         <div {...getRootProps()} className={`dropzone`}>
-          <input {...getInputProps} value={uploadedFiles?.secure_url} type="hidden" />
+          <input
+            {...getInputProps}
+            value={uploadedFiles?.secure_url}
+            type="hidden"
+          />
           DROP AN IMAGE HERE
         </div>
 
