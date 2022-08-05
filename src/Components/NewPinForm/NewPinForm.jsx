@@ -104,7 +104,7 @@ const NewPinForm = ({ latLng, user }) => {
         image_id: "",
         Owner: user._id,
       });
-      navigate("/", { replace: true });
+      navigate("/home", { replace: true });
     });
   };
 

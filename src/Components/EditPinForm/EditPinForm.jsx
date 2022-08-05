@@ -99,7 +99,7 @@ const EditPinForm = ({ pinInfo, setPinInfo, latLng, user }) => {
           image_id: "",
           Owner: user._id,
         });
-        navigate("/", { replace: true });
+        navigate("/home", { replace: true });
       });
   };
 
@@ -238,7 +238,7 @@ const EditPinForm = ({ pinInfo, setPinInfo, latLng, user }) => {
               value={latLng.lng}
               onChange={handleChange}
             />
-            
+
             <input
               type="hidden"
               name="image"
