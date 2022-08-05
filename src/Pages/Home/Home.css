@@ -11,11 +11,20 @@ body {
   flex-direction: column;
 }
 
-.outerContainer .userHeader {
+h2 {
+  margin: 5px
+}
+
+.userHeader {
   color: #19283c;
-  font-size: .75rem;
-  margin-top: 10px;
+  font-size: 1rem;
+  margin-top: 25px;
   display: flex;
+  justify-content: flex-start;
+  }
+
+  h2 {
+    margin: 5px
   }
 
 .map {
@@ -24,7 +33,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 25px;
+  margin-top: 15px;
   margin-bottom: 30px;
   box-shadow: 4px 5px 7px rgba(81, 71, 63, 0.851);
 }

@@ -23,6 +23,10 @@ const Home = ({
   return (
     <div>
       <Sidebar allPins={allPins} pinInfo={pinInfo} setPinInfo={setPinInfo} />
+
+    <div><h2><br></br></h2></div>
+ {/* I am taking a short cut for now to fix a spacing problem. I can change this with css later */}
+
       <div className="outerContainer">
         <div className="map">
           <Map
