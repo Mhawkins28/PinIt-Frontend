@@ -252,7 +252,7 @@ const NewPinForm = ({ latLng, user }) => {
         <input type="file" id="fileInput" name="image" onChange={handleFileInputChange} value={fileInputState}/> */}
 
         <div {...getRootProps()} className={`dropzone`}>
-          <input {...getInputProps} value={uploadedFiles?.secure_url} />
+          <input {...getInputProps} value={uploadedFiles?.secure_url} type="hidden" />
           DROP AN IMAGE HERE
         </div>
 
