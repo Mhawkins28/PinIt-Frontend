@@ -1,14 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-size: 12px;
-}
-
 .pins {
   display: flex;
   /* border: red solid 1px; */
   flex-flow: column;
-  transform: translate(0, 100%);
+  min-width: 50vw;
 }
 
 form {
@@ -18,10 +12,11 @@ form {
   padding: 10px;
   border: solid black 1px;
   box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.4);
+  width: 50vw;
 }
 
 form #ac {
-  /* text-align: center; */
+  text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -50,7 +45,6 @@ form div .ac input {
 form div {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   margin: 10px 0;
 
   /* width: 200px; */
@@ -98,6 +92,7 @@ form .button:active {
 }
 
 /* New Pin */
+
 .pdiv {
   justify-content: space-between;
 }
@@ -144,10 +139,9 @@ form .register h4 a em {
 
 /* Edit */
 
-
-
-
-
+.ediv {
+  justify-content: space-between;
+}
 
 .dropzone {
   height: 8rem;

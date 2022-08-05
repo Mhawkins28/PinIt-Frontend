@@ -174,7 +174,7 @@ const NewPinForm = ({ latLng, user }) => {
           )}
         </PlacesAutocomplete>
 
-        <div>
+        <div className="pdiv">
           <label htmlFor="name">Name of location</label>
           <input
             type="text"
@@ -186,7 +186,7 @@ const NewPinForm = ({ latLng, user }) => {
           />
         </div>
 
-        <div>
+        <div className="pdiv">
           <label htmlFor="address">Address</label>
           <input
             type="text"
@@ -198,7 +198,7 @@ const NewPinForm = ({ latLng, user }) => {
           />
         </div>
 
-        <div>
+        <div className="pdiv">
           <label htmlFor="city">City</label>
           <input
             type="text"
@@ -210,7 +210,7 @@ const NewPinForm = ({ latLng, user }) => {
           />
         </div>
 
-        <div>
+        <div className="pdiv">
           <label htmlFor="description">Description</label>
           <textarea
             name="description"

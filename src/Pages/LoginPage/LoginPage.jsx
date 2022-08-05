@@ -105,7 +105,7 @@ const Login = ({ setUser, setUserLogin, userLogin, handleSignupOrLogin }) => {
 
     //      <br></br>
     //   <div >
-    <StyledForm onSubmit={handleSubmit}>
+    <form className="lform" onSubmit={handleSubmit}>
       <h2>SIGN IN</h2>
       <br></br>
       <div>
@@ -143,7 +143,7 @@ const Login = ({ setUser, setUserLogin, userLogin, handleSignupOrLogin }) => {
           </a>
         </h4>
       </div>
-    </StyledForm>
+    </form>
   );
 };
 

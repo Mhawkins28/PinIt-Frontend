@@ -5,6 +5,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
+import "../NewPinForm/NewPinForm.css";
 
 const EditPinForm = ({ pinInfo, setPinInfo, latLng }) => {
   const navigate = useNavigate();
@@ -71,101 +72,106 @@ const EditPinForm = ({ pinInfo, setPinInfo, latLng }) => {
   });
 
   return (
-    <div>
-      <PlacesAutocomplete
-        value={address}
-        onChange={setAddress}
-        onSelect={handleSelect}
-      >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <input {...getInputProps({ placeholder: "Type Address" })} />
-
-            <div>
-              {loading ? <div>...loading</div> : null}
-              {suggestions.map((suggestion) => {
-                const style = {
-                  backgroundColor: suggestion.active ? "#c0ffee" : "#fff",
-                };
-
-                console.log(suggestion.formattedSuggestion.mainText);
-
-                return (
-                  <div {...getSuggestionItemProps(suggestion, { style })}>
-                    {" "}
-                    {suggestion.description}{" "}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </PlacesAutocomplete>
-
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-
-      <h1>Edit Page: {pinInfo.name}</h1>
-
-      {/* Form should populate the current pin being edited's information */}
-      {/* value can be pinInfo.xxxx but take out the search bar. User will just have to edit whats currently avaiable. If user wants a whole new pin, they can delete this pin and create a new one. */}
-
+    <div className="pins">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name of location</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder={pinInfo.name}
-          value={locationName.length < 1 ? formData.name : locationName}
-          onChange={handleChange}
-        />
-        <label htmlFor="address">Address</label>
-        <input
-          type="text"
-          name="address"
-          id="address"
-          placeholder={pinInfo.address}
-          value={address.length < 1 ? formData.address : address}
-          onChange={handleChange}
-        />
-        <label htmlFor="city">City</label>
-        <input
-          type="text"
-          name="city"
-          id="city"
-          placeholder={pinInfo.city}
-          value={city.length < 1 ? formData.city : city}
-          onChange={handleChange}
-        />
-        <label htmlFor="description">Description</label>
-        <input
-          type="text"
-          name="description"
-          id="description"
-          placeholder={pinInfo.description}
-          onChange={handleChange}
-        />
+        <PlacesAutocomplete
+          value={address}
+          onChange={setAddress}
+          onSelect={handleSelect}
+        >
+          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+            <div id="ac">
+              <div className="ac">
+              <input {...getInputProps({ placeholder: "Type Address" })} />
+              </div>
 
-        <input
-          type="hidden"
-          name="lat"
-          value={latLng.lat}
-          onChange={handleChange}
-        />
-        <input
-          type="hidden"
-          name="lng"
-          value={latLng.lng}
-          onChange={handleChange}
-        />
+              <div>
+                {loading ? <div>...loading</div> : null}
+                {suggestions.map((suggestion) => {
+                  const style = {
+                    backgroundColor: suggestion.active ? "#c0ffee" : "#fff",
+                  };
 
-        <input type="submit" value="Mark It Down" />
-      </form>
+                  console.log(suggestion.formattedSuggestion.mainText);
+
+                  return (
+                    <div {...getSuggestionItemProps(suggestion, { style })}>
+                      {" "}
+                      {suggestion.description}{" "}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </PlacesAutocomplete>
+
+        <h1>Edit Pin: {pinInfo.name}</h1>
+
+        {/* Form should populate the current pin being edited's information */}
+        {/* value can be pinInfo.xxxx but take out the search bar. User will just have to edit whats currently avaiable. If user wants a whole new pin, they can delete this pin and create a new one. */}
+         <div className="ediv">
+            <label htmlFor="name">Name of location</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder={pinInfo.name}
+              value={locationName.length < 1 ? formData.name : locationName}
+              onChange={handleChange}
+            />
+         </div>
+
+         <div className="ediv">
+            <label htmlFor="address">Address</label>
+            <input
+              type="text"
+              name="address"
+              id="address"
+              placeholder={pinInfo.address}
+              value={address.length < 1 ? formData.address : address}
+              onChange={handleChange}
+            />
+         </div>
+
+         <div className="ediv">
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              name="city"
+              id="city"
+              placeholder={pinInfo.city}
+              value={city.length < 1 ? formData.city : city}
+              onChange={handleChange}
+            />
+         </div>
+
+          <div className="ediv">
+            <label htmlFor="description">Description</label>
+            <input
+              type="text"
+              name="description"
+              id="description"
+              placeholder={pinInfo.description}
+              onChange={handleChange}
+            />
+          </div>
+
+            <input
+              type="hidden"
+              name="lat"
+              value={latLng.lat}
+              onChange={handleChange}
+            />
+            <input
+              type="hidden"
+              name="lng"
+              value={latLng.lng}
+              onChange={handleChange}
+            />
+
+            <input type="submit" value="Mark It Down" className="button"/>
+        </form>
     </div>
   );
 };
