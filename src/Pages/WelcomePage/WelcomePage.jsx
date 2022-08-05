@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import WelcomeContent from "../../Components/WelcomeContent/WelcomeContent"
+import WelcomeContent from "../../Components/WelcomeContent/WelcomeContent";
 
-const Welcome = () => {
+const Welcome = ({ setUser, user }) => {
+  useEffect(() => {
+    let loggedInUser = JSON.parse(window.sessionStorage.getItem("user"));
+    setUser(loggedInUser ? loggedInUser : null);
+  }, []);
+
   return (
     <>
       <WelcomeContent />

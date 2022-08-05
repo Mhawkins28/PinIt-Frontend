@@ -2,7 +2,7 @@ import React, { useState, Component } from "react";
 import styled from "styled-components";
 import { useNavigate, Link } from "react-router-dom";
 import userService from "../../utils/userService";
-import  "../../Components/NewPinForm/NewPinForm.css";
+import "../../Components/NewPinForm/NewPinForm.css";
 
 const StyledForm = styled.form`
   display: flex;
@@ -15,7 +15,13 @@ const StyledForm = styled.form`
     margin-right: 25px;
   }
 `;
-const Login = ({ setUser, setUserLogin, userLogin, handleSignupOrLogin }) => {
+const Login = ({
+  setUser,
+  setUserLogin,
+  userLogin,
+  handleSignupOrLogin,
+  setIsLoggedIn,
+}) => {
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -30,7 +36,7 @@ const Login = ({ setUser, setUserLogin, userLogin, handleSignupOrLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(userLogin);
+    setIsLoggedIn(true);
     try {
       await userService.login(userLogin);
       // Successfully signed up - show GamePage
@@ -48,7 +54,6 @@ const Login = ({ setUser, setUserLogin, userLogin, handleSignupOrLogin }) => {
   };
 
   return (
-
     // <StyledForm onSubmit={handleSubmit}>
     //   <h2>SIGN IN</h2>
 
@@ -128,9 +133,7 @@ const Login = ({ setUser, setUserLogin, userLogin, handleSignupOrLogin }) => {
         />
       </div>
 
-      <input type="submit"
-      className="button" 
-      value="Log In"  />
+      <input type="submit" className="button" value="Log In" />
 
       <br></br>
       <div className="register">
