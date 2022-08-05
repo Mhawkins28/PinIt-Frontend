@@ -44,6 +44,7 @@ const Map = ({
 
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading maps";
+  if (!latLng) return "Loading"
 
   return (
     <GoogleMap
