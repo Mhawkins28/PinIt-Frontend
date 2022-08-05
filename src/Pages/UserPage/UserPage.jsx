@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import UserMap from "../../Components/Map/UserMap";
 import '../../Pages/Home/Home.css'
+import styled from 'styled-components'
+
+
 
 const UserPage = ({
   latLng,
@@ -22,11 +25,11 @@ const UserPage = ({
   }, []);
 
   return (
-    <div> 
-    <h1>{pinInfo.Owner?.username.toUpperCase()}'S PINS:</h1>
+    <> 
     <div className="outerContainer">
-
-
+      <div className="userHeader">
+        <h1>{pinInfo.Owner?.username.toUpperCase()}'S PINS:</h1>
+      </div>
       <div className="map">
         <UserMap
         latLng={latLng}
@@ -43,7 +46,7 @@ const UserPage = ({
         />
       </div>
     </div>
-  </div> 
+  </> 
   );
 }; 
 

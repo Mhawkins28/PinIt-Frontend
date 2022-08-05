@@ -8,7 +8,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
+
+.outerContainer .userHeader {
+  color: #19283c;
+  font-size: .75rem;
+  margin-top: 10px;
+  display: flex;
+  }
 
 .map {
   width: 80%;
