@@ -15,7 +15,7 @@ const PinDetails = ({
 
   const deletePin = (id) => {
     axios.delete(`https://jmmz-ga-p3places-backend.herokuapp.com/pins/${id}`).then((res) => {
-      navigate("/", { replace: true });
+      navigate("/home", { replace: true });
     });
   };
 

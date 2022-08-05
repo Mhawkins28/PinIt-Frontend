@@ -24,7 +24,7 @@ const UserPage = ({
   return (
     <> 
     <div className="userHeader">
-      <h2>{pinInfo.Owner?.username.toUpperCase()}'S PINS:</h2>
+      <h2>{user?.username.toUpperCase()}'S PINS:</h2>
     </div>
     <div className="outerContainer">
       <div className="map">
