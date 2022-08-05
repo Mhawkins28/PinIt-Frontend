@@ -15,9 +15,9 @@ const Navbar = ({ handleLogout, user, isLoggedIn, setIsLoggedIn }) => {
 
           <ul className="nav-menu">
             <li className="nav-item">
-              {isLoggedIn === true ? (
+              {isLoggedIn === true || user ? (
                 <div>
-                  <span className="welcome">WELCOME, {user.username} </span>
+                  <span className="welcome">WELCOME, {user?.username} </span>
                 </div>
               ) : (
                 <div>
@@ -29,9 +29,9 @@ const Navbar = ({ handleLogout, user, isLoggedIn, setIsLoggedIn }) => {
             </li>
 
             <li className="nav-item">
-              {isLoggedIn === true ? (
+              {isLoggedIn === true || user ? (
                 <div>
-                  <Link to={`/user/${user._id}`} className="link">
+                  <Link to={`/user/${user?._id}`} className="link">
                     My Pins
                   </Link>
                 </div>
@@ -45,15 +45,13 @@ const Navbar = ({ handleLogout, user, isLoggedIn, setIsLoggedIn }) => {
             </li>
 
             <li className="nav-item">
-              {isLoggedIn === true ? (
+              {isLoggedIn === true || user ? (
                 <div>
                   <Link
                     to="/welcome"
                     className="link"
                     onClick={
-                      (handleLogout,
-                      () => sessionStorage.removeItem("user"),
-                      () => setIsLoggedIn(false))
+                      (handleLogout, () => sessionStorage.removeItem("user"))
                     }
                   >
                     LOG OUT

@@ -42,10 +42,10 @@ const Login = ({
       // Successfully signed up - show GamePage
       await handleSignupOrLogin();
       navigate("/");
-      // setUserLogin({
-      //   username: "",
-      //   password: "",
-      // });
+      setUserLogin({
+        username: "",
+        password: "",
+      });
     } catch (err) {
       // Invalid user data (probably duplicate email)
       // this.props.updateMessage(err.message);

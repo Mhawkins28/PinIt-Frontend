@@ -15,12 +15,12 @@ import "./Map.css";
 //   lat: position.coords.latitude,
 //   lng: position.coords.longitude,
 // };
-const setGeoLoc = () => {
-  navigator.geolocation.getCurrentPosition((position) => {
-    sessionStorage.setItem("lat", JSON.stringify(position.coords.latitude));
-    sessionStorage.setItem("lng", JSON.stringify(position.coords.longitude));
-  });
-};
+// const setGeoLoc = () => {
+//   navigator.geolocation.getCurrentPosition((position) => {
+//     sessionStorage.setItem("lat", JSON.stringify(position.coords.latitude));
+//     sessionStorage.setItem("lng", JSON.stringify(position.coords.longitude));
+//   });
+// };
 
 const mapContainerStyle = {
   width: "100vw",
@@ -37,7 +37,7 @@ const Map = ({
   pinInfo,
   setPinInfo,
 }) => {
-  setGeoLoc();
+  // setGeoLoc();
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API,
   });

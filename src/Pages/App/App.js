@@ -19,7 +19,9 @@ import WithoutNav from "../Layouts/WithoutNav";
 
 function App() {
   const [user, setUser] = useState(
-    JSON.parse(window.sessionStorage.getItem("user"))
+    JSON.parse(window.sessionStorage.getItem("user")) !== null
+      ? JSON.parse(window.sessionStorage.getItem("user"))
+      : null
   );
 
   const [userSignup, setUserSignup] = useState({
@@ -74,8 +76,7 @@ function App() {
 
   useEffect(() => {
     let sessionUser = window.sessionStorage.getItem("user");
-    if (sessionUser !== null)
-      setUser(JSON.parse(window.sessionStorage.getItem("user")));
+    if (sessionUser) setUser(JSON.parse(window.sessionStorage.getItem("user")));
     else setUser(null);
   }, []);
 
@@ -118,7 +119,15 @@ function App() {
 
         <Route
           element={
-            <WithNav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+            <WithNav
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+              user={user}
+              setUser={setUser}
+              handleLogout={handleLogout}
+              userLogin={userLogin}
+              setUserLogin={setUserLogin}
+            />
           }
         >
           <Route
@@ -138,14 +147,38 @@ function App() {
             }
           />
         </Route>
-        <Route element={<WithNav />}>
+        <Route
+          element={
+            <WithNav
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+              user={user}
+              setUser={setUser}
+              handleLogout={handleLogout}
+              userLogin={userLogin}
+              setUserLogin={setUserLogin}
+            />
+          }
+        >
           <Route
             path="/newpin"
             element={<NewPin latLng={latLng} user={user} />}
           />
         </Route>
 
-        <Route element={<WithNav />}>
+        <Route
+          element={
+            <WithNav
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+              user={user}
+              setUser={setUser}
+              handleLogout={handleLogout}
+              userLogin={userLogin}
+              setUserLogin={setUserLogin}
+            />
+          }
+        >
           <Route
             path="/pins/:id"
             element={
@@ -160,7 +193,19 @@ function App() {
           />
         </Route>
 
-        <Route element={<WithNav />}>
+        <Route
+          element={
+            <WithNav
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+              user={user}
+              setUser={setUser}
+              handleLogout={handleLogout}
+              userLogin={userLogin}
+              setUserLogin={setUserLogin}
+            />
+          }
+        >
           <Route
             path={`/pins/edit/${pinInfo._id}`}
             element={
@@ -172,7 +217,19 @@ function App() {
             }
           />
         </Route>
-        <Route element={<WithNav />}>
+        <Route
+          element={
+            <WithNav
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+              user={user}
+              setUser={setUser}
+              handleLogout={handleLogout}
+              userLogin={userLogin}
+              setUserLogin={setUserLogin}
+            />
+          }
+        >
           <Route
             path="/user/:id"
             element={
