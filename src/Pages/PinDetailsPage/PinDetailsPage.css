@@ -3,7 +3,7 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 section {
@@ -13,7 +13,7 @@ section {
   align-items: center;
   justify-content: center;
   font-family: "Montserrat";
-  margin-top: 40px
+  margin-top: 15px
 }
 .container {
   width: 90%;
@@ -112,23 +112,26 @@ img {
   text-transform: uppercase;
   background-color: white;
   color: black;
-  padding: 5px 15px;
+  padding: 4.1px 15px;
   display: inline-block;
   letter-spacing: 2px;
   border: 1px solid black;
-  margin-right: 2.5px
+  margin-right: 2.5px;
+  
 }
 
 button {
-  /* text-decoration: none; */
+
   text-transform: uppercase;
   background-color: white;
   color: black;
-  padding: 5.5px 18px;
-  display: inline-block;
+  padding: 4.1px 18px;
+  /* display: inline-block; */
   letter-spacing: 2px;
   border: 1px solid black;
-  margin-left: 2.5px
+  margin-left: 2.5px;
+  font-family: "Montserrat";
+  font-size: 16px;
 }
 
 
@@ -155,7 +158,7 @@ button {
     flex-direction: column;
     height: 80%;
     width: 40%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: auto
   }
 
