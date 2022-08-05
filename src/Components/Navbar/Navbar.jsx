@@ -48,7 +48,7 @@ const Navbar = ({ handleLogout, user, isLoggedIn, setIsLoggedIn }) => {
               {isLoggedIn === true || user ? (
                 <div>
                   <Link
-                    to="/welcome"
+                    to="/"
                     className="link"
                     onClick={
                       (handleLogout, () => sessionStorage.removeItem("user"))
