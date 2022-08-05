@@ -91,7 +91,7 @@ const NewPinForm = ({ latLng, user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3001/pins", formData).then((res) => {
+    axios.post("https://jmmz-ga-p3places-backend.herokuapp.com/pins", formData).then((res) => {
       console.log(res);
       setFormData({
         name: "",

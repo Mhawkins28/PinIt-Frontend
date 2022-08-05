@@ -19,7 +19,7 @@ const UserPage = ({
   const [userPins, setUserPins] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:3001/pins/userpage/${user._id}`)
+    fetch(`https://jmmz-ga-p3places-backend.herokuapp.com/pins/userpage/${user._id}`)
       .then((res) => res.json())
       .then((data) => setUserPins(data));
   }, []);
