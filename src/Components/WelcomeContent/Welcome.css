@@ -25,12 +25,12 @@ video {
   height: 100vh;
   margin: 0 auto;
   text-align: center;
-  max-width: 70%
+  max-width: 69%
 }
 
 .main h1 {
   font-size: 66px;
-  color: rgb(228, 228, 228);
+  color: #e1d5cd;
   font-weight: normal;
   letter-spacing: 3px;
   margin-top: 0;
@@ -39,7 +39,7 @@ video {
 
 .main h2 {
   font-size: 30px;
-  color: rgb(241, 238, 238);
+  color: rgb(239, 234, 234);
   font-weight: 300;
   letter-spacing: 4px;
   margin-bottom: 5px;
@@ -47,7 +47,7 @@ video {
 
 .main p {
   font-size: 18px;
-  color: rgb(221, 220, 220);
+  color: rgb(254, 254, 254);
   margin-top: 10px;
   margin-bottom: 40px;
 }
@@ -67,7 +67,7 @@ video {
 .btn2 {
   border: white solid 1px;
   background-color: white;
-  padding: 10px 50px;
+  padding: 10px 40px;
   margin: 0 10px;
 }
 
