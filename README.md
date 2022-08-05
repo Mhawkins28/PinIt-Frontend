@@ -52,7 +52,7 @@ Git Manager - Zachary Miller
 
 MVP:
 
-As a user, I want to be able to add pins of my favorite locations.
+As a user, I want to be able to add pins of specified locations.
 <br>
 As a user, I would like the pins I create to be categorized by cities.
 <br>
@@ -62,7 +62,7 @@ As a user, I want to be able to see my pins on the map.
 <br>
 As a user, I would like to see other pins that people have posted.
 <br>
-As a user, I want to be able to sign up (OAuth) or create a new account (Tokens).
+As a user, I want to be able to sign in and create a new account (Token Authorization).
 <br>
 As a user, I would like to have a profile page that has a list of my pins.
 <br>
@@ -81,8 +81,15 @@ As a user, I would like to be able to add images to my pins.
 
 ### Icebox features
 
-- Multer / Cloudinary (Able to add multiple pictures for each pin.)
-- 
+- OAuth with Google, Twitter, Facebook, and GitHUB
+- User profiles should have a list view of the their pins with drop downs of different cities and their pins.
+- Search bar doesn't load on first load. User should refresh but will lose the coordinates if clicked on specific spot on map.
+- Users should be able to upload more than just 1 photo.
+- Profile map page and global map page should have distinctions between them.
+- Users should not be able to sign up with a username that is already taken.
+- Pins should have a different icon depending on if its the users or someone else’s.
+- When redirecting back to the home map after editing pin, the info window with the old information is still populated.
+- Users should be able to add their hometown and let the map center to that location on their profile.
 
 ### Wireframes
 

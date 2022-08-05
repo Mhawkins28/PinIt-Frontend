@@ -50,8 +50,8 @@ const Map = ({
       mapContainerStyle={mapContainerStyle}
       zoom={10}
       center={{
-        lat: JSON.parse(window.sessionStorage.getItem("lat")),
-        lng: JSON.parse(window.sessionStorage.getItem("lng")),
+        lat: JSON.parse(window.sessionStorage?.getItem("lat")),
+        lng: JSON.parse(window.sessionStorage?.getItem("lng")),
       }}
       onClick={(e) => {
         setLatLng({

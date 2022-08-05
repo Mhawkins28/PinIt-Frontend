@@ -25,7 +25,7 @@ const PinDetails = ({
       <div className="left">
         <div className='infoContainer'>
           <div className="imgContainer">
-            <img src={pinInfo.image}></img>
+            <img src={pinInfo.image} alt={pinInfo.image_id}></img>
           </div>
           <h2><FaCity className='icon'/> <br></br> {pinInfo.city}</h2>
           <br></br>
@@ -38,6 +38,7 @@ const PinDetails = ({
     <div className="right">
       <h1>{pinInfo.name}</h1>
       <p>{pinInfo.description}</p>
+      <p>Pin Created By: {pinInfo.Owner?.username}</p>
     <div className="BtnContainer">
         {user && pinInfo.Owner?._id === user._id ? (
           <div className='btn'>

@@ -22,8 +22,11 @@ const UserPage = ({
   }, []);
 
   return (
-  <div> 
+    <div> 
+    <h1>{pinInfo.Owner?.username.toUpperCase()}'S PINS:</h1>
     <div className="outerContainer">
+
+
       <div className="map">
         <UserMap
         latLng={latLng}

@@ -22,8 +22,6 @@ const NewPinForm = ({ latLng, user }) => {
 
   const [uploadedFiles, setUploadedFiles] = useState();
 
-  // const [image, setImage] = useState("");
-
   const [formData, setFormData] = useState({
     name: "",
     address: "",
@@ -32,6 +30,7 @@ const NewPinForm = ({ latLng, user }) => {
     lng: latLng.lng,
     lat: latLng.lat,
     image: uploadedFiles?.secure_url,
+    image_id: uploadedFiles?.public_id,
     Owner: user?._id,
   });
 
@@ -40,6 +39,15 @@ const NewPinForm = ({ latLng, user }) => {
       return {
         ...prevState,
         image: uploadedFiles?.secure_url,
+      };
+    });
+  }, [uploadedFiles]);
+
+  useEffect(() => {
+    setFormData((prevState) => {
+      return {
+        ...prevState,
+        image_id: uploadedFiles?.public_id,
       };
     });
   }, [uploadedFiles]);
@@ -93,6 +101,7 @@ const NewPinForm = ({ latLng, user }) => {
         lng: latLng.lng,
         lat: latLng.lat,
         image: "",
+        image_id: "",
         Owner: user._id,
       });
       navigate("/", { replace: true });
@@ -131,6 +140,7 @@ const NewPinForm = ({ latLng, user }) => {
       lat: latLng.lat,
       lng: latLng.lng,
       image: "",
+      image_id: "",
       Owner: user._id,
     });
   };
@@ -150,8 +160,6 @@ const NewPinForm = ({ latLng, user }) => {
             loading,
           }) => (
             <div id="ac">
-              {/* <p>Lattitude: {coordinates.lat}</p> 
-         <p>Longitude: {coordinates.lng}</p> */}
               <div className="ac">
                 <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
                 <input {...getInputProps({ placeholder: "Search Address" })} />
@@ -225,9 +233,6 @@ const NewPinForm = ({ latLng, user }) => {
           </div>
         </div>
 
-        {/* <input type="hidden" name="lat" value={!coordinates.lat ? latLng.lat : coordinates.lat}/>
-        <input type="hidden" name="lng" value={!coordinates.lng ? latLng.lng : coordinates.lng}/> */}
-
         <input
           type="hidden"
           name="lat"
@@ -251,6 +256,13 @@ const NewPinForm = ({ latLng, user }) => {
           type="hidden"
           name="image"
           value={uploadedFiles?.secure_url}
+          onChange={handleChange}
+        />
+
+        <input
+          type="hidden"
+          name="image"
+          value={uploadedFiles?.public_id}
           onChange={handleChange}
         />
 
