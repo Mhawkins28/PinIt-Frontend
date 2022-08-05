@@ -55,12 +55,12 @@ const NewPinForm = ({ latLng, user }) => {
   const onDrop = useCallback((acceptedFiles) => {
     console.log(acceptedFiles);
 
-    const url = `https://api.cloudinary.com/v1_1/general-assembly-jrk/upload`;
+    const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/upload`;
 
     acceptedFiles.forEach(async (acceptedFile) => {
       const imageData = new FormData();
       imageData.append("file", acceptedFile);
-      imageData.append("upload_preset", "unsigned_upload");
+      imageData.append("upload_preset", process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET);
       const response = await fetch(url, {
         method: "POST",
         body: imageData,
