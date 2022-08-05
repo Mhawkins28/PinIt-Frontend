@@ -10,7 +10,7 @@ const Navbar = ({ handleLogout, user, isLoggedIn, setIsLoggedIn }) => {
         <div className="navbar-container">
           <Link to="/" className="navbar-logo">
             PIN
-            <FaMapPin class="pinIcon" />T
+            <FaMapPin className="pinIcon" />T
           </Link>
 
           <ul className="nav-menu">
