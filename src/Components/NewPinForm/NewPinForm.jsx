@@ -175,9 +175,9 @@ const NewPinForm = ({ latLng, user }) => {
                   return (
                     <div
                       key={i}
-                      {...getSuggestionItemProps(suggestion, { style })}
-                    >
-                      {suggestion.description}
+                      {...getSuggestionItemProps(suggestion, { style })}>
+                      {" "}
+                      {suggestion.description}{" "}
                     </div>
                   );
                 })}
