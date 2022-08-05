@@ -1,0 +1,88 @@
+.navbar {
+  background: transparent;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  font-family: "Unica One", cursive;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  max-width: 100%;
+  margin-top: 5px;
+  margin-bottom: 15px
+  /* border: 1px solid #fff; */
+}
+
+.navbar-logo {
+  color: #c98a59;
+  justify-self: start;
+  margin-left: 40px;
+  margin-right:40px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  font-weight: 570;
+}
+
+.pinIcon {
+  margin-left: 0.75rem;
+  font-size: 1.5rem;
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 5px;
+  list-style: none;
+  text-align: center;
+  width: 60vw;
+  justify-content: end;
+  margin-right: 1rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  color: #c98a59;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: .55rem;
+}
+
+.link:hover {
+  border-bottom: 3px solid rgb(75, 105, 126);
+  /* transition: all 0.3s ease-in-out; */
+}
+
+.welcome {
+  color: #19283c;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  margin-right: 3rem;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 637px) {
+  .link, .welcome {
+    font-size:1rem;
+  }
+  .pinIcon,  .navbar-logo {
+    font-size: 2rem;
+  }
+}

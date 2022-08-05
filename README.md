@@ -3,8 +3,11 @@ Places - Project 3
 ### Your group members
 
 Jose Rafael Kaibigan
+<br>
 Zachary Miller
+<br>
 Megan Hawkins
+<br>
 Myndra Aaron Jr.
 
 ### Your project idea
@@ -19,49 +22,75 @@ Social app where users can see a map of people’s favorite places. These places
 
 User {
 
-    Name: String,
+    Username: String,
     Password: String,
-    Email: String,
 
 }
 
 Pins {
 
-Name: String,
-Address: String,
-City: String,
-Coordinates: [ Number, Number ],
-Images: [ String ],
-Description: String
-Owner: {
-Type: Schema.Types.ObjectId,
-Ref: “User”
+    Name: String,
+    Address: String,
+    City: String,
+    Coordinates: [ Number, Number ],
+    Images: [ String ],
+    Description: String
+    Owner: {
+    Type: Schema.Types.ObjectId,
+    Ref: “User”
+  }
 }
-}
+
 
 ### Scrum manager/project manager's name
 
 Scrum Manager - Jose Rafael Kaibigan
+<br>
 Git Manager - Zachary Miller
 
 ### User stories
 
-    MVP:
+MVP:
 
-As a user, I want to be able to add pins of my favorite locations.
+As a user, I want to be able to add pins of specified locations.
+<br>
 As a user, I would like the pins I create to be categorized by cities.
+<br>
 As a user, my pins should have CRUD functionality.
+<br>
 As a user, I want to be able to see my pins on the map.
+<br>
 As a user, I would like to see other pins that people have posted.
-As a user, I want to be able to sign up (OAuth) or create a new account (Tokens).
+<br>
+As a user, I want to be able to sign in and create a new account (Token Authorization).
+<br>
 As a user, I would like to have a profile page that has a list of my pins.
+<br>
 
-    Stretch Goals:
+Stretch Goals:
 
 As a user, when adding a new pin, I would like the search bar to auto-populate the location name.
+<br>
 As a user, I would like to add comments on other people’s pins.
+<br>
 As a user, I want my password to be encrypted (bcrypt).
+<br>
 As a user, I would like to have suggestions based on current pins.
+<br>
 As a user, I would like to be able to add images to my pins.
 
+### Icebox features
+
+- OAuth with Google, Twitter, Facebook, and GitHUB
+- User profiles should have a list view of the their pins with drop downs of different cities and their pins.
+- Search bar doesn't load on first load. User should refresh but will lose the coordinates if clicked on specific spot on map.
+- Users should be able to upload more than just 1 photo.
+- Profile map page and global map page should have distinctions between them.
+- Users should not be able to sign up with a username that is already taken.
+- Pins should have a different icon depending on if its the users or someone else’s.
+- When redirecting back to the home map after editing pin, the info window with the old information is still populated.
+- Users should be able to add their hometown and let the map center to that location on their profile.
+
 ### Wireframes
+
+![alt text](/Project-3-UI/public/placesWireframe.png)
