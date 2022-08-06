@@ -1,10 +1,12 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
-import { FaMapMarkerAlt, FaGlobeAmericas } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const SidebarContainer = styled.nav`
+  font-family: "Montserrat";
+
   .bm-item {
     display: inline-block;
     text-decoration: none;
