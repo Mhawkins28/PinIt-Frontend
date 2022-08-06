@@ -11,10 +11,14 @@ const WithNav = ({
   userLogin,
   setUserLogin,
   handleLogout,
+  searchBar,
+  setSearchBar,
 }) => {
   return (
     <>
       <Navbar
+        searchBar={searchBar}
+        setSearchBar={setSearchBar}
         setIsLoggedIn={setIsLoggedIn}
         isLoggedIn={isLoggedIn}
         handleLogout={handleLogout}

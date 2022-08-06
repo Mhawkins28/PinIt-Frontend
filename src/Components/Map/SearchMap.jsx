@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import {
   Googleap,
   useLoadScript,
@@ -28,7 +27,7 @@ const center = {
   lng: -100,
 };
 
-const Map = ({
+const SearchMap = ({
   latLng,
   setLatLng,
   infoLatLng,
@@ -38,24 +37,17 @@ const Map = ({
   pinInfo,
   setPinInfo,
   searchBar,
+  setSearchBar,
 }) => {
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API,
+  const searchedPins = allPins.filter(function (el) {
+    return (
+      el?.name.includes(searchBar) ||
+      el?.address.includes(searchBar) ||
+      el?.city.includes(searchBar) ||
+      el?.description.includes(searchBar) ||
+      el?.Owner?.username.includes(searchBar)
+    );
   });
-
-  if (loadError) return "Error loading maps";
-  if (!isLoaded) return "Loading maps";
-  if (!latLng) return "Loading";
-
-  // const searchedPins = allPins.filter(function (el) {
-  //   return (
-  //     el?.name.includes(searchBar) ||
-  //     el?.address.includes(searchBar) ||
-  //     el?.city.includes(searchBar) ||
-  //     el?.description.includes(searchBar) ||
-  //     el?.Owner?.username.includes(searchBar)
-  //   );
-  // });
 
   return (
     <GoogleMap
@@ -69,7 +61,6 @@ const Map = ({
         });
       }}
       options={{
-        mapTypeId: "terrain",
         styles: [
           {
             elementType: "labels",
@@ -150,7 +141,7 @@ const Map = ({
         ],
       }}
     >
-      {allPins?.map((location, i) => {
+      {searchedPins?.map((location, i) => {
         return (
           <Marker
             key={i}
@@ -159,7 +150,6 @@ const Map = ({
               lng: location.lng,
             }}
             onClick={(e) => {
-              console.log(e);
               setLatLng({
                 lat: e.latLng.lat(),
                 lng: e.latLng.lng(),
@@ -188,7 +178,7 @@ const Map = ({
             });
           }}
         >
-          {latLng.lat === infoLatLng.lat && latLng.lng === infoLatLng.lng ? (
+          {latLng.lat === infoLatLng.lat && latLng.lat === infoLatLng.lat ? (
             <div>
               <div>{pinInfo.name}</div>
               <div>{pinInfo.address}</div>
@@ -209,4 +199,4 @@ const Map = ({
   );
 };
 
-export default Map;
+export default SearchMap;
