@@ -38,14 +38,13 @@ const Map = ({
   pinInfo,
   setPinInfo,
 }) => {
-  console.log(userCenter);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API,
   });
 
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading maps";
-  if (!latLng) return "Loading"
+  if (!latLng) return "Loading";
 
   return (
     <GoogleMap
@@ -76,11 +75,6 @@ const Map = ({
             featureType: "administrative.locality",
             elementType: "labels.text.fill",
             stylers: [{ color: "#b8845d" }],
-          },
-          {
-            "featureType": "administrative",
-            "elementType": "geometry.fill",
-            stylers: [{ color: "#463e39" }],
           },
           {
             featureType: "poi.park",
