@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import {
   Googleap,
   useLoadScript,
@@ -10,17 +9,6 @@ import {
 } from "@react-google-maps/api";
 import { Link } from "react-router-dom";
 import "./Map.css";
-
-// let center = {
-//   lat: position.coords.latitude,
-//   lng: position.coords.longitude,
-// };
-// const setGeoLoc = () => {
-//   navigator.geolocation.getCurrentPosition((position) => {
-//     sessionStorage.setItem("lat", JSON.stringify(position.coords.latitude));
-//     sessionStorage.setItem("lng", JSON.stringify(position.coords.longitude));
-//   });
-// };
 
 const mapContainerStyle = {
   width: "100vw",
@@ -39,7 +27,7 @@ const center = {
   lng: -100,
 };
 
-const Map = ({
+const SearchMap = ({
   latLng,
   setLatLng,
   infoLatLng,
@@ -49,15 +37,8 @@ const Map = ({
   pinInfo,
   setPinInfo,
   searchBar,
+  setSearchBar,
 }) => {
-  console.log(userCenter);
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API,
-  });
-
-  if (loadError) return "Error loading maps";
-  if (!isLoaded) return "Loading maps";
-
   const searchedPins = allPins.filter(function (el) {
     return (
       el.name.includes(searchBar.qeury) ||
@@ -80,7 +61,6 @@ const Map = ({
         });
       }}
       options={{
-        mapTypeId: "terrain",
         styles: [
           {
             elementType: "labels",
@@ -97,11 +77,6 @@ const Map = ({
             featureType: "administrative.locality",
             elementType: "labels.text.fill",
             stylers: [{ color: "#b8845d" }],
-          },
-          {
-            "featureType": "administrative",
-            "elementType": "geometry.fill",
-            stylers: [{ color: "#463e39" }],
           },
           {
             featureType: "poi.park",
@@ -175,7 +150,6 @@ const Map = ({
               lng: location.lng,
             }}
             onClick={(e) => {
-              console.log(e);
               setLatLng({
                 lat: e.latLng.lat(),
                 lng: e.latLng.lng(),
@@ -204,7 +178,7 @@ const Map = ({
             });
           }}
         >
-          {latLng.lat === infoLatLng.lat && latLng.lng === infoLatLng.lng ? (
+          {latLng.lat === infoLatLng.lat && latLng.lat === infoLatLng.lat ? (
             <div>
               <div>{pinInfo.name}</div>
               <div>{pinInfo.address}</div>
@@ -215,7 +189,6 @@ const Map = ({
           ) : (
             <div className="placement">
               <div>
-                {/* <button>yes</button> */}
                 <Link to="/newPin">ADD A PIN</Link>
               </div>
             </div>
@@ -226,4 +199,4 @@ const Map = ({
   );
 };
 
-export default Map;
+export default SearchMap;
