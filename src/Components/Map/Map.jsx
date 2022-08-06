@@ -78,6 +78,11 @@ const Map = ({
             stylers: [{ color: "#b8845d" }],
           },
           {
+            "featureType": "administrative",
+            "elementType": "geometry.fill",
+            stylers: [{ color: "#463e39" }],
+          },
+          {
             featureType: "poi.park",
             elementType: "geometry",
             stylers: [{ color: "#263e41" }],

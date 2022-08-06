@@ -81,6 +81,21 @@ const SidebarContainer = styled.nav`
     background: rgba(0, 0, 0, 0.3);
     cursor: pointer;
   }
+
+  @media only screen and (max-width: 525px) {
+    .bm-burger-bars {
+      background: #a8b9d288;
+  }
+  .bm-burger-button {
+    position: fixed;
+    width: 15px;
+    height: 18px;
+    left: 18px;
+    top: 14
+    .5px;
+  }
+  }
+
 `;
 
 const toggleMenu = ({ isOpen }) => {
