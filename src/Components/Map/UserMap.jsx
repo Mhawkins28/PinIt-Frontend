@@ -15,6 +15,18 @@ const mapContainerStyle = {
   height: "80vh",
 };
 
+const lat = parseFloat(window.sessionStorage.getItem("lat"));
+const lng = parseFloat(window.sessionStorage.getItem("lng"));
+const userCenter = {
+  lat: lat ? lat : null,
+  lng: lng ? lng : null,
+};
+
+const center = {
+  lat: 36,
+  lng: -100,
+};
+
 const UserMap = ({
   latLng,
   setLatLng,
@@ -38,11 +50,8 @@ const UserMap = ({
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
-      zoom={12}
-      center={{
-        lat: JSON.parse(window.sessionStorage.getItem("lat")),
-        lng: JSON.parse(window.sessionStorage.getItem("lng")),
-      }}
+      zoom={userCenter.lat == null ? 4 : 10}
+      center={userCenter.lat == null ? center : userCenter}
       onClick={(e) => {
         setLatLng({
           lat: e.latLng.lat(),
