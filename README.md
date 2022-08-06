@@ -95,8 +95,8 @@ As a user, I would like to be able to add images to my pins.
 
 ### Wireframes
 
-![alt text](/Project-3-UI/public/placesWireframe.png)
+![alt text](Project-3-UI/public/placesWireframe.png)
 
 <br>
 
-For more info, check out the Frontend README file.
+For more info, check out the Backend README file.
