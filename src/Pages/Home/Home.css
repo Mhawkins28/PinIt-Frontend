@@ -12,20 +12,21 @@ body {
 }
 
 h2 {
-  margin: 5px
+  margin: 5px;
 }
 
 .userHeader {
   color: #19283c;
   font-size: 1rem;
-  margin-top: 25px;
+  margin-top: 5px;
   display: flex;
-  justify-content: flex-start;
-  }
+  justify-content: center;
+  font-family: "Montserrat";
+}
 
-  h2 {
-    margin: 5px
-  }
+h2 {
+  margin: 5px;
+}
 
 .map {
   width: 80%;
