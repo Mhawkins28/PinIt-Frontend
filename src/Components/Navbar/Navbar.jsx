@@ -1,32 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaMapPin } from "react-icons/fa";
 import "./Navbar.css";
 
-const Navbar = ({
-  handleLogout,
-  user,
-  isLoggedIn,
-  setIsLoggedIn,
-  searchBar,
-  setSearchBar,
-}) => {
-  const navigate = useNavigate();
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setSearchBar((prevState) => {
-      return {
-        ...prevState,
-        [name]: value,
-      };
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // navigate("/search", { replace: true });
-  };
-
+const Navbar = ({ handleLogout, user, isLoggedIn, setIsLoggedIn }) => {
   return (
     <>
       <nav className="navbar">
@@ -35,16 +12,6 @@ const Navbar = ({
             PIN
             <FaMapPin className="pinIcon" />T
           </Link>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="query">Search...</label>
-            <input
-              type="text"
-              name="query"
-              id="query"
-              value={searchBar.query}
-              onChange={handleChange}
-            />
-          </form>
 
           <ul className="nav-menu">
             <li className="nav-item">

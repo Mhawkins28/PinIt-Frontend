@@ -48,7 +48,6 @@ const Map = ({
   allPins,
   pinInfo,
   setPinInfo,
-  searchBar,
 }) => {
   console.log(userCenter);
   const { isLoaded, loadError } = useLoadScript({
@@ -57,16 +56,6 @@ const Map = ({
 
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading maps";
-
-  const searchedPins = allPins.filter(function (el) {
-    return (
-      el.name.includes(searchBar.qeury) ||
-      el.address.includes(searchBar.query) ||
-      el.city.includes(searchBar.query) ||
-      el.description.includes(searchBar.query) ||
-      el.Owner?.username.includes(searchBar.query)
-    );
-  });
 
   return (
     <GoogleMap
@@ -166,7 +155,7 @@ const Map = ({
         ],
       }}
     >
-      {searchedPins?.map((location, i) => {
+      {allPins.map((location, i) => {
         return (
           <Marker
             key={i}

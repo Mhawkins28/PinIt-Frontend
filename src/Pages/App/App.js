@@ -16,7 +16,6 @@ import WelcomePage from "../WelcomePage/WelcomePage";
 import UserPage from "../UserPage/UserPage";
 import WithNav from "../Layouts/WithNav";
 import WithoutNav from "../Layouts/WithoutNav";
-import SearchMapPage from "../SearchMapPage/SearchMapPage";
 
 function App() {
   const [user, setUser] = useState(
@@ -57,10 +56,6 @@ function App() {
   });
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const [searchBar, setSearchBar] = useState({
-    query: "",
-  });
 
   const updatePinState = (id) => {
     setAllPins(allPins.filter((pin) => pin._id !== id));
@@ -103,7 +98,10 @@ function App() {
           />
         </Route>
         <Route element={<WithoutNav />}>
-          <Route path="/" element={<Welcome user={user} setUser={setUser} />} />
+          <Route
+            path="/welcome"
+            element={<Welcome user={user} setUser={setUser} />}
+          />
         </Route>
         <Route element={<WithoutNav />}>
           <Route
@@ -122,8 +120,6 @@ function App() {
         <Route
           element={
             <WithNav
-              searchBar={searchBar}
-              setSearchBar={setSearchBar}
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
               user={user}
@@ -147,7 +143,6 @@ function App() {
                 setInfoLatLng={setInfoLatLng}
                 pinInfo={pinInfo}
                 setPinInfo={setPinInfo}
-                searchBar={searchBar}
               />
             }
           />
@@ -155,8 +150,6 @@ function App() {
         <Route
           element={
             <WithNav
-              searchBar={searchBar}
-              setSearchBar={setSearchBar}
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
               user={user}
@@ -176,8 +169,6 @@ function App() {
         <Route
           element={
             <WithNav
-              searchBar={searchBar}
-              setSearchBar={setSearchBar}
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
               user={user}
@@ -205,8 +196,6 @@ function App() {
         <Route
           element={
             <WithNav
-              searchBar={searchBar}
-              setSearchBar={setSearchBar}
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
               user={user}
@@ -231,8 +220,6 @@ function App() {
         <Route
           element={
             <WithNav
-              searchBar={searchBar}
-              setSearchBar={setSearchBar}
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
               user={user}
@@ -260,40 +247,6 @@ function App() {
             }
           />
         </Route>
-        {/* <Route
-          element={
-            <WithNav
-              searchBar={searchBar}
-              setSearchBar={setSearchBar}
-              isLoggedIn={isLoggedIn}
-              setIsLoggedIn={setIsLoggedIn}
-              user={user}
-              setUser={setUser}
-              handleLogout={handleLogout}
-              userLogin={userLogin}
-              setUserLogin={setUserLogin}
-            />
-          }
-        >
-          <Route
-            path="/search"
-            element={
-              <SearchMapPage
-                allPins={allPins}
-                setAllPins={setAllPins}
-                user={user}
-                latLng={latLng}
-                setLatLng={setLatLng}
-                infoLatLng={infoLatLng}
-                setInfoLatLng={setInfoLatLng}
-                pinInfo={pinInfo}
-                setPinInfo={setPinInfo}
-                setSearchBar={setSearchBar}
-                searchBar={searchBar}
-              />
-            }
-          />
-        </Route> */}
       </Routes>
     </>
   );
