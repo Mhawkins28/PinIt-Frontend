@@ -8,12 +8,6 @@ const Welcome = ({ setUser, user, setAllPins }) => {
     setUser(loggedInUser ? loggedInUser : null);
   }, []);
 
-  useEffect(() => {
-    fetch(`https://jmmz-ga-p3places-backend.herokuapp.com/pins/home`)
-      .then((res) => res.json())
-      .then((data) => setAllPins(data));
-  }, []);
-
   return (
     <>
       <WelcomeContent />

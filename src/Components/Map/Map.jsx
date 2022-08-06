@@ -47,15 +47,15 @@ const Map = ({
   if (!isLoaded) return "Loading maps";
   if (!latLng) return "Loading";
 
-  // const searchedPins = allPins.filter(function (el) {
-  //   return (
-  //     el?.name.includes(searchBar) ||
-  //     el?.address.includes(searchBar) ||
-  //     el?.city.includes(searchBar) ||
-  //     el?.description.includes(searchBar) ||
-  //     el?.Owner?.username.includes(searchBar)
-  //   );
-  // });
+  const searchedPins = allPins?.filter(function (el) {
+    return (
+      el?.name?.includes(searchBar) ||
+      el?.address?.includes(searchBar) ||
+      el?.city?.includes(searchBar) ||
+      el?.description?.includes(searchBar) ||
+      el?.Owner?.username.includes(searchBar)
+    );
+  });
 
   return (
     <GoogleMap
@@ -150,7 +150,7 @@ const Map = ({
         ],
       }}
     >
-      {allPins?.map((location, i) => {
+      {searchedPins.map((location, i) => {
         return (
           <Marker
             key={i}

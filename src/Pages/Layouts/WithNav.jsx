@@ -13,10 +13,16 @@ const WithNav = ({
   handleLogout,
   searchBar,
   setSearchBar,
+  setAllPins,
+  navBarSwitch,
+  setNavBarSwitch,
 }) => {
   return (
     <>
       <Navbar
+        navBarSwitch={navBarSwitch}
+        setNavBarSwitch={setNavBarSwitch}
+        setAllPins={setAllPins}
         searchBar={searchBar}
         setSearchBar={setSearchBar}
         setIsLoggedIn={setIsLoggedIn}

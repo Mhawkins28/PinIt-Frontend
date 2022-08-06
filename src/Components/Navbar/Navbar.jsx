@@ -10,6 +10,9 @@ const Navbar = ({
   setIsLoggedIn,
   searchBar,
   setSearchBar,
+  setAllPins,
+  setNavBarSwitch,
+  navBarSwitch,
 }) => {
   const navigate = useNavigate();
   // const handleChange = (event) => {
@@ -38,7 +41,7 @@ const Navbar = ({
             PIN
             <FaMapPin className="pinIcon" />T
           </Link>
-          <form onSubmit={handleSubmit}>
+          {/* <form onSubmit={handleSubmit}>
             <label htmlFor="query">Search...</label>
             <input
               type="text"
@@ -47,7 +50,7 @@ const Navbar = ({
               value={searchBar}
               onChange={handleChange}
             />
-          </form>
+          </form> */}
 
           <ul className="nav-menu">
             <li className="nav-item">
@@ -66,11 +69,27 @@ const Navbar = ({
 
             <li className="nav-item">
               {isLoggedIn === true || user ? (
-                <div>
-                  <Link to={`/user/${user?._id}`} className="link">
-                    MY PINS
-                  </Link>
-                </div>
+                navBarSwitch === 1 ? (
+                  <div>
+                    <Link
+                      to={`/user/${user?._id}`}
+                      className="link"
+                      onClick={() => setNavBarSwitch(2)}
+                    >
+                      MY PINS
+                    </Link>
+                  </div>
+                ) : (
+                  <div>
+                    <Link
+                      to={`/home`}
+                      className="link"
+                      onClick={() => setNavBarSwitch(1)}
+                    >
+                      ALL PINS
+                    </Link>
+                  </div>
+                )
               ) : null}
             </li>
 

@@ -60,6 +60,8 @@ function App() {
 
   const [searchBar, setSearchBar] = useState(" ");
 
+  const [navBarSwitch, setNavBarSwitch] = useState(1);
+
   const updatePinState = (id) => {
     setAllPins(allPins.filter((pin) => pin._id !== id));
   };
@@ -81,6 +83,12 @@ function App() {
     let sessionUser = window.sessionStorage.getItem("user");
     if (sessionUser) setUser(JSON.parse(window.sessionStorage.getItem("user")));
     else setUser(null);
+  }, []);
+
+  useEffect(() => {
+    fetch(`https://jmmz-ga-p3places-backend.herokuapp.com/pins/home`)
+      .then((res) => res.json())
+      .then((data) => setAllPins(data));
   }, []);
 
   return (
@@ -125,6 +133,9 @@ function App() {
         <Route
           element={
             <WithNav
+              navBarSwitch={navBarSwitch}
+              setNavBarSwitch={setNavBarSwitch}
+              setAllPins={setAllPins}
               searchBar={searchBar}
               setSearchBar={setSearchBar}
               isLoggedIn={isLoggedIn}
@@ -151,6 +162,7 @@ function App() {
                 pinInfo={pinInfo}
                 setPinInfo={setPinInfo}
                 searchBar={searchBar}
+                setSearchBar={setSearchBar}
               />
             }
           />
@@ -158,6 +170,9 @@ function App() {
         <Route
           element={
             <WithNav
+              navBarSwitch={navBarSwitch}
+              setNavBarSwitch={setNavBarSwitch}
+              setAllPins={setAllPins}
               searchBar={searchBar}
               setSearchBar={setSearchBar}
               isLoggedIn={isLoggedIn}
@@ -179,6 +194,9 @@ function App() {
         <Route
           element={
             <WithNav
+              navBarSwitch={navBarSwitch}
+              setNavBarSwitch={setNavBarSwitch}
+              setAllPins={setAllPins}
               searchBar={searchBar}
               setSearchBar={setSearchBar}
               isLoggedIn={isLoggedIn}
@@ -208,6 +226,9 @@ function App() {
         <Route
           element={
             <WithNav
+              navBarSwitch={navBarSwitch}
+              setNavBarSwitch={setNavBarSwitch}
+              setAllPins={setAllPins}
               searchBar={searchBar}
               setSearchBar={setSearchBar}
               isLoggedIn={isLoggedIn}
@@ -235,6 +256,9 @@ function App() {
         <Route
           element={
             <WithNav
+              navBarSwitch={navBarSwitch}
+              setNavBarSwitch={setNavBarSwitch}
+              setAllPins={setAllPins}
               searchBar={searchBar}
               setSearchBar={setSearchBar}
               isLoggedIn={isLoggedIn}
@@ -264,9 +288,10 @@ function App() {
             }
           />
         </Route>
-        <Route
+        {/* <Route
           element={
             <WithNav
+              setAllPins={setAllPins}
               searchBar={searchBar}
               setSearchBar={setSearchBar}
               isLoggedIn={isLoggedIn}
@@ -297,7 +322,7 @@ function App() {
               />
             }
           />
-        </Route>
+        </Route> */}
       </Routes>
     </>
   );
