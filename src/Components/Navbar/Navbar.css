@@ -6,7 +6,8 @@
   align-items: center;
   position: sticky;
   /* top: 0; */
-  font-family: "Unica One", cursive;
+  /* font-family: "Unica One", cursive; */
+  font-family: "Montserrat";
   margin-top: 8px;
 }
 
@@ -29,15 +30,16 @@
   margin-right:40px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.8rem;
   display: flex;
   align-items: center;
   font-weight: 570;
+  /* font-family: "Montserrat"; */
 }
 
 .pinIcon {
   margin-left: 0.25rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .nav-menu {
@@ -58,7 +60,7 @@
 
 .link {
   color: #c98a59;
-  font-size: 1.4rem;
+  font-size: 1rem;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -72,18 +74,20 @@
 
 .welcome {
   color: #19283c;
-  font-size: 1.4rem;
+  font-size: 1rem;
   display: flex;
   align-items: center;
   margin-right: 3rem;
+  margin-left: 3rem;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 @media screen and (max-width: 637px) {
   .link, .welcome {
-    font-size:1rem;
+    font-size:.5rem;
   }
   .pinIcon,  .navbar-logo {
-    font-size: 2rem;
+    font-size: 1.1rem;
   }
 }
