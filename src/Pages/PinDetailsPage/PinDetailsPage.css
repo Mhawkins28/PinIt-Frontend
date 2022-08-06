@@ -3,7 +3,7 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 section {
@@ -13,7 +13,7 @@ section {
   align-items: center;
   justify-content: center;
   font-family: "Montserrat";
-  margin-top: 40px
+  /* margin-top: 15px */
 }
 .container {
   width: 90%;
@@ -53,6 +53,7 @@ section {
   height: 40%;
 	width: 80%;
 	margin-bottom: 3rem;
+  object-fit: contain;
 }
 
 img {
@@ -112,25 +113,27 @@ img {
   text-transform: uppercase;
   background-color: white;
   color: black;
-  padding: 5px 15px;
+  padding: 4.1px 15px;
   display: inline-block;
   letter-spacing: 2px;
   border: 1px solid black;
-  margin-right: 2.5px
+  margin-right: 2.5px;
+  
 }
 
 button {
-  /* text-decoration: none; */
+
   text-transform: uppercase;
   background-color: white;
   color: black;
-  padding: 5.5px 18px;
-  display: inline-block;
+  padding: 4.1px 18px;
+  /* display: inline-block; */
   letter-spacing: 2px;
   border: 1px solid black;
-  margin-left: 2.5px
+  margin-left: 2.5px;
+  font-family: "Montserrat";
+  font-size: 16px;
 }
-
 
 
 @media only screen and (max-width: 647px) {
@@ -147,7 +150,8 @@ button {
   .left .infoContainer {  
     width: 100%;
     height: 100;
-    padding-bottom: 3rem
+    padding-bottom: 3rem;
+    display: flex;
   }
 
   .imgContainer {
@@ -155,12 +159,13 @@ button {
     flex-direction: column;
     height: 80%;
     width: 40%;
-    border: 1px solid black;
-    margin: auto
+    /* border: 1px solid black; */
+    margin: auto;
+    /* object-fit: contain; */
   }
 
   .left h1 {
-    font-size: .5rem;
+    font-size: .25rem;
     font-weight: lighter;
   }
   
@@ -174,6 +179,7 @@ button {
     line-height: 25px;
     text-align: center;
     font-weight: normal;
+    color: transparent;
   }
 
   .right {

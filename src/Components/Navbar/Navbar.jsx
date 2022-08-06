@@ -32,7 +32,7 @@ const Navbar = ({ handleLogout, user, isLoggedIn, setIsLoggedIn }) => {
               {isLoggedIn === true || user ? (
                 <div>
                   <Link to={`/user/${user?._id}`} className="link">
-                    My Pins
+                    MY PINS
                   </Link>
                 </div>
               ) : null}
@@ -40,7 +40,7 @@ const Navbar = ({ handleLogout, user, isLoggedIn, setIsLoggedIn }) => {
 
             <li className="nav-item">
               <Link to="/newpin" className="link">
-                ADD NEW PIN
+                CREATE PIN
               </Link>
             </li>
 

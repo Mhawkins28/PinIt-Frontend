@@ -24,13 +24,16 @@ const PinDetails = ({
     <div className="container">
       <div className="left">
         <div className='infoContainer'>
-          <div className="imgContainer">
-            <img src={pinInfo.image} alt={pinInfo.image_id}></img>
-          </div>
+          
           <h2><FaCity className='icon'/> <br></br> {pinInfo.city}</h2>
           <br></br>
 
           <h2><FaMapMarkedAlt className='icon'/>  <br></br> {pinInfo.address}</h2>
+          <br></br>
+          <div className="imgContainer">
+            <img src={pinInfo.image} alt={pinInfo.image_id}></img>
+          </div>
+
           <p>{pinInfo.lng}, {pinInfo.lat}</p>
       </div>
     </div>
