@@ -44,7 +44,7 @@ const PinDetails = ({
       <p>Pin Created By: {pinInfo.Owner?.username}</p>
     <div className="BtnContainer">
         {user && pinInfo.Owner?._id === user._id ? (
-          <div className='btn'>
+          <div id='btn'>
             <Link to={`/pins/edit/${pinInfo._id}`}>Edit Pin</Link>
             <button className='btn' onClick={() => deletePin(pinInfo._id)}>DELETE</button>
           </div>

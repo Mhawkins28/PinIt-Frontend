@@ -123,6 +123,7 @@ form .register h4 a em {
 
 .button.lbutton {
   margin-top: 20px;
+  width: 20%;
 }
 
 .here {
@@ -148,12 +149,17 @@ form .register h4 a em {
   margin: 20px 0 0 0;
 }
 
+#sbuttons {
+  width: 20%;
+}
+
 .button.sbutton {
   width: 100%;
 }
 
 #cancel {
-  margin-right: -20px;
+  /* margin-right: -20px; */
+  width: 100%;
 }
 
 #cancel .button {
@@ -214,6 +220,24 @@ form .register h4 a em {
 }
 
 /* Media Queries */
+@media screen and (max-width: 1080px) {
+  #sbuttons {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1079px) {
+  #sbuttons {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  #sbuttons {
+    width: 60%;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .lform div {
     flex-direction: column;
