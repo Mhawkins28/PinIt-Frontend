@@ -72,7 +72,6 @@ const EditPinForm = ({ pinInfo, setPinInfo, latLng, user }) => {
       });
 
       const data = await response.json();
-      console.log(data);
       setUploadedFiles(data);
     });
   }, []);
@@ -106,16 +105,9 @@ const EditPinForm = ({ pinInfo, setPinInfo, latLng, user }) => {
   const handleSelect = async (value) => {
     const results = await geocodeByAddress(value);
     const latLng = await getLatLng(results[0]);
-
     let name = value.split(",");
-
     let newName = name[0];
-
     let city = name[2];
-
-    // setLocationName(newName)
-    // setCity(city)
-    // setCoordinates(latLng)
 
     setAddress(results[0].formatted_address);
     setFormData({

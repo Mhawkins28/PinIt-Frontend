@@ -39,7 +39,6 @@ const Login = ({
     setIsLoggedIn(true);
     try {
       await userService.login(userLogin);
-      // Successfully signed up - show GamePage
       await handleSignupOrLogin();
       navigate("/home");
       setUserLogin({
@@ -47,69 +46,11 @@ const Login = ({
         password: "",
       });
     } catch (err) {
-      // Invalid user data (probably duplicate email)
-      // this.props.updateMessage(err.message);
-      alert("Invalid Credentials");
+      alert("Something went wrong. Refresh the page and try again!");
     }
   };
 
   return (
-    // <StyledForm onSubmit={handleSubmit}>
-    //   <h2>SIGN IN</h2>
-
-    //   {/* <div>
-    //     <button
-    //       className="active"
-    //       id="googleBtn"
-    //       // onClick={google}
-    //       href="/auth/google"
-    //     >
-    //       LOGIN
-    //     </button> */}
-    //   {/* </div> */}
-    //   <br></br>
-    //   <div>
-    //     <label htmlFor="username">Username</label>
-    //     <input
-    //       type="text"
-    //       name="username"
-    //       id="username"
-    //       onChange={handleChange}
-    //     />
-    //   </div>
-
-    //   <div>
-    //     <label htmlFor="password">Password</label>
-    //     <input
-    //       type="password"
-    //       name="password"
-    //       id="password"
-    //       onChange={handleChange}
-    //     />
-    //   </div>
-
-    //   <input type="submit" value="Log In" />
-
-    //   <br></br>
-    //   <div class="register">
-    //     Haven't logged-in before?
-    //     <h4>
-    //       Register
-    //       <a href="/signup">
-    //         {" "}
-    //         <em>Here</em>
-    //       </a>
-    //     </h4>
-    //   </div>
-
-    //   {/* <Link to="auth/google">SIGN IN WITH GOOGLE</Link> */}
-    // </StyledForm>
-
-    // <form onSubmit={handleSubmit} className="lform">
-    //      <h2>SIGN IN</h2>
-
-    //      <br></br>
-    //   <div >
     <form className="lform" onSubmit={handleSubmit}>
       <h2>SIGN IN</h2>
       <div>

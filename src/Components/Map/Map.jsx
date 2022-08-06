@@ -11,17 +11,6 @@ import {
 import { Link } from "react-router-dom";
 import "./Map.css";
 
-// let center = {
-//   lat: position.coords.latitude,
-//   lng: position.coords.longitude,
-// };
-// const setGeoLoc = () => {
-//   navigator.geolocation.getCurrentPosition((position) => {
-//     sessionStorage.setItem("lat", JSON.stringify(position.coords.latitude));
-//     sessionStorage.setItem("lng", JSON.stringify(position.coords.longitude));
-//   });
-// };
-
 const mapContainerStyle = {
   width: "100vw",
   height: "80vh",
@@ -200,7 +189,6 @@ const Map = ({
           ) : (
             <div className="placement">
               <div>
-                {/* <button>yes</button> */}
                 <Link to="/newPin">ADD A PIN</Link>
               </div>
             </div>

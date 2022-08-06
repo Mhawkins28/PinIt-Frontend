@@ -67,7 +67,6 @@ const NewPinForm = ({ latLng, user }) => {
       });
 
       const data = await response.json();
-      console.log(data);
       setUploadedFiles(data);
     });
   }, []);
@@ -120,16 +119,9 @@ const NewPinForm = ({ latLng, user }) => {
   const handleSelect = async (value) => {
     const results = await geocodeByAddress(value);
     const latLng = await getLatLng(results[0]);
-
     let name = value.split(",");
-
     let newName = name[0];
-
     let city = name[2];
-
-    // setLocationName(newName)
-    // setCity(city)
-    // setCoordinates(latLng)
 
     // Need both of these states
     setAddress(results[0].formatted_address);
@@ -193,7 +185,6 @@ const NewPinForm = ({ latLng, user }) => {
               type="text"
               name="name"
               id="name"
-              // value={locationName.length < 1 ? formData.name : locationName}
               value={formData.name}
               onChange={handleChange}
             />
@@ -205,7 +196,6 @@ const NewPinForm = ({ latLng, user }) => {
               type="text"
               name="address"
               id="address"
-              // value={address.length < 1 ? formData.address : address}
               value={formData.address}
               onChange={handleChange}
             />
@@ -217,7 +207,6 @@ const NewPinForm = ({ latLng, user }) => {
               type="text"
               name="city"
               id="city"
-              // value={city.length < 1 ? formData.city : city}
               value={formData.city}
               onChange={handleChange}
             />
@@ -266,9 +255,6 @@ const NewPinForm = ({ latLng, user }) => {
           onChange={handleChange}
         />
 
-        {/* <label htmlFor="fileInput">Include a Photo!</label>
-        <input type="file" id="fileInput" name="image" onChange={handleFileInputChange} value={fileInputState}/> */}
-
         <div {...getRootProps()} className={`dropzone`}>
           <input
             {...getInputProps}
@@ -281,9 +267,6 @@ const NewPinForm = ({ latLng, user }) => {
         <input type="submit" value="Mark It Down" className="button pbutton" />
       </form>
 
-      {/* {previewSource && (
-          <img src={previewSource} alt="chosen" style={{height:'300px'}}/>
-        )} */}
     </div>
   );
 };
