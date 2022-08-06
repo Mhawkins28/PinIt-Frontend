@@ -1,4 +1,4 @@
-Places - Project 3
+PinIt by JMMZ
 
 ### Your group members
 
@@ -90,7 +90,13 @@ As a user, I would like to be able to add images to my pins.
 - Pins should have a different icon depending on if its the users or someone else’s.
 - When redirecting back to the home map after editing pin, the info window with the old information is still populated.
 - Users should be able to add their hometown and let the map center to that location on their profile.
+- Users should be able to see what photo they uploaded. (Configure Cloudinary)
+- Users should be able to view other people's profiles and pins.
 
 ### Wireframes
 
 ![alt text](/Project-3-UI/public/placesWireframe.png)
+
+<br>
+
+For more info, check out the Frontend README file.
