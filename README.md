@@ -40,7 +40,7 @@
     <a href="https://github.com/Mhawkins28/PinIt-Backend"><strong>Explore the Backend Docs »</strong>
     <br />
     <br />
-    <a href="https://jmmz-ga-p3places-ui.herokuapp.com/home">View Live Site</a>
+    <a href="https://jmmz-ga-p3places-ui.herokuapp.com/">View Live Site</a>
     |
     <a href="https://github.com/Mhawkins28/PinIt-Frontend/issues">Report Bug</a>
     |
