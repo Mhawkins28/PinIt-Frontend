@@ -41,9 +41,9 @@
     <br />
     <br />
     <a href="https://jmmz-ga-p3places-ui.herokuapp.com/home">View Live Site</a>
-    ·
+    |
     <a href="https://github.com/Mhawkins28/PinIt-Frontend/issues">Report Bug</a>
-    ·
+    |
     <a href="https://github.com/Mhawkins28/PinIt-Frontend/issues">Request Feature</a>
   </p>
 </div>
@@ -52,11 +52,11 @@
 ## About the Project
 This is my first MERN full-stack project. It was developed with a team as a part of our coursework at General Asembly. In addition to myself, the members of the team incude:
 
-[Jose Rafael Kaibigan](https://github.com/jrkprogramming) 
+Jose Rafael Kaibigan  [Github](https://github.com/jrkprogramming) | [LinkedIn](https://www.linkedin.com/in/joserafaelkaibigan/)
 <br>
-[Zachary Miller](https://github.com/zach89129)
+Zachary Miller [Github](https://github.com/zach89129) | [LinkedIn](https://www.linkedin.com/in/zacharym-lv/)
 <br>
-[Myndra Aaron Jr.](https://github.com/UntriedGenius)
+Myndra Aaron Jr.  [Github](https://github.com/UntriedGenius) | [LinkedIn](https://www.linkedin.com/in/myndraaaronjr/)
 
 Here are a few of the views as a loggin-in user:
 ![Screen Shot 2022-08-07 at 7 18 45 PM](https://user-images.githubusercontent.com/93104882/183315323-0c139478-9b36-4c5d-b954-73122bed327a.png)
