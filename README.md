@@ -79,11 +79,16 @@ Here are a few of the views as a loggin-in user:
 - [React](https://www.npmjs.com/package/ejs)
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [Node.js](https://nodejs.org/dist./v6.16.0/docs/api/synopsis.html)
+
 
 #### Backend
+- [Node.js](https://nodejs.org/dist./v6.16.0/docs/api/synopsis.html)
 - Express 
 - ...More to be added soon
+
+#### Deployment and Database Management
+- Heroku
+- MongoDb
 
 ## User stories
 
@@ -128,7 +133,7 @@ Here are a few of the views as a loggin-in user:
 
 #### Tools used
 
-- To be added soon
+...Will be added soon
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -150,6 +155,9 @@ Commit your Changes (git commit -m 'Add some AmazingFeature')
 Push to the Branch (git push origin feature/AmazingFeature)
 Open a Pull Request
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+-- Further instructions on getting started/local installation coming soon
+
 
 
 <br>
