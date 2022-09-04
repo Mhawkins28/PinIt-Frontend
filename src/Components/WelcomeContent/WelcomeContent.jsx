@@ -18,7 +18,7 @@ function WelcomeContent() {
         <h2>Get off the beaten Path </h2>
         <h1>Find Adventure</h1>
         <p>
-        Discover hidden gems, wherever you are. This App is the perfect way to explore different cities in a new way using maps to mark and upload your favorite "off the grid" places to share with others!{" "}
+        Discover hidden gems, wherever you are. A perfect way to explore different cities in a new way using maps to mark and upload your favorite "off the grid" places to share with others!{" "}
         </p>
 
         <div className="buttons">
