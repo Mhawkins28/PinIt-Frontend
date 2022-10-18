@@ -1,6 +1,6 @@
 // import "./App.css";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import userService from "../../utils/userService";
 import { Routes, Route } from "react-router-dom";
 
@@ -11,12 +11,12 @@ import PinDetails from "../PinDetailsPage/PinDetailsPage";
 import EditPin from "../EditPinPage/EditPinPage";
 import Signup from "../SignupPage/SignupPage";
 import Welcome from "../WelcomePage/WelcomePage";
-import { FaWindows } from "react-icons/fa";
-import WelcomePage from "../WelcomePage/WelcomePage";
+// import { FaWindows } from "react-icons/fa";
+// import WelcomePage from "../WelcomePage/WelcomePage";
 import UserPage from "../UserPage/UserPage";
 import WithNav from "../Layouts/WithNav";
 import WithoutNav from "../Layouts/WithoutNav";
-import SearchMapPage from "../SearchMapPage.jsx/SearchMapPage";
+// import SearchMapPage from "../SearchMapPage.jsx/SearchMapPage";
 
 function App() {
   const [user, setUser] = useState(
