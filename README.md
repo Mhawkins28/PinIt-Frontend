@@ -18,15 +18,6 @@
          <li><a href="#future-features">Future Features</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#developement">Planning, Research, and Future Developement</a>
-      <ul>
-        <li><a href="#initial-wireframes">Initial Wireframes</a></li>
-        <li><a href="#tools-used">Tools Used</a></li>
-        <li><a href="#helpful-links-for-this-project">Helpful Links</a></li>
-        <li><a href="#contributing">Contributing</a></li>
-      </ul>
-    </li>
   </ol>
 </details>
 
@@ -84,7 +75,6 @@ Here are a few of the views as a loggin-in user:
 #### Backend
 - [Node.js](https://nodejs.org/dist./v6.16.0/docs/api/synopsis.html)
 - Express 
-- ...More to be added soon
 
 #### Deployment and Database Management
 - Heroku
@@ -126,23 +116,6 @@ Here are a few of the views as a loggin-in user:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Developement
-### Planning, Research, and Future Developement 
-
-### Initial Wireframes
-
-#### Tools used
-
-...Will be added soon
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Helpful Links for this Project
-
-...Will add links soon
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
@@ -156,10 +129,6 @@ Push to the Branch (git push origin feature/AmazingFeature)
 Open a Pull Request
 <p align="right">(<a href="#top">back to top</a>)</p>
 
--- Further instructions on getting started/local installation coming soon
 
-
-
-<br>
 
 For more info, check out the [Backend README file](https://github.com/Mhawkins28/PinIt-Backend#readme).
